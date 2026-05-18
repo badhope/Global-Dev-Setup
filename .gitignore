@@ -1,0 +1,72 @@
+# Global-Dev-Setup .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# Build artifacts
+*.o
+*.so
+*.pyc
+*.class
+*.log
+
+# Temporary files
+.tmp/
+.temp/
+*.tmp
+
+# Downloaded installers
+*.dmg
+*.exe
+*.msi
+*.deb
+*.rpm
+
+# Backup files
+*.bak
+*.backup
+*_backup
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Lock files
+package-lock.json
+yarn.lock
+Pipfile.lock
+poetry.lock
+
+# Dependency directories
+node_modules/
+venv/
+env/
+.venv/
+
+# Test coverage
+coverage/
+.coverage
+*.cover
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+.pytest_cache/
+__pycache__/
+
+# Temporary directories
+tmp/
+temp/

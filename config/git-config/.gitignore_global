@@ -1,0 +1,45 @@
+# Global Git Ignore
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+## Linux
+*~
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+## Build artifacts
+*.class
+*.o
+*.so
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+*.egg
+
+## Logs
+*.log
+logs/
+
+## OS specific
+.env
+.env.local

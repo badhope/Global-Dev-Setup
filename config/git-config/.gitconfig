@@ -1,0 +1,52 @@
+[user]
+    name = badhope
+    email = badhope@users.noreply.github.com
+
+[core]
+    editor = vim
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+
+[color]
+    ui = auto
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    lg = log --oneline --graph --all
+    last = log -1 HEAD
+    visual = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold blue)%an%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
+    unstage = reset HEAD --
+    undo = reset --soft HEAD~1
+
+[pull]
+    rebase = true
+
+[push]
+    default = simple
+    autoSetupRemote = true
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+[diff]
+    tool = vimdiff
+    external = diffwrap.sh
+
+[difftool]
+    prompt = false
+
+[fetch]
+    prune = true
+
+[rebase]
+    autoStash = true
+
+[rerere]
+    enabled = true
+
+[init]
+    defaultBranch = main
