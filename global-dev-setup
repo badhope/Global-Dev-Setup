@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""
+Global-Dev-Setup CLI Entry Point
+Quick launcher for the command-line interface
+"""
+
+import sys
+import os
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, script_dir)
+
+from core.cli.cli import main
+
+if __name__ == '__main__':
+    sys.exit(main())

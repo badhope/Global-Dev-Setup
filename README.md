@@ -1,20 +1,26 @@
 # 🚀 Global-Dev-Setup
 
 > **Universal Developer Environment Setup Toolkit**
-> Quick installer for 100+ dev tools, SDKs, databases, editors, and productivity software.
+> A comprehensive, modular system for managing development tools and environments.
+> Built with Python - extensible, scalable, and cross-platform.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Stars](https://img.shields.io/github/stars/badhope/Global-Dev-Setup)](https://github.com/badhope/Global-Dev-Setup/stargazers)
 
 ## ✨ Features
 
+- 🏗️ **Modular Architecture** - Clean, extensible core system
 - 📦 **100+ Development Tools** - Everything you need in one place
-- ⚡ **Quick Installation** - One-click setup scripts
+- ⚡ **Quick Installation** - One-command setup scripts
 - 🔧 **Cross-Platform** - Windows, macOS, Linux support
-- 📚 **Comprehensive Guides** - Step-by-step installation instructions
+- 📚 **Comprehensive Documentation** - Architecture guides and API docs
 - 🔄 **Auto-Update** - Keep all tools up to date
 - 🎯 **Category-Based** - Organized by functionality
+- 🧩 **Plugin System** - Extend functionality easily
+- 📊 **Dependency Management** - Automatic dependency resolution
+- 💻 **CLI & Library** - Use as CLI tool or Python library
 
 ## 📂 Directory Structure
 
@@ -23,73 +29,210 @@ Global-Dev-Setup/
 ├── README.md
 ├── CONTRIBUTING.md
 ├── LICENSE
+├── setup.json
+├── global-dev-setup.py          # CLI entry point
+├── global-dev-setup             # CLI launcher
+├── core/                        # Core modules
+│   ├── __init__.py
+│   ├── cli/                    # Command-line interface
+│   │   ├── cli.py
+│   │   └── __init__.py
+│   ├── config/                  # Configuration management
+│   │   ├── config.py
+│   │   └── __init__.py
+│   ├── engine/                  # Core engine
+│   │   ├── engine.py
+│   │   └── __init__.py
+│   ├── models/                  # Data models
+│   │   ├── models.py
+│   │   └── __init__.py
+│   └── utils/                   # Utilities
+│       ├── exceptions.py
+│       ├── logger.py
+│       └── __init__.py
 ├── docs/
+│   ├── architecture/
+│   │   └── ARCHITECTURE.md     # System architecture
 │   ├── getting-started.md
 │   ├── installation-guide.md
 │   └── faq.md
-├── tools/
+├── tools/                       # Tool definitions
 │   ├── programming-languages/
-│   │   ├── python/
-│   │   ├── javascript/
-│   │   ├── rust/
-│   │   ├── go/
-│   │   └── java/
 │   ├── databases/
-│   │   ├── postgresql/
-│   │   ├── mysql/
-│   │   ├── mongodb/
-│   │   └── redis/
 │   ├── devops/
-│   │   ├── docker/
-│   │   ├── kubernetes/
-│   │   └── ci-cd/
 │   ├── editors/
-│   │   ├── vscode/
-│   │   ├── jetbrains/
-│   │   └── vim/
 │   ├── productivity/
-│   │   ├── terminal/
-│   │   ├── shell/
-│   │   └── utilities/
 │   └── frameworks/
-│       ├── react/
-│       ├── vue/
-│       ├── angular/
-│       └── nextjs/
-├── scripts/
+├── scripts/                     # Installation scripts
 │   ├── install-all.sh
 │   ├── update-all.sh
 │   └── setup-basics.sh
-└── config/
-    ├── vscode-extensions.json
+├── examples/                    # Usage examples
+│   ├── usage_examples.py
+│   └── quick_start.py
+├── tests/                       # Unit tests
+│   └── test_core.py
+└── config/                     # Configuration templates
+    ├── vscode-extensions/
     ├── git-config/
     └── shell-config/
 ```
 
-## 🎯 Quick Start
+## 🏗️ Architecture Overview
 
-### One-Command Installation
+The system is built with a modular, layered architecture:
 
-**Linux/macOS:**
-```bash
-curl -fsSL https://raw.githubusercontent.com/badhope/Global-Dev-Setup/main/scripts/install-all.sh | bash
+```
+┌─────────────────────────────────────────┐
+│     User Interface (CLI)                │
+├─────────────────────────────────────────┤
+│     Core Engine                         │
+│     ├─ Dependency Resolver              │
+│     ├─ Tool Installer                   │
+│     └─ Verification Module              │
+├─────────────────────────────────────────┤
+│     Installation Sources                 │
+│     (apt, brew, pip, curl, git)        │
+├─────────────────────────────────────────┤
+│     Configuration & Data Models          │
+└─────────────────────────────────────────┘
 ```
 
-**Windows (PowerShell):**
-```powershell
-irm https://raw.githubusercontent.com/badhope/Global-Dev-Setup/main/scripts/install-all.ps1 | iex
-```
+### Key Components
 
-### Manual Installation
+- **CLI Layer** - Command-line interface with colored output
+- **Core Engine** - Orchestrates all operations
+- **Dependency Resolver** - Automatic dependency resolution
+- **Configuration Manager** - Persistent configuration storage
+- **Data Models** - Type-safe data structures
 
-1. Clone the repository:
+## 🚀 Quick Start
+
+### 1. Clone and Setup
+
 ```bash
 git clone https://github.com/badhope/Global-Dev-Setup.git
 cd Global-Dev-Setup
 ```
 
-2. Browse categories and select tools you need
-3. Follow installation guides in each tool's directory
+### 2. Use as CLI Tool
+
+```bash
+# Install a tool
+python3 global-dev-setup.py install python3 git docker
+
+# List installed tools
+python3 global-dev-setup.py list
+
+# Update tools
+python3 global-dev-setup.py update
+
+# Check status
+python3 global-dev-setup.py status
+
+# Search for tools
+python3 global-dev-setup.py search python
+```
+
+### 3. Use as Python Library
+
+```python
+from core import ToolEngine, Tool, ToolCategory
+
+engine = ToolEngine()
+
+tool = Tool(
+    name="python3",
+    category=ToolCategory.PROGRAMMING_LANGUAGE,
+    description="Python programming language"
+)
+
+result = engine.install_tool(tool)
+
+if result.success:
+    print(f"Installed {tool.name}")
+else:
+    print(f"Failed: {result.error}")
+```
+
+## 🐍 Python API Examples
+
+### Basic Installation
+
+```python
+from core import Tool, ToolCategory, ToolEngine
+
+engine = ToolEngine()
+
+tool = Tool(
+    name="git",
+    category=ToolCategory.PRODUCTIVITY,
+    description="Git version control"
+)
+
+result = engine.install_tool(tool)
+print(f"Success: {result.success}")
+```
+
+### Batch Installation
+
+```python
+tools = [
+    Tool(name="python3", category=ToolCategory.PROGRAMMING_LANGUAGE, description="Python"),
+    Tool(name="git", category=ToolCategory.PRODUCTIVITY, description="Git"),
+    Tool(name="docker", category=ToolCategory.DEVOPS, description="Docker"),
+]
+
+results = engine.install_batch(tools, parallel=True, max_workers=3)
+```
+
+### With Dependencies
+
+```python
+from core.models.models import Dependency
+
+tool = Tool(
+    name="mylib",
+    category=ToolCategory.UTILITY,
+    description="My library",
+    dependencies=[
+        Dependency(name="python3", version="3.8", optional=False),
+        Dependency(name="git", optional=True)
+    ]
+)
+
+result = engine.install_tool(tool)
+```
+
+### Configuration Management
+
+```python
+from core import ConfigManager
+
+config = ConfigManager()
+
+config.update_config(
+    parallel_installs=5,
+    auto_update=True
+)
+
+print(config.config.install_dir)
+```
+
+### Error Handling
+
+```python
+from core import InstallationError, ToolNotFoundError
+
+try:
+    result = engine.install_tool(tool)
+    
+    if not result.success:
+        print(f"Installation failed: {result.error}")
+        
+except InstallationError as e:
+    print(f"Installation error: {e.message}")
+```
 
 ## 📦 Available Categories
 
@@ -100,121 +243,91 @@ cd Global-Dev-Setup
 - **Go** - Go programming language
 - **Java** - JDK 11/17/21
 - **C/C++** - GCC, Clang, CMake
-- **Ruby** - Ruby with RVM/Rbenv
-- **PHP** - PHP with Composer
 
 ### 🗄️ Databases
-- **PostgreSQL** - Advanced relational database
-- **MySQL** - Popular RDBMS
-- **MongoDB** - NoSQL document database
-- **Redis** - In-memory data store
-- **SQLite** - Lightweight database
-- **Elasticsearch** - Search engine
+- **PostgreSQL**, **MySQL**, **MongoDB**, **Redis**, **SQLite**
 
 ### 🐳 DevOps & Containers
-- **Docker** - Container platform
-- **Kubernetes** - Container orchestration
-- **Terraform** - Infrastructure as Code
-- **Ansible** - Configuration management
-- **Jenkins** - CI/CD pipeline
-- **GitLab Runner** - GitLab CI
+- **Docker**, **Kubernetes**, **Terraform**, **Ansible**
 
 ### 💻 Code Editors & IDEs
-- **VS Code** - Microsoft's editor
-- **JetBrains** - IntelliJ, PyCharm, WebStorm
-- **Vim/Neovim** - Terminal editors
-- **Emacs** - Extensible editor
-- **Sublime Text** - Lightweight editor
+- **VS Code**, **JetBrains**, **Vim/Neovim**, **Emacs**
 
 ### ⚡ Productivity Tools
-- **Git** - Version control
-- **tmux** - Terminal multiplexer
-- **zsh/bash** - Shell configurations
-- **fzf/ripgrep** - CLI fuzzy finder
-- **httpie/curl** - HTTP clients
-
-### 🌐 Web Frameworks
-- **React** - UI library
-- **Vue.js** - Progressive framework
-- **Angular** - Platform framework
-- **Next.js** - React framework
-- **Django** - Python web framework
-- **FastAPI** - Python API framework
-
-### 🤖 AI/ML Tools
-- **Python ML Stack** - NumPy, Pandas, Scikit-learn
-- **TensorFlow** - ML framework
-- **PyTorch** - Deep learning
-- **Jupyter** - Interactive notebooks
-- **Hugging Face** - NLP tools
-
-### 🎨 Design & Documentation
-- **Figma** - Design tool
-- **Draw.io** - Diagrams
-- **Swagger/OpenAPI** - API documentation
-- **Docusaurus** - Documentation sites
+- **Git**, **tmux**, **zsh/bash**, **fzf/ripgrep**
 
 ## 📖 Documentation
 
+- [Architecture Guide](docs/architecture/ARCHITECTURE.md) - System architecture
 - [Getting Started](docs/getting-started.md) - Begin your journey
-- [Installation Guide](docs/installation-guide.md) - Detailed setup instructions
+- [Installation Guide](docs/installation-guide.md) - Detailed setup
 - [FAQ](docs/faq.md) - Frequently asked questions
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute
 
 ## 🛠️ Usage Examples
 
-### Install Python Development Environment
+See `examples/` directory for complete examples:
+
+- `usage_examples.py` - Comprehensive API examples
+- `quick_start.py` - Quick start examples
+
+Run examples:
 ```bash
-cd tools/programming-languages/python
-chmod +x install.sh
-./install.sh
+python3 examples/usage_examples.py
+python3 examples/quick_start.py
 ```
 
-### Setup Docker Environment
+## 🧪 Testing
+
+Run unit tests:
 ```bash
-cd tools/devops/docker
-chmod +x install.sh
-./install.sh
+python3 -m pytest tests/
 ```
 
-### Configure VS Code Extensions
+Or directly:
 ```bash
-cd config
-code --install-extension < config/vscode-extensions.json
+python3 tests/test_core.py
 ```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting PRs.
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-tool`)
-3. Commit changes (`git commit -m 'Add amazing tool installation'`)
-4. Push to branch (`git push origin feature/amazing-tool`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Write tests for new features
+4. Submit a pull request
 
 ## 📋 Requirements
 
+- **Python**: 3.8 or higher
 - **Operating System**: Linux, macOS, or Windows 10/11
-- **Disk Space**: 5GB minimum for basic tools
+- **Disk Space**: 5GB minimum
 - **Internet**: Required for downloading tools
-- **Administrator/Root**: Required for system-wide installation
+- **Permissions**: Root/sudo for system-wide installation
 
-## 🔄 Keeping Updated
+## 🔧 Configuration
 
-Pull latest changes:
-```bash
-git pull origin main
-```
+Configuration files are stored in:
+- Linux/macOS: `~/.config/global-dev-setup/`
+- Windows: `%APPDATA%/global-dev-setup/`
 
-Update all tools:
-```bash
-./scripts/update-all.sh
+### Configuration Options
+
+```json
+{
+  "install_dir": "~/.local/share/global-dev-setup",
+  "cache_dir": "~/.cache/global-dev-setup",
+  "parallel_installs": 3,
+  "auto_update": false,
+  "check_updates": true,
+  "timeout": 300
+}
 ```
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file.
 
 ## 🙏 Acknowledgments
 
@@ -225,7 +338,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - Create an Issue for bugs
-- Discussions for questions
+- Start a Discussion for questions
 - Star the repo if it helps you!
 
 ---

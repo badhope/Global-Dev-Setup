@@ -1,0 +1,40 @@
+{
+  "name": "global-dev-setup",
+  "version": "1.0.0",
+  "description": "Universal Developer Environment Setup Toolkit - Quick installer for 100+ dev tools",
+  "main": "global-dev-setup.py",
+  "bin": {
+    "global-dev-setup": "./global-dev-setup.py"
+  },
+  "scripts": {
+    "start": "python3 global-dev-setup.py",
+    "cli": "python3 -m core.cli",
+    "test": "python3 -m pytest tests/",
+    "lint": "pylint core/"
+  },
+  "keywords": [
+    "developer-tools",
+    "environment-setup",
+    "sdk",
+    "database",
+    "installation",
+    "devops",
+    "productivity"
+  ],
+  "author": "badhope",
+  "license": "MIT",
+  "requiresPython": ">=3.8",
+  "dependencies": {
+    "pyyaml": ">=6.0"
+  },
+  "optionalDependencies": {
+    "pylint": ">=2.17.0",
+    "pytest": ">=7.4.0",
+    "black": ">=23.0.0"
+  },
+  "entry_points": {
+    "console_scripts": [
+      "global-dev-setup=core.cli:main"
+    ]
+  }
+}
