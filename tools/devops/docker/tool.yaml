@@ -1,9 +1,33 @@
-# Docker Container Platform
+# Docker Container Runtime (Multi-version, Mirror Support)
 name: docker
 category: devops
-description: "Docker - container platform for developing, shipping, and running applications"
-version: "26"
-latest_version: "26"
+description: "Docker - 应用容器引擎"
+versions:
+  - version: "27"
+    alias: ["27", "latest"]
+    description: "Docker 27 - 最新稳定版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://download.docker.com/linux/static/stable/x86_64/docker-27.0.3.tgz"
+        macos: "https://desktop.docker.com/mac/main/amd64/Docker.dmg"
+        windows: "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
+      cn:
+        linux: "https://get.daocloud.io/docker"
+        macos: "https://desktop.docker.com/mac/main/amd64/Docker.dmg"
+        windows: "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
+    is_default: true
+  
+  - version: "26"
+    alias: ["26"]
+    description: "Docker 26 - 稳定版"
+    supported_os: ["linux", "macos", "windows"]
+  
+  - version: "25"
+    alias: ["25"]
+    description: "Docker 25 - 旧版"
+    supported_os: ["linux", "macos", "windows"]
+
 homepage: "https://www.docker.com/"
 documentation: "https://docs.docker.com/"
 license: "Apache 2.0"
@@ -11,109 +35,154 @@ author: "Docker Inc."
 
 tags:
   - docker
-  - containers
+  - container
   - devops
-  - deployment
-  - virtualization
   - kubernetes
+  - microservices
+  - containerization
 
 supported_os:
   - linux
   - macos
   - windows
-  - all
+
+package_managers:
+  - apt
+  - yum
+  - brew
+  - dnf
+  - choco
+  - winget
 
 installation_sources:
-  - type: curl
+  - type: docker-install-script
     os: [linux]
-    description: "Docker convenience script (official)"
+    description: "Official Docker Install Script with Mirror (Recommended)"
     priority: 1
+    region_preference: ["cn", "global"]
+    uses_mirrors: true
     command: |
-      curl -fsSL https://get.docker.com -o get-docker.sh
-      sudo sh get-docker.sh
-      sudo usermod -aG docker $USER
-
+      # 使用阿里云镜像加速脚本
+      curl -fsSL https://get.daocloud.io/docker | sh
+      # 启动Docker服务
+      sudo systemctl start docker
+      sudo systemctl enable docker
+      # 配置镜像加速
+      sudo mkdir -p /etc/docker
+      sudo tee /etc/docker/daemon.json <<-'EOF'
+      {
+        "registry-mirrors": [
+          "https://docker.mirrors.ustc.edu.cn",
+          "https://hub-mirror.c.163.com",
+          "https://mirror.ccs.tencentyun.com"
+        ],
+        "data-root": "/var/lib/docker"
+      }
+      EOF
+      sudo systemctl daemon-reload
+      sudo systemctl restart docker
+  
+  - type: apt-docker-ce
+    os: [linux]
+    description: "Docker CE APT Repository"
+    priority: 2
+    region_preference: ["global", "cn"]
+    command: |
+      sudo apt-get update
+      sudo apt-get install ca-certificates curl gnupg lsb-release -y
+      sudo mkdir -p /etc/apt/keyrings
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+      echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+      sudo apt-get update
+      sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+  
   - type: brew
     os: [macos]
-    package_name: "--cask docker"
-    description: "Docker Desktop for macOS"
+    package_name: docker
+    description: "Homebrew Docker"
     priority: 1
-
-  - type: manual
-    os: [windows]
-    url: "https://www.docker.com/products/docker-desktop/"
-    description: "Docker Desktop for Windows with WSL2"
+    region_preference: ["global", "cn"]
+    command: |
+      brew install --cask docker
+  
+  - type: manual-desktop
+    os: [windows, macos]
+    description: "Docker Desktop - GUI Application"
     priority: 1
+    region_preference: ["global", "cn"]
 
-dependencies:
-  - name: curl
-    optional: false
-  - name: git
-    optional: true
+docker_registry_mirrors:
+  cn:
+    - "https://docker.mirrors.ustc.edu.cn"
+    - "https://hub-mirror.c.163.com"
+    - "https://mirror.ccs.tencentyun.com"
+    - "https://dockerproxy.com"
+  global:
+    - "https://registry-1.docker.io"
 
 optional_tools:
   - name: docker-compose
-    description: "Docker Compose"
+    description: "Docker Compose - 容器编排"
     recommended: true
+  - name: portainer
+    description: "Portainer - Docker Web UI"
+    recommended: false
   - name: kubernetes
-    description: "Kubernetes (Docker Desktop)"
+    description: "Kubernetes - 容器编排"
     recommended: false
 
-config_files:
-  - path: "~/.docker/config.json"
-  - path: "/etc/docker/daemon.json"
-    optional: true
-
 environment_vars:
-  PATH: "/usr/local/bin:$PATH"
+  DOCKER_CONFIG: "$HOME/.docker"
+
+daemon_config:
+  cn:
+    registry-mirrors:
+      - "https://docker.mirrors.ustc.edu.cn"
+      - "https://hub-mirror.c.163.com"
+      - "https://mirror.ccs.tencentyun.com"
+      - "https://dockerproxy.com"
+    data-root: "/var/lib/docker"
+  global:
+    registry-mirrors: []
 
 post_install:
-  - "docker --version"
-  - "docker run --rm hello-world"
+  - description: "Configure Docker mirror and add user to docker group"
+    region: ["cn", "global"]
+    command: |
+      sudo usermod -aG docker $USER
+      echo "You need to log out and log back in to use Docker without sudo"
+  - description: "Install Docker Compose"
+    region: ["cn", "global"]
+    command: |
+      sudo apt install docker-compose -y 2>/dev/null || true
+      docker compose version || true
 
 verify_commands:
   - "docker --version"
-  - "docker compose version"
   - "docker info"
-
-popular_images:
-  - name: postgres
-    description: "PostgreSQL database"
-  - name: redis
-    description: "Redis cache"
-  - name: nginx
-    description: "Nginx web server"
-  - name: node
-    description: "Node.js"
-  - name: python
-    description: "Python"
-
-integrations:
-  - name: docker-vscode
-    description: "VS Code Docker extension"
-    auto_install: true
+  - "docker run hello-world"
 
 compatible_with:
-  - nodejs
-  - python3
-  - git
-  - postgresql
-  - mongodb
-  - redis
-  - all-databases
+  - kubernetes
+  - docker-compose
+  - podman
 
 system_requirements:
-  disk_space: "5GB minimum"
-  memory: "2GB minimum"
-  architecture: ["amd64", "arm64"]
-  virtualization: true
+  disk_space: "10GB minimum, 50GB recommended"
+  memory: "2GB minimum, 4GB recommended"
 
-optimization_tips:
-  - Use Docker Compose for multi-container apps
-  - Use multi-stage builds for small images
-  - Clean up unused resources: docker system prune
+fallback_sources:
+  - type: podman
+    os: [linux, macos]
+    package_name: podman podman-compose
+    reason: "Podman as alternative to Docker"
+  - type: docker
+    os: [linux, macos]
+    version: "26"
+    reason: "Fallback to previous version"
 
-security_notes:
-  - Don't run containers as root
-  - Limit container resources
-  - Use official base images
+notes:
+  - "Docker Desktop requires virtualization enabled in BIOS/UEFI"
+  - "CN region automatically uses registry mirrors for faster pull operations"
+  - "Docker Desktop for Windows requires WSL 2"
+  - "Requires admin/root to install, but regular user can be added to docker group"

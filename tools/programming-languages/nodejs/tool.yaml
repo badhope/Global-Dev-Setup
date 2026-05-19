@@ -1,126 +1,236 @@
-# Node.js JavaScript Runtime
+# Node.js JavaScript Runtime (Multi-version, Mirror Support)
 name: nodejs
 category: programming-language
-description: "Node.js JavaScript runtime - for building scalable network applications"
-version: "20"
-lts_version: "20"
-latest_version: "21"
+description: "Node.js - JavaScript 运行时，构建可扩展的网络应用"
+versions:
+  - version: "22"
+    alias: ["22", "lts", "latest"]
+    description: "Node.js 22.x - LTS 长期支持版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-x64.tar.xz"
+        macos: "https://nodejs.org/dist/v22.2.0/node-v22.2.0-darwin-x64.pkg"
+        windows: "https://nodejs.org/dist/v22.2.0/node-v22.2.0-x64.msi"
+      cn:
+        linux: "https://npmmirror.com/mirrors/node/v22.2.0/node-v22.2.0-linux-x64.tar.xz"
+        macos: "https://npmmirror.com/mirrors/node/v22.2.0/node-v22.2.0-darwin-x64.pkg"
+        windows: "https://npmmirror.com/mirrors/node/v22.2.0/node-v22.2.0-x64.msi"
+    is_default: true
+  
+  - version: "20"
+    alias: ["20"]
+    description: "Node.js 20.x - 稳定版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://nodejs.org/dist/v20.13.1/node-v20.13.1-linux-x64.tar.xz"
+        macos: "https://nodejs.org/dist/v20.13.1/node-v20.13.1-darwin-x64.pkg"
+        windows: "https://nodejs.org/dist/v20.13.1/node-v20.13.1-x64.msi"
+      cn:
+        linux: "https://npmmirror.com/mirrors/node/v20.13.1/node-v20.13.1-linux-x64.tar.xz"
+        macos: "https://npmmirror.com/mirrors/node/v20.13.1/node-v20.13.1-darwin-x64.pkg"
+        windows: "https://npmmirror.com/mirrors/node/v20.13.1/node-v20.13.1-x64.msi"
+  
+  - version: "18"
+    alias: ["18"]
+    description: "Node.js 18.x - 旧 LTS 版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://nodejs.org/dist/v18.20.2/node-v18.20.2-linux-x64.tar.xz"
+        macos: "https://nodejs.org/dist/v18.20.2/node-v18.20.2-darwin-x64.pkg"
+        windows: "https://nodejs.org/dist/v18.20.2/node-v18.20.2-x64.msi"
+      cn:
+        linux: "https://npmmirror.com/mirrors/node/v18.20.2/node-v18.20.2-linux-x64.tar.xz"
+        macos: "https://npmmirror.com/mirrors/node/v18.20.2/node-v18.20.2-darwin-x64.pkg"
+        windows: "https://npmmirror.com/mirrors/node/v18.20.2/node-v18.20.2-x64.msi"
+
 homepage: "https://nodejs.org/"
 documentation: "https://nodejs.org/docs/latest/api/"
 license: "MIT"
-author: "Node.js Foundation"
+author: "OpenJS Foundation"
 
 tags:
-  - javascript
   - nodejs
-  - web-development
-  - backend
+  - javascript
+  - typescript
+  - runtime
+  - npm
+  - yarn
   - frontend
-  - full-stack
-  - serverless
+  - backend
 
 supported_os:
   - linux
   - macos
   - windows
-  - all
+
+package_managers:
+  - nvm
+  - n
+  - apt
+  - brew
+  - yum
+  - dnf
+  - chocolatey
+  - winget
 
 installation_sources:
-  - type: apt
-    os: [linux]
-    package_name: nodejs npm
-    description: "Node.js from NodeSource repository"
+  - type: nvm
+    os: [linux, macos]
+    description: "Node Version Manager (Recommended)"
     priority: 1
-
+    region_preference: ["global", "cn"]
+    command: |
+      # Install NVM with mirror support
+      export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      source ~/.bashrc
+      nvm install 22
+      nvm use 22
+      nvm alias default 22
+  
+  - type: nvm-windows
+    os: [windows]
+    description: "NVM for Windows"
+    priority: 1
+    region_preference: ["global", "cn"]
+    command: |
+      # Download and install from mirror
+      # Note: Manual download required for Windows
+  
+  - type: apt-nodesource
+    os: [linux]
+    description: "NodeSource repository"
+    priority: 2
+    region_preference: ["global", "cn"]
+    command: |
+      curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+      sudo apt install -y nodejs
+  
   - type: brew
     os: [macos]
     package_name: node
-    description: "Homebrew package manager"
-    priority: 1
-
-  - type: nvm
-    os: [linux, macos]
-    description: "Node Version Manager (NVM) - recommended"
+    description: "Homebrew Node.js"
     priority: 2
+    region_preference: ["global", "cn"]
     command: |
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-      nvm install 20
-      nvm use 20
-
-dependencies:
-  - name: git
-    optional: true
+      export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
+      brew install node
+  
+  - type: winget
+    os: [windows]
+    package_name: OpenJS.NodeJS.LTS
+    description: "Winget package"
+    priority: 1
+    region_preference: ["global", "cn"]
+  
+  - type: manual-download
+    os: [linux, macos, windows]
+    description: "Manual download with mirror support"
+    priority: 3
+    region_preference: ["cn", "global"]
+    uses_mirrors: true
+    command: |
+      # Download from mirror
+      wget {{mirror_url}}
+      tar -xJf node-v{{version}}-linux-x64.tar.xz
+      sudo mv node-v{{version}}-linux-x64 /usr/local/lib/nodejs
+      sudo ln -sf /usr/local/lib/nodejs/bin/node /usr/bin/node
+      sudo ln -sf /usr/local/lib/nodejs/bin/npm /usr/bin/npm
+      sudo ln -sf /usr/local/lib/nodejs/bin/npx /usr/bin/npx
 
 optional_tools:
   - name: yarn
     description: "Yarn package manager"
     recommended: true
   - name: pnpm
-    description: "Fast, disk space efficient package manager"
+    description: "PNPM - fast package manager"
     recommended: true
   - name: typescript
     description: "TypeScript language"
     recommended: true
+  - name: eslint
+    description: "ESLint - code linter"
+    recommended: false
+  - name: prettier
+    description: "Prettier - code formatter"
+    recommended: false
+  - name: nvm
+    description: "Node Version Manager"
+    recommended: true
 
-config_files:
-  - path: "~/.npmrc"
-    content: |
-      prefix=${HOME}/.npm-global
-      init-author-name=Your Name
-      init-author-email=your@email.com
-      init-license=MIT
+npm_config:
+  cn:
+    registry: "https://registry.npmmirror.com"
+    registry-url: "https://registry.npmmirror.com"
+    disturl: "https://npmmirror.com/mirrors/node"
+    electron_mirror: "https://npmmirror.com/mirrors/electron/"
+    puppeteer_download_host: "https://npmmirror.com/mirrors"
+    phantomjs_cdnurl: "https://npmmirror.com/mirrors/phantomjs"
+    sass_binary_site: "https://npmmirror.com/mirrors/node-sass"
+    sqlcipher_binary_host_mirror: "https://npmmirror.com/mirrors/sqlcipher"
+  global:
+    registry: "https://registry.npmjs.org"
 
 environment_vars:
-  PATH: "$HOME/.npm-global/bin:$PATH"
-  NODE_ENV: "development"
+  NVM_NODEJS_ORG_MIRROR:
+    cn: "https://npmmirror.com/mirrors/node"
+    global: ""
+  npm_config_registry:
+    cn: "https://registry.npmmirror.com"
+    global: "https://registry.npmjs.org"
+  npm_config_disturl:
+    cn: "https://npmmirror.com/mirrors/node"
+    global: ""
 
 post_install:
-  - "npm install -g npm@latest"
-  - "npm install -g yarn pnpm typescript"
+  - description: "Configure npm mirror (CN region)"
+    region: "cn"
+    command: |
+      npm config set registry https://registry.npmmirror.com
+      npm config set disturl https://npmmirror.com/mirrors/node
+      npm config set electron_mirror https://npmmirror.com/mirrors/electron/
+      npm config set puppeteer_download_host https://npmmirror.com/mirrors
+  - description: "Install common packages"
+    region: ["cn", "global"]
+    command: |
+      npm install -g npm@latest
+      npm install -g yarn pnpm typescript
+      npm install -g http-server serve nodemon
 
 verify_commands:
   - "node --version"
   - "npm --version"
-
-popular_packages:
-  - name: express
-    description: "Web framework"
-    category: web
-    recommended: true
-  - name: react
-    description: "UI library"
-    category: frontend
-    recommended: true
-  - name: vue
-    description: "Progressive framework"
-    category: frontend
-    recommended: false
-  - name: nextjs
-    description: "React framework"
-    category: frontend
-    recommended: true
-
-integrations:
-  - name: vscode-eslint
-    description: "VS Code ESLint extension"
-    auto_install: true
+  - "node -e 'console.log(process.version)'"
 
 compatible_with:
-  - python3
-  - docker
-  - git
-  - postgresql
-  - mongodb
-  - redis
+  - npm
+  - yarn
+  - pnpm
+  - typescript
+  - react
+  - vue
+  - angular
+  - express
 
 system_requirements:
-  disk_space: "1GB"
-  memory: "512MB minimum"
-  architecture: ["amd64", "arm64"]
+  disk_space: "200MB minimum, 1GB recommended"
+  memory: "256MB minimum, 1GB recommended"
 
-optimization_tips:
-  - Use pnpm instead of npm for faster installs
-  - Enable npm cache
-  - Use corepack for package manager management
+fallback_sources:
+  - type: nvm
+    os: [linux, macos]
+    version: "20"
+    reason: "If Node.js 22 fails"
+  - type: apt
+    os: [linux]
+    package_name: nodejs npm
+    reason: "Fallback to system version"
+
+notes:
+  - "Node.js 20+ requires Linux kernel 4.18+ or macOS 11+ or Windows 10 1809+"
+  - "NVM allows multiple Node.js versions to be installed in parallel"
+  - "CN region automatically uses npmmirror.com for better speed"
+  - "Puppeteer, Electron, and other binary packages have mirror configuration"

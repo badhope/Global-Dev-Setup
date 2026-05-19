@@ -2,7 +2,7 @@
   "tools": {
     "kafka": {
       "name": "kafka",
-      "category": "big-data",
+      "category": "kafka",
       "description": "Apache Kafka - distributed streaming platform",
       "version": "3.6",
       "latest_version": "3.6",
@@ -66,7 +66,7 @@
     },
     "hadoop": {
       "name": "hadoop",
-      "category": "big-data",
+      "category": "hadoop",
       "description": "Apache Hadoop - distributed storage and processing framework",
       "version": "3.4",
       "latest_version": "3.4",
@@ -120,7 +120,7 @@
     },
     "hive": {
       "name": "hive",
-      "category": "big-data",
+      "category": "hive",
       "description": "Apache Hive - data warehouse infrastructure",
       "version": "4.0",
       "latest_version": "4.0",
@@ -175,7 +175,7 @@
     },
     "spark": {
       "name": "spark",
-      "category": "big-data",
+      "category": "spark",
       "description": "Apache Spark - unified analytics engine for big data",
       "version": "3.5",
       "latest_version": "3.5",
@@ -239,7 +239,7 @@
     },
     "huggingface": {
       "name": "huggingface",
-      "category": "ai-ml",
+      "category": "huggingface",
       "description": "Hugging Face - natural language processing library",
       "version": "4.36",
       "latest_version": "4.36",
@@ -304,7 +304,7 @@
     },
     "jupyter": {
       "name": "jupyter",
-      "category": "ai-ml",
+      "category": "jupyter",
       "description": "Jupyter - interactive computing environment",
       "version": "7.0",
       "latest_version": "7.0",
@@ -378,7 +378,7 @@
     },
     "pytorch": {
       "name": "pytorch",
-      "category": "ai-ml",
+      "category": "pytorch",
       "description": "PyTorch - deep learning framework",
       "version": "2.1",
       "latest_version": "2.1",
@@ -452,7 +452,7 @@
     },
     "tensorflow": {
       "name": "tensorflow",
-      "category": "ai-ml",
+      "category": "tensorflow",
       "description": "TensorFlow - end-to-end platform for machine learning",
       "version": "2.15",
       "latest_version": "2.15",
@@ -526,7 +526,7 @@
     },
     "openssl": {
       "name": "openssl",
-      "category": "security",
+      "category": "openssl",
       "description": "OpenSSL - cryptography toolkit",
       "version": "3.2",
       "latest_version": "3.2",
@@ -587,7 +587,7 @@
     },
     "python3": {
       "name": "python3",
-      "category": "programming-languages",
+      "category": "python3",
       "description": "Python programming language - the most popular language for AI/ML, web development, and automation",
       "version": "3.12",
       "latest_version": "3.12",
@@ -777,7 +777,7 @@
     },
     "c-cpp": {
       "name": "c-cpp",
-      "category": "programming-languages",
+      "category": "c-cpp",
       "description": "C/C++ compilers and development tools",
       "version": "14",
       "latest_version": "14",
@@ -863,7 +863,7 @@
     },
     "java": {
       "name": "java",
-      "category": "programming-languages",
+      "category": "java",
       "description": "Java JDK - platform for building enterprise applications",
       "version": "21",
       "latest_version": "21",
@@ -949,39 +949,154 @@
     },
     "nodejs": {
       "name": "nodejs",
-      "category": "programming-languages",
-      "description": "Node.js JavaScript runtime - for building scalable network applications",
-      "version": "20",
-      "lts_version": "20",
-      "latest_version": "21",
+      "category": "nodejs",
+      "description": "Node.js - JavaScript 运行时，构建可扩展的网络应用",
+      "versions": [
+        {
+          "version": "22",
+          "alias": [
+            "22",
+            "lts",
+            "latest"
+          ],
+          "description": "Node.js 22.x - LTS 长期支持版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-x64.tar.xz",
+              "macos": "https://nodejs.org/dist/v22.2.0/node-v22.2.0-darwin-x64.pkg",
+              "windows": "https://nodejs.org/dist/v22.2.0/node-v22.2.0-x64.msi"
+            },
+            "cn": {
+              "linux": "https://npmmirror.com/mirrors/node/v22.2.0/node-v22.2.0-linux-x64.tar.xz",
+              "macos": "https://npmmirror.com/mirrors/node/v22.2.0/node-v22.2.0-darwin-x64.pkg",
+              "windows": "https://npmmirror.com/mirrors/node/v22.2.0/node-v22.2.0-x64.msi"
+            }
+          },
+          "is_default": true
+        },
+        {
+          "version": "20",
+          "alias": [
+            "20"
+          ],
+          "description": "Node.js 20.x - 稳定版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://nodejs.org/dist/v20.13.1/node-v20.13.1-linux-x64.tar.xz",
+              "macos": "https://nodejs.org/dist/v20.13.1/node-v20.13.1-darwin-x64.pkg",
+              "windows": "https://nodejs.org/dist/v20.13.1/node-v20.13.1-x64.msi"
+            },
+            "cn": {
+              "linux": "https://npmmirror.com/mirrors/node/v20.13.1/node-v20.13.1-linux-x64.tar.xz",
+              "macos": "https://npmmirror.com/mirrors/node/v20.13.1/node-v20.13.1-darwin-x64.pkg",
+              "windows": "https://npmmirror.com/mirrors/node/v20.13.1/node-v20.13.1-x64.msi"
+            }
+          }
+        },
+        {
+          "version": "18",
+          "alias": [
+            "18"
+          ],
+          "description": "Node.js 18.x - 旧 LTS 版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://nodejs.org/dist/v18.20.2/node-v18.20.2-linux-x64.tar.xz",
+              "macos": "https://nodejs.org/dist/v18.20.2/node-v18.20.2-darwin-x64.pkg",
+              "windows": "https://nodejs.org/dist/v18.20.2/node-v18.20.2-x64.msi"
+            },
+            "cn": {
+              "linux": "https://npmmirror.com/mirrors/node/v18.20.2/node-v18.20.2-linux-x64.tar.xz",
+              "macos": "https://npmmirror.com/mirrors/node/v18.20.2/node-v18.20.2-darwin-x64.pkg",
+              "windows": "https://npmmirror.com/mirrors/node/v18.20.2/node-v18.20.2-x64.msi"
+            }
+          }
+        }
+      ],
       "homepage": "https://nodejs.org/",
       "documentation": "https://nodejs.org/docs/latest/api/",
       "license": "MIT",
-      "author": "Node.js Foundation",
+      "author": "OpenJS Foundation",
       "tags": [
-        "javascript",
         "nodejs",
-        "web-development",
-        "backend",
+        "javascript",
+        "typescript",
+        "runtime",
+        "npm",
+        "yarn",
         "frontend",
-        "full-stack",
-        "serverless"
+        "backend"
       ],
       "supported_os": [
         "linux",
         "macos",
-        "windows",
-        "all"
+        "windows"
+      ],
+      "package_managers": [
+        "nvm",
+        "n",
+        "apt",
+        "brew",
+        "yum",
+        "dnf",
+        "chocolatey",
+        "winget"
       ],
       "installation_sources": [
         {
-          "type": "apt",
+          "type": "nvm",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Node Version Manager (Recommended)",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "# Install NVM with mirror support\nexport NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash\nsource ~/.bashrc\nnvm install 22\nnvm use 22\nnvm alias default 22\n"
+        },
+        {
+          "type": "nvm-windows",
+          "os": [
+            "windows"
+          ],
+          "description": "NVM for Windows",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "# Download and install from mirror\n# Note: Manual download required for Windows\n"
+        },
+        {
+          "type": "apt-nodesource",
           "os": [
             "linux"
           ],
-          "package_name": "nodejs npm",
-          "description": "Node.js from NodeSource repository",
-          "priority": 1
+          "description": "NodeSource repository",
+          "priority": 2,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -\nsudo apt install -y nodejs\n"
         },
         {
           "type": "brew",
@@ -989,24 +1104,42 @@
             "macos"
           ],
           "package_name": "node",
-          "description": "Homebrew package manager",
-          "priority": 1
+          "description": "Homebrew Node.js",
+          "priority": 2,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "export HOMEBREW_BOTTLE_DOMAIN=\"https://mirrors.aliyun.com/homebrew/homebrew-bottles\"\nbrew install node\n"
         },
         {
-          "type": "nvm",
+          "type": "winget",
+          "os": [
+            "windows"
+          ],
+          "package_name": "OpenJS.NodeJS.LTS",
+          "description": "Winget package",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ]
+        },
+        {
+          "type": "manual-download",
           "os": [
             "linux",
-            "macos"
+            "macos",
+            "windows"
           ],
-          "description": "Node Version Manager (NVM) - recommended",
-          "priority": 2,
-          "command": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"\nnvm install 20\nnvm use 20\n"
-        }
-      ],
-      "dependencies": [
-        {
-          "name": "git",
-          "optional": true
+          "description": "Manual download with mirror support",
+          "priority": 3,
+          "region_preference": [
+            "cn",
+            "global"
+          ],
+          "uses_mirrors": true,
+          "command": "# Download from mirror\nwget {{mirror_url}}\ntar -xJf node-v{{version}}-linux-x64.tar.xz\nsudo mv node-v{{version}}-linux-x64 /usr/local/lib/nodejs\nsudo ln -sf /usr/local/lib/nodejs/bin/node /usr/bin/node\nsudo ln -sf /usr/local/lib/nodejs/bin/npm /usr/bin/npm\nsudo ln -sf /usr/local/lib/nodejs/bin/npx /usr/bin/npx\n"
         }
       ],
       "optional_tools": [
@@ -1017,92 +1150,452 @@
         },
         {
           "name": "pnpm",
-          "description": "Fast, disk space efficient package manager",
+          "description": "PNPM - fast package manager",
           "recommended": true
         },
         {
           "name": "typescript",
           "description": "TypeScript language",
           "recommended": true
-        }
-      ],
-      "config_files": [
-        {
-          "path": "~/.npmrc",
-          "content": "prefix=${HOME}/.npm-global\ninit-author-name=Your Name\ninit-author-email=your@email.com\ninit-license=MIT\n"
-        }
-      ],
-      "environment_vars": {
-        "PATH": "$HOME/.npm-global/bin:$PATH",
-        "NODE_ENV": "development"
-      },
-      "post_install": [
-        "npm install -g npm@latest",
-        "npm install -g yarn pnpm typescript"
-      ],
-      "verify_commands": [
-        "node --version",
-        "npm --version"
-      ],
-      "popular_packages": [
-        {
-          "name": "express",
-          "description": "Web framework",
-          "category": "web",
-          "recommended": true
         },
         {
-          "name": "react",
-          "description": "UI library",
-          "category": "frontend",
-          "recommended": true
-        },
-        {
-          "name": "vue",
-          "description": "Progressive framework",
-          "category": "frontend",
+          "name": "eslint",
+          "description": "ESLint - code linter",
           "recommended": false
         },
         {
-          "name": "nextjs",
-          "description": "React framework",
-          "category": "frontend",
+          "name": "prettier",
+          "description": "Prettier - code formatter",
+          "recommended": false
+        },
+        {
+          "name": "nvm",
+          "description": "Node Version Manager",
           "recommended": true
         }
       ],
-      "integrations": [
+      "npm_config": {
+        "cn": {
+          "registry": "https://registry.npmmirror.com",
+          "registry-url": "https://registry.npmmirror.com",
+          "disturl": "https://npmmirror.com/mirrors/node",
+          "electron_mirror": "https://npmmirror.com/mirrors/electron/",
+          "puppeteer_download_host": "https://npmmirror.com/mirrors",
+          "phantomjs_cdnurl": "https://npmmirror.com/mirrors/phantomjs",
+          "sass_binary_site": "https://npmmirror.com/mirrors/node-sass",
+          "sqlcipher_binary_host_mirror": "https://npmmirror.com/mirrors/sqlcipher"
+        },
+        "global": {
+          "registry": "https://registry.npmjs.org"
+        }
+      },
+      "environment_vars": {
+        "NVM_NODEJS_ORG_MIRROR": {
+          "cn": "https://npmmirror.com/mirrors/node",
+          "global": ""
+        },
+        "npm_config_registry": {
+          "cn": "https://registry.npmmirror.com",
+          "global": "https://registry.npmjs.org"
+        },
+        "npm_config_disturl": {
+          "cn": "https://npmmirror.com/mirrors/node",
+          "global": ""
+        }
+      },
+      "post_install": [
         {
-          "name": "vscode-eslint",
-          "description": "VS Code ESLint extension",
-          "auto_install": true
+          "description": "Configure npm mirror (CN region)",
+          "region": "cn",
+          "command": "npm config set registry https://registry.npmmirror.com\nnpm config set disturl https://npmmirror.com/mirrors/node\nnpm config set electron_mirror https://npmmirror.com/mirrors/electron/\nnpm config set puppeteer_download_host https://npmmirror.com/mirrors\n"
+        },
+        {
+          "description": "Install common packages",
+          "region": [
+            "cn",
+            "global"
+          ],
+          "command": "npm install -g npm@latest\nnpm install -g yarn pnpm typescript\nnpm install -g http-server serve nodemon\n"
         }
       ],
+      "verify_commands": [
+        "node --version",
+        "npm --version",
+        "node -e 'console.log(process.version)'"
+      ],
       "compatible_with": [
-        "python3",
-        "docker",
-        "git",
-        "postgresql",
-        "mongodb",
-        "redis"
+        "npm",
+        "yarn",
+        "pnpm",
+        "typescript",
+        "react",
+        "vue",
+        "angular",
+        "express"
       ],
       "system_requirements": {
-        "disk_space": "1GB",
-        "memory": "512MB minimum",
-        "architecture": [
-          "amd64",
-          "arm64"
-        ]
+        "disk_space": "200MB minimum, 1GB recommended",
+        "memory": "256MB minimum, 1GB recommended"
       },
-      "optimization_tips": [
-        "Use pnpm instead of npm for faster installs",
-        "Enable npm cache",
-        "Use corepack for package manager management"
+      "fallback_sources": [
+        {
+          "type": "nvm",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "version": "20",
+          "reason": "If Node.js 22 fails"
+        },
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "nodejs npm",
+          "reason": "Fallback to system version"
+        }
+      ],
+      "notes": [
+        "Node.js 20+ requires Linux kernel 4.18+ or macOS 11+ or Windows 10 1809+",
+        "NVM allows multiple Node.js versions to be installed in parallel",
+        "CN region automatically uses npmmirror.com for better speed",
+        "Puppeteer, Electron, and other binary packages have mirror configuration"
       ],
       "path": "tools/programming-languages/nodejs/tool.yaml"
     },
+    "python": {
+      "name": "python",
+      "category": "python",
+      "description": "Python - 简单、优雅、强大的编程语言",
+      "versions": [
+        {
+          "version": "3.12",
+          "alias": [
+            "3.12",
+            "latest"
+          ],
+          "description": "Python 3.12 - 最新稳定版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz",
+              "macos": "https://www.python.org/ftp/python/3.12.3/python-3.12.3-macos11.pkg",
+              "windows": "https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe"
+            },
+            "cn": {
+              "linux": "https://mirrors.huaweicloud.com/python/3.12.3/Python-3.12.3.tgz",
+              "macos": "https://mirrors.huaweicloud.com/python/3.12.3/python-3.12.3-macos11.pkg",
+              "windows": "https://mirrors.huaweicloud.com/python/3.12.3/python-3.12.3-amd64.exe"
+            }
+          },
+          "is_default": true
+        },
+        {
+          "version": "3.11",
+          "alias": [
+            "3.11"
+          ],
+          "description": "Python 3.11 - 长期支持版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://www.python.org/ftp/python/3.11.8/Python-3.11.8.tgz",
+              "macos": "https://www.python.org/ftp/python/3.11.8/python-3.11.8-macos11.pkg",
+              "windows": "https://www.python.org/ftp/python/3.11.8/python-3.11.8-amd64.exe"
+            },
+            "cn": {
+              "linux": "https://mirrors.huaweicloud.com/python/3.11.8/Python-3.11.8.tgz",
+              "macos": "https://mirrors.huaweicloud.com/python/3.11.8/python-3.11.8-macos11.pkg",
+              "windows": "https://mirrors.huaweicloud.com/python/3.11.8/python-3.11.8-amd64.exe"
+            }
+          }
+        },
+        {
+          "version": "3.10",
+          "alias": [
+            "3.10"
+          ],
+          "description": "Python 3.10 - 稳定版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz",
+              "macos": "https://www.python.org/ftp/python/3.10.13/python-3.10.13-macos11.pkg",
+              "windows": "https://www.python.org/ftp/python/3.10.13/python-3.10.13-amd64.exe"
+            },
+            "cn": {
+              "linux": "https://mirrors.huaweicloud.com/python/3.10.13/Python-3.10.13.tgz",
+              "macos": "https://mirrors.huaweicloud.com/python/3.10.13/python-3.10.13-macos11.pkg",
+              "windows": "https://mirrors.huaweicloud.com/python/3.10.13/python-3.10.13-amd64.exe"
+            }
+          }
+        },
+        {
+          "version": "3.9",
+          "alias": [
+            "3.9"
+          ],
+          "description": "Python 3.9 - 旧版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://www.python.org/ftp/python/3.9.18/Python-3.9.18.tgz",
+              "macos": "https://www.python.org/ftp/python/3.9.18/python-3.9.18-macos11.pkg",
+              "windows": "https://www.python.org/ftp/python/3.9.18/python-3.9.18-amd64.exe"
+            },
+            "cn": {
+              "linux": "https://mirrors.huaweicloud.com/python/3.9.18/Python-3.9.18.tgz",
+              "macos": "https://mirrors.huaweicloud.com/python/3.9.18/python-3.9.18-macos11.pkg",
+              "windows": "https://mirrors.huaweicloud.com/python/3.9.18/python-3.9.18-amd64.exe"
+            }
+          }
+        }
+      ],
+      "homepage": "https://www.python.org/",
+      "documentation": "https://docs.python.org/3/",
+      "license": "PSF License",
+      "author": "Python Software Foundation",
+      "tags": [
+        "python",
+        "programming-language",
+        "script",
+        "data-science",
+        "ai",
+        "ml"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "package_managers": [
+        "apt",
+        "brew",
+        "yum",
+        "dnf",
+        "chocolatey",
+        "winget"
+      ],
+      "installation_sources": [
+        {
+          "type": "python3-deadSnakes-ppa",
+          "os": [
+            "linux"
+          ],
+          "package_name": "python3.12 python3.12-dev",
+          "description": "DeadSnakes PPA (Ubuntu/Debian)",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "sudo apt update\nsudo apt install software-properties-common -y\nsudo add-apt-repository ppa:deadsnakes/ppa -y\nsudo apt update\nsudo apt install -y python3.12 python3.12-dev python3-pip\nsudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1\n"
+        },
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "python3 python3-pip python3-dev",
+          "description": "System Python from APT",
+          "priority": 2,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "sudo apt update\nsudo apt install -y python3 python3-pip python3-dev\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "python3",
+          "description": "Homebrew Python",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "export HOMEBREW_BOTTLE_DOMAIN=\"https://mirrors.aliyun.com/homebrew/homebrew-bottles\"\nexport HOMEBREW_BREW_GIT_REMOTE=\"https://mirrors.aliyun.com/homebrew/homebrew-brew.git\"\nexport HOMEBREW_CORE_GIT_REMOTE=\"https://mirrors.aliyun.com/homebrew/homebrew-core.git\"\nbrew install python3\n"
+        },
+        {
+          "type": "winget",
+          "os": [
+            "windows"
+          ],
+          "package_name": "Python.Python.3.12",
+          "description": "Winget package manager",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ]
+        },
+        {
+          "type": "manual-download",
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "description": "Manual download with mirror support",
+          "priority": 3,
+          "region_preference": [
+            "cn",
+            "global"
+          ],
+          "uses_mirrors": true,
+          "file": "Python-{version}.tgz",
+          "verify_checksum": true,
+          "command": "# 自动选择镜像下载\n# 根据当前地区自动选择最佳镜像\nwget {{mirror_url}}\ntar -xzf {{downloaded_file}}\ncd Python-{{version}}\n./configure --enable-optimizations\nmake -j$(nproc)\nsudo make altinstall\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "pipenv",
+          "description": "Pipenv - 现代包管理",
+          "recommended": true
+        },
+        {
+          "name": "poetry",
+          "description": "Poetry - 依赖管理工具",
+          "recommended": true
+        },
+        {
+          "name": "pyenv",
+          "description": "Python 版本管理器",
+          "recommended": true
+        },
+        {
+          "name": "virtualenv",
+          "description": "虚拟环境工具",
+          "recommended": false
+        },
+        {
+          "name": "conda",
+          "description": "Anaconda/Miniconda",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "PIP_INDEX_URL": {
+          "cn": "https://pypi.tuna.tsinghua.edu.cn/simple",
+          "global": "https://pypi.org/simple"
+        },
+        "PIP_TRUSTED_HOST": {
+          "cn": "pypi.tuna.tsinghua.edu.cn",
+          "global": "pypi.org"
+        },
+        "PYTHONUNBUFFERED": "1"
+      },
+      "pip_config": {
+        "cn": {
+          "index-url": "https://pypi.tuna.tsinghua.edu.cn/simple",
+          "trusted-host": "pypi.tuna.tsinghua.edu.cn",
+          "timeout": "120"
+        },
+        "global": {
+          "index-url": "https://pypi.org/simple",
+          "trusted-host": "pypi.org"
+        }
+      },
+      "post_install": [
+        {
+          "description": "Configure Pip mirror (CN region)",
+          "region": "cn",
+          "command": "pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple\npip3 config set global.trusted-host pypi.tuna.tsinghua.edu.cn\npip3 config set install.timeout 120\n"
+        },
+        {
+          "description": "Upgrade pip and install common packages",
+          "region": [
+            "cn",
+            "global"
+          ],
+          "command": "python3 -m pip install --upgrade pip setuptools wheel\npip3 install requests beautifulsoup4 lxml selenium\npip3 install numpy pandas matplotlib scipy\n"
+        }
+      ],
+      "verify_commands": [
+        "python3 --version",
+        "pip3 --version",
+        "python3 -c 'import sys; print(sys.version_info)'"
+      ],
+      "compatible_with": [
+        "virtualenv",
+        "poetry",
+        "pipenv",
+        "jupyter",
+        "pandas"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB minimum, 2GB recommended",
+        "memory": "256MB minimum, 1GB recommended"
+      },
+      "dependencies": {
+        "linux": [
+          "build-essential",
+          "libssl-dev",
+          "libsqlite3-dev",
+          "libbz2-dev",
+          "libreadline-dev",
+          "libffi-dev",
+          "zlib1g-dev",
+          "libncurses5-dev",
+          "libncursesw5-dev",
+          "libgdbm-dev",
+          "libdb5.3-dev",
+          "liblzma-dev"
+        ],
+        "macos": [
+          "xcode-command-line-tools"
+        ]
+      },
+      "fallback_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "python3.11",
+          "reason": "If default version fails"
+        },
+        {
+          "type": "conda",
+          "os": [
+            "all"
+          ],
+          "package_name": "python=3.10",
+          "reason": "Conda as fallback"
+        }
+      ],
+      "notes": [
+        "Multiple versions can be installed in parallel",
+        "Use pyenv for version management if needed",
+        "CN region automatically uses mirror sources",
+        "Pip is configured with mirror by default in CN"
+      ],
+      "path": "tools/programming-languages/python/tool.yaml"
+    },
     "ruby": {
       "name": "ruby",
-      "category": "programming-languages",
+      "category": "ruby",
       "description": "Ruby - elegant, dynamic programming language",
       "version": "3.2",
       "latest_version": "3.2",
@@ -1187,7 +1680,7 @@
     },
     "rust": {
       "name": "rust",
-      "category": "programming-languages",
+      "category": "rust",
       "description": "Rust - blazingly fast, memory-safe systems programming language",
       "version": "1.77",
       "latest_version": "1.77",
@@ -1273,7 +1766,7 @@
     },
     "php": {
       "name": "php",
-      "category": "programming-languages",
+      "category": "php",
       "description": "PHP - server-side scripting for web development",
       "version": "8.3",
       "latest_version": "8.3",
@@ -1358,7 +1851,7 @@
     },
     "go": {
       "name": "go",
-      "category": "programming-languages",
+      "category": "go",
       "description": "Go - simple, reliable, efficient programming language",
       "version": "1.22",
       "latest_version": "1.22",
@@ -1432,7 +1925,7 @@
     },
     "ethereum": {
       "name": "ethereum",
-      "category": "blockchain",
+      "category": "ethereum",
       "description": "Ethereum - smart contract development tools",
       "version": "12",
       "latest_version": "12",
@@ -1501,7 +1994,7 @@
     },
     "git": {
       "name": "git",
-      "category": "productivity",
+      "category": "git",
       "description": "Git - the most popular distributed version control system",
       "version": "2.45",
       "latest_version": "2.45",
@@ -1614,7 +2107,7 @@
     },
     "postgresql": {
       "name": "postgresql",
-      "category": "databases",
+      "category": "postgresql",
       "description": "PostgreSQL - world's most advanced open-source database",
       "version": "16",
       "latest_version": "16",
@@ -1729,7 +2222,7 @@
     },
     "sqlite": {
       "name": "sqlite",
-      "category": "databases",
+      "category": "sqlite",
       "description": "SQLite - embedded relational database",
       "version": "3.45",
       "latest_version": "3.45",
@@ -1790,7 +2283,7 @@
     },
     "mysql": {
       "name": "mysql",
-      "category": "databases",
+      "category": "mysql",
       "description": "MySQL - world's most popular open source database",
       "version": "8.3",
       "latest_version": "8.3",
@@ -1870,7 +2363,7 @@
     },
     "redis": {
       "name": "redis",
-      "category": "databases",
+      "category": "redis",
       "description": "Redis - in-memory data structure store",
       "version": "7.2",
       "latest_version": "7.2",
@@ -1943,7 +2436,7 @@
     },
     "mongodb": {
       "name": "mongodb",
-      "category": "databases",
+      "category": "mongodb",
       "description": "MongoDB - NoSQL document database",
       "version": "7.0",
       "latest_version": "7.0",
@@ -2022,7 +2515,7 @@
     },
     "elasticsearch": {
       "name": "elasticsearch",
-      "category": "databases",
+      "category": "elasticsearch",
       "description": "Elasticsearch - distributed search and analytics engine",
       "version": "8.13",
       "latest_version": "8.13",
@@ -2106,7 +2599,7 @@
     },
     "aws-cli": {
       "name": "aws-cli",
-      "category": "cloud",
+      "category": "aws-cli",
       "description": "AWS CLI - command-line interface for Amazon Web Services",
       "version": "2.15",
       "latest_version": "2.15",
@@ -2170,7 +2663,7 @@
     },
     "gcloud-cli": {
       "name": "gcloud-cli",
-      "category": "cloud",
+      "category": "gcloud-cli",
       "description": "gcloud CLI - command-line interface for Google Cloud Platform",
       "version": "455",
       "latest_version": "455",
@@ -2233,7 +2726,7 @@
     },
     "azure-cli": {
       "name": "azure-cli",
-      "category": "cloud",
+      "category": "azure-cli",
       "description": "Azure CLI - command-line interface for Microsoft Azure",
       "version": "2.57",
       "latest_version": "2.57",
@@ -2296,7 +2789,7 @@
     },
     "dbt": {
       "name": "dbt",
-      "category": "data-engineering",
+      "category": "dbt",
       "description": "dbt - data build tool for analytics",
       "version": "1.7",
       "latest_version": "1.7",
@@ -2349,7 +2842,7 @@
     },
     "kubeflow": {
       "name": "kubeflow",
-      "category": "data-engineering",
+      "category": "kubeflow",
       "description": "Kubeflow - machine learning toolkit for Kubernetes",
       "version": "1.8",
       "latest_version": "1.8",
@@ -2401,7 +2894,7 @@
     },
     "airflow": {
       "name": "airflow",
-      "category": "data-engineering",
+      "category": "airflow",
       "description": "Apache Airflow - orchestration platform for data workflows",
       "version": "2.8",
       "latest_version": "2.8",
@@ -2453,7 +2946,7 @@
     },
     "vscode": {
       "name": "vscode",
-      "category": "editors",
+      "category": "vscode",
       "description": "Visual Studio Code - powerful extensible code editor",
       "version": "latest",
       "latest_version": "1.90",
@@ -2589,7 +3082,7 @@
     },
     "kubectl": {
       "name": "kubectl",
-      "category": "devops",
+      "category": "kubernetes",
       "description": "Kubectl - Kubernetes command-line tool",
       "version": "1.29",
       "latest_version": "1.29",
@@ -2673,7 +3166,7 @@
     },
     "ansible": {
       "name": "ansible",
-      "category": "devops",
+      "category": "ansible",
       "description": "Ansible - IT automation platform",
       "version": "9.0",
       "latest_version": "9.0",
@@ -2750,164 +3243,249 @@
     },
     "docker": {
       "name": "docker",
-      "category": "devops",
-      "description": "Docker - container platform for developing, shipping, and running applications",
-      "version": "26",
-      "latest_version": "26",
+      "category": "docker",
+      "description": "Docker - 应用容器引擎",
+      "versions": [
+        {
+          "version": "27",
+          "alias": [
+            "27",
+            "latest"
+          ],
+          "description": "Docker 27 - 最新稳定版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "download_urls": {
+            "global": {
+              "linux": "https://download.docker.com/linux/static/stable/x86_64/docker-27.0.3.tgz",
+              "macos": "https://desktop.docker.com/mac/main/amd64/Docker.dmg",
+              "windows": "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
+            },
+            "cn": {
+              "linux": "https://get.daocloud.io/docker",
+              "macos": "https://desktop.docker.com/mac/main/amd64/Docker.dmg",
+              "windows": "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe"
+            }
+          },
+          "is_default": true
+        },
+        {
+          "version": "26",
+          "alias": [
+            "26"
+          ],
+          "description": "Docker 26 - 稳定版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ]
+        },
+        {
+          "version": "25",
+          "alias": [
+            "25"
+          ],
+          "description": "Docker 25 - 旧版",
+          "supported_os": [
+            "linux",
+            "macos",
+            "windows"
+          ]
+        }
+      ],
       "homepage": "https://www.docker.com/",
       "documentation": "https://docs.docker.com/",
       "license": "Apache 2.0",
       "author": "Docker Inc.",
       "tags": [
         "docker",
-        "containers",
+        "container",
         "devops",
-        "deployment",
-        "virtualization",
-        "kubernetes"
+        "kubernetes",
+        "microservices",
+        "containerization"
       ],
       "supported_os": [
         "linux",
         "macos",
-        "windows",
-        "all"
+        "windows"
+      ],
+      "package_managers": [
+        "apt",
+        "yum",
+        "brew",
+        "dnf",
+        "choco",
+        "winget"
       ],
       "installation_sources": [
         {
-          "type": "curl",
+          "type": "docker-install-script",
           "os": [
             "linux"
           ],
-          "description": "Docker convenience script (official)",
+          "description": "Official Docker Install Script with Mirror (Recommended)",
           "priority": 1,
-          "command": "curl -fsSL https://get.docker.com -o get-docker.sh\nsudo sh get-docker.sh\nsudo usermod -aG docker $USER\n"
+          "region_preference": [
+            "cn",
+            "global"
+          ],
+          "uses_mirrors": true,
+          "command": "# 使用阿里云镜像加速脚本\ncurl -fsSL https://get.daocloud.io/docker | sh\n# 启动Docker服务\nsudo systemctl start docker\nsudo systemctl enable docker\n# 配置镜像加速\nsudo mkdir -p /etc/docker\nsudo tee /etc/docker/daemon.json <<-'EOF'\n{\n  \"registry-mirrors\": [\n    \"https://docker.mirrors.ustc.edu.cn\",\n    \"https://hub-mirror.c.163.com\",\n    \"https://mirror.ccs.tencentyun.com\"\n  ],\n  \"data-root\": \"/var/lib/docker\"\n}\nEOF\nsudo systemctl daemon-reload\nsudo systemctl restart docker\n"
+        },
+        {
+          "type": "apt-docker-ce",
+          "os": [
+            "linux"
+          ],
+          "description": "Docker CE APT Repository",
+          "priority": 2,
+          "region_preference": [
+            "global",
+            "cn"
+          ],
+          "command": "sudo apt-get update\nsudo apt-get install ca-certificates curl gnupg lsb-release -y\nsudo mkdir -p /etc/apt/keyrings\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg\necho \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\nsudo apt-get update\nsudo apt-get install docker-ce docker-ce-cli containerd.io -y\n"
         },
         {
           "type": "brew",
           "os": [
             "macos"
           ],
-          "package_name": "--cask docker",
-          "description": "Docker Desktop for macOS",
-          "priority": 1
-        },
-        {
-          "type": "manual",
-          "os": [
-            "windows"
+          "package_name": "docker",
+          "description": "Homebrew Docker",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
           ],
-          "url": "https://www.docker.com/products/docker-desktop/",
-          "description": "Docker Desktop for Windows with WSL2",
-          "priority": 1
-        }
-      ],
-      "dependencies": [
-        {
-          "name": "curl",
-          "optional": false
+          "command": "brew install --cask docker\n"
         },
         {
-          "name": "git",
-          "optional": true
+          "type": "manual-desktop",
+          "os": [
+            "windows",
+            "macos"
+          ],
+          "description": "Docker Desktop - GUI Application",
+          "priority": 1,
+          "region_preference": [
+            "global",
+            "cn"
+          ]
         }
       ],
+      "docker_registry_mirrors": {
+        "cn": [
+          "https://docker.mirrors.ustc.edu.cn",
+          "https://hub-mirror.c.163.com",
+          "https://mirror.ccs.tencentyun.com",
+          "https://dockerproxy.com"
+        ],
+        "global": [
+          "https://registry-1.docker.io"
+        ]
+      },
       "optional_tools": [
         {
           "name": "docker-compose",
-          "description": "Docker Compose",
+          "description": "Docker Compose - 容器编排",
           "recommended": true
         },
         {
+          "name": "portainer",
+          "description": "Portainer - Docker Web UI",
+          "recommended": false
+        },
+        {
           "name": "kubernetes",
-          "description": "Kubernetes (Docker Desktop)",
+          "description": "Kubernetes - 容器编排",
           "recommended": false
         }
       ],
-      "config_files": [
-        {
-          "path": "~/.docker/config.json"
-        },
-        {
-          "path": "/etc/docker/daemon.json",
-          "optional": true
-        }
-      ],
       "environment_vars": {
-        "PATH": "/usr/local/bin:$PATH"
+        "DOCKER_CONFIG": "$HOME/.docker"
+      },
+      "daemon_config": {
+        "cn": {
+          "registry-mirrors": [
+            "https://docker.mirrors.ustc.edu.cn",
+            "https://hub-mirror.c.163.com",
+            "https://mirror.ccs.tencentyun.com",
+            "https://dockerproxy.com"
+          ],
+          "data-root": "/var/lib/docker"
+        },
+        "global": {
+          "registry-mirrors": []
+        }
       },
       "post_install": [
-        "docker --version",
-        "docker run --rm hello-world"
+        {
+          "description": "Configure Docker mirror and add user to docker group",
+          "region": [
+            "cn",
+            "global"
+          ],
+          "command": "sudo usermod -aG docker $USER\necho \"You need to log out and log back in to use Docker without sudo\"\n"
+        },
+        {
+          "description": "Install Docker Compose",
+          "region": [
+            "cn",
+            "global"
+          ],
+          "command": "sudo apt install docker-compose -y 2>/dev/null || true\ndocker compose version || true\n"
+        }
       ],
       "verify_commands": [
         "docker --version",
-        "docker compose version",
-        "docker info"
-      ],
-      "popular_images": [
-        {
-          "name": "postgres",
-          "description": "PostgreSQL database"
-        },
-        {
-          "name": "redis",
-          "description": "Redis cache"
-        },
-        {
-          "name": "nginx",
-          "description": "Nginx web server"
-        },
-        {
-          "name": "node",
-          "description": "Node.js"
-        },
-        {
-          "name": "python",
-          "description": "Python"
-        }
-      ],
-      "integrations": [
-        {
-          "name": "docker-vscode",
-          "description": "VS Code Docker extension",
-          "auto_install": true
-        }
+        "docker info",
+        "docker run hello-world"
       ],
       "compatible_with": [
-        "nodejs",
-        "python3",
-        "git",
-        "postgresql",
-        "mongodb",
-        "redis",
-        "all-databases"
+        "kubernetes",
+        "docker-compose",
+        "podman"
       ],
       "system_requirements": {
-        "disk_space": "5GB minimum",
-        "memory": "2GB minimum",
-        "architecture": [
-          "amd64",
-          "arm64"
-        ],
-        "virtualization": true
+        "disk_space": "10GB minimum, 50GB recommended",
+        "memory": "2GB minimum, 4GB recommended"
       },
-      "optimization_tips": [
-        "Use Docker Compose for multi-container apps",
-        "Use multi-stage builds for small images",
+      "fallback_sources": [
         {
-          "Clean up unused resources": "docker system prune"
+          "type": "podman",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "package_name": "podman podman-compose",
+          "reason": "Podman as alternative to Docker"
+        },
+        {
+          "type": "docker",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "version": "26",
+          "reason": "Fallback to previous version"
         }
       ],
-      "security_notes": [
-        "Don't run containers as root",
-        "Limit container resources",
-        "Use official base images"
+      "notes": [
+        "Docker Desktop requires virtualization enabled in BIOS/UEFI",
+        "CN region automatically uses registry mirrors for faster pull operations",
+        "Docker Desktop for Windows requires WSL 2",
+        "Requires admin/root to install, but regular user can be added to docker group"
       ],
       "path": "tools/devops/docker/tool.yaml"
     },
     "helm": {
       "name": "helm",
-      "category": "devops",
+      "category": "helm",
       "description": "Helm - Kubernetes package manager",
       "version": "3.14",
       "latest_version": "3.14",
@@ -2969,7 +3547,7 @@
     },
     "terraform": {
       "name": "terraform",
-      "category": "devops",
+      "category": "terraform",
       "description": "Terraform - Infrastructure as Code",
       "version": "1.7",
       "latest_version": "1.7",
@@ -3039,7 +3617,7 @@
     },
     "nextjs": {
       "name": "nextjs",
-      "category": "frameworks",
+      "category": "nextjs",
       "description": "Next.js - React framework for production",
       "version": "14",
       "latest_version": "14",
@@ -3104,7 +3682,7 @@
     },
     "angular": {
       "name": "angular",
-      "category": "frameworks",
+      "category": "angular",
       "description": "Angular - platform for building mobile and desktop applications",
       "version": "17",
       "latest_version": "17",
@@ -3173,7 +3751,7 @@
     },
     "django": {
       "name": "django",
-      "category": "frameworks",
+      "category": "django",
       "description": "Django - high-level Python web framework",
       "version": "5.0",
       "latest_version": "5.0",
@@ -3247,7 +3825,7 @@
     },
     "fastapi": {
       "name": "fastapi",
-      "category": "frameworks",
+      "category": "fastapi",
       "description": "FastAPI - modern, fast web framework for building APIs",
       "version": "0.104",
       "latest_version": "0.104",
@@ -3312,7 +3890,7 @@
     },
     "vue": {
       "name": "vue",
-      "category": "frameworks",
+      "category": "vue",
       "description": "Vue.js - progressive JavaScript framework",
       "version": "3",
       "latest_version": "3",
@@ -3385,7 +3963,7 @@
     },
     "react": {
       "name": "react",
-      "category": "frameworks",
+      "category": "react",
       "description": "React - JavaScript library for building user interfaces",
       "version": "18",
       "latest_version": "18",
@@ -3459,7 +4037,7 @@
     },
     "esp32": {
       "name": "esp32",
-      "category": "embedded",
+      "category": "esp32",
       "description": "ESP32 - IoT development framework",
       "version": "5.2",
       "latest_version": "5.2",
@@ -3511,7 +4089,7 @@
     },
     "unreal": {
       "name": "unreal",
-      "category": "game-dev",
+      "category": "unreal",
       "description": "Unreal Engine - advanced real-time 3D creation tool",
       "version": "5.4",
       "latest_version": "5.4",
@@ -3562,7 +4140,7 @@
     },
     "unity": {
       "name": "unity",
-      "category": "game-dev",
+      "category": "unity",
       "description": "Unity - cross-platform game engine",
       "version": "6000",
       "latest_version": "6000",
@@ -3614,7 +4192,7 @@
     },
     "ios": {
       "name": "ios",
-      "category": "mobile",
+      "category": "ios",
       "description": "iOS Development - tools for building iOS apps",
       "version": "17",
       "latest_version": "17",
@@ -3672,7 +4250,7 @@
     },
     "android-sdk": {
       "name": "android-sdk",
-      "category": "mobile",
+      "category": "android-sdk",
       "description": "Android SDK - tools for building Android apps",
       "version": "34",
       "latest_version": "34",
@@ -3734,7 +4312,7 @@
     },
     "flutter": {
       "name": "flutter",
-      "category": "mobile",
+      "category": "flutter",
       "description": "Flutter - cross-platform mobile app framework",
       "version": "3.19",
       "latest_version": "3.19",
@@ -3787,7 +4365,7 @@
     },
     "raspberry-pi": {
       "name": "raspberry-pi",
-      "category": "iot",
+      "category": "raspberry-pi",
       "description": "Raspberry Pi - single-board computer tools",
       "version": "64",
       "latest_version": "64",
@@ -3838,7 +4416,7 @@
     },
     "arduino": {
       "name": "arduino",
-      "category": "iot",
+      "category": "arduino",
       "description": "Arduino - open-source electronics platform",
       "version": "2.2",
       "latest_version": "2.2",
@@ -3934,31 +4512,31 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "c-cpp"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cC/C++\u5de5\u5177\u94fe"
+          "description": "安装版本控制和C/C++工具链"
         },
         "phase_2": {
-          "name": "\u5d4c\u5165\u5f0f\u6846\u67b6",
+          "name": "嵌入式框架",
           "tools": [
             "arduino",
             "esp32"
           ],
-          "description": "\u5b89\u88c5\u5d4c\u5165\u5f0f\u5f00\u53d1\u6846\u67b6"
+          "description": "安装嵌入式开发框架"
         },
         "phase_3": {
-          "name": "\u6784\u5efa\u5de5\u5177",
+          "name": "构建工具",
           "tools": [
             "cmake"
           ],
-          "description": "\u5b89\u88c5\u6784\u5efa\u5de5\u5177"
+          "description": "安装构建工具"
         }
       },
       "post_install_steps": [
-        "echo '\u5d4c\u5165\u5f0f\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '嵌入式开发环境准备完成!'"
       ],
       "compatible_templates": [
         "iot-developer"
@@ -4018,35 +4596,35 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "nodejs"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cNode.js"
+          "description": "安装版本控制和Node.js"
         },
         "phase_2": {
-          "name": "\u6846\u67b6",
+          "name": "框架",
           "tools": [
             "react",
             "vue"
           ],
-          "description": "\u5b89\u88c5\u4e3b\u6d41\u524d\u7aef\u6846\u67b6"
+          "description": "安装主流前端框架"
         },
         "phase_3": {
-          "name": "\u5f00\u53d1\u5de5\u5177",
+          "name": "开发工具",
           "tools": [
             "vscode",
             "docker"
           ],
-          "description": "\u5b89\u88c5\u7f16\u8f91\u5668\u548c\u5bb9\u5668"
+          "description": "安装编辑器和容器"
         }
       },
       "post_install_steps": [
         "npm install -g npm@latest",
         "npm install -g typescript",
         "npm install -g eslint prettier",
-        "echo '\u524d\u7aef\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '前端开发环境准备完成!'"
       ],
       "compatible_templates": [
         "web-developer"
@@ -4114,41 +4692,41 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3",
             "java"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+          "description": "安装版本控制和语言环境"
         },
         "phase_2": {
-          "name": "\u6570\u636e\u5e93",
+          "name": "数据库",
           "tools": [
             "postgresql"
           ],
-          "description": "\u5b89\u88c5\u6570\u636e\u5e93"
+          "description": "安装数据库"
         },
         "phase_3": {
-          "name": "\u5904\u7406\u6846\u67b6",
+          "name": "处理框架",
           "tools": [
             "spark",
             "dbt"
           ],
-          "description": "\u5b89\u88c5\u6570\u636e\u5904\u7406\u6846\u67b6"
+          "description": "安装数据处理框架"
         },
         "phase_4": {
-          "name": "\u7f16\u6392",
+          "name": "编排",
           "tools": [
             "airflow",
             "docker"
           ],
-          "description": "\u5b89\u88c5\u7f16\u6392\u5de5\u5177"
+          "description": "安装编排工具"
         }
       },
       "post_install_steps": [
         "pip install pandas numpy scipy",
-        "echo '\u6570\u636e\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '数据工程环境准备完成!'"
       ],
       "compatible_templates": [
         "big-data-engineer"
@@ -4200,32 +4778,32 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+          "description": "安装版本控制和Python"
         },
         "phase_2": {
-          "name": "\u5b89\u5168\u5de5\u5177",
+          "name": "安全工具",
           "tools": [
             "openssl",
             "docker"
           ],
-          "description": "\u5b89\u88c5\u5b89\u5168\u5de5\u5177\u548c\u5bb9\u5668"
+          "description": "安装安全工具和容器"
         },
         "phase_3": {
-          "name": "\u8bed\u8a00",
+          "name": "语言",
           "tools": [
             "go"
           ],
-          "description": "\u5b89\u88c5Go\u8bed\u8a00"
+          "description": "安装Go语言"
         }
       },
       "post_install_steps": [
         "pip install requests beautifulsoup4",
-        "echo '\u5b89\u5168\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '安全工程环境准备完成!'"
       ],
       "compatible_templates": [
         "backend-developer"
@@ -4289,33 +4867,33 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u5bb9\u5668",
+          "name": "容器",
           "tools": [
             "git",
             "docker",
             "kubectl"
           ],
-          "description": "\u5b89\u88c5\u5bb9\u5668\u548cKubernetes"
+          "description": "安装容器和Kubernetes"
         },
         "phase_2": {
-          "name": "\u57fa\u7840\u8bbe\u65bd",
+          "name": "基础设施",
           "tools": [
             "terraform",
             "ansible"
           ],
-          "description": "\u5b89\u88c5\u57fa\u7840\u8bbe\u65bd\u7ba1\u7406\u5de5\u5177"
+          "description": "安装基础设施管理工具"
         },
         "phase_3": {
-          "name": "\u4e91CLI",
+          "name": "云CLI",
           "tools": [
             "aws-cli",
             "helm"
           ],
-          "description": "\u5b89\u88c5\u4e91CLI\u548cHelm"
+          "description": "安装云CLI和Helm"
         }
       },
       "post_install_steps": [
-        "echo 'DevOps\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo 'DevOps工程环境准备完成!'"
       ],
       "compatible_templates": [
         "cloud-native-developer"
@@ -4379,33 +4957,33 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u5bb9\u5668\u57fa\u7840",
+          "name": "容器基础",
           "tools": [
             "git",
             "docker",
             "kubectl"
           ],
-          "description": "\u5b89\u88c5\u5bb9\u5668\u548cKubernetes CLI"
+          "description": "安装容器和Kubernetes CLI"
         },
         "phase_2": {
-          "name": "K8s\u5de5\u5177",
+          "name": "K8s工具",
           "tools": [
             "helm"
           ],
-          "description": "\u5b89\u88c5Helm\u5305\u7ba1\u7406\u5668"
+          "description": "安装Helm包管理器"
         },
         "phase_3": {
-          "name": "\u57fa\u7840\u8bbe\u65bd",
+          "name": "基础设施",
           "tools": [
             "terraform",
             "aws-cli"
           ],
-          "description": "\u5b89\u88c5\u57fa\u7840\u8bbe\u65bd\u5de5\u5177"
+          "description": "安装基础设施工具"
         }
       },
       "post_install_steps": [
         "helm repo add stable https://charts.helm.sh/stable",
-        "echo '\u4e91\u539f\u751f\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '云原生开发环境准备完成!'"
       ],
       "compatible_templates": [
         "devops-engineer"
@@ -4469,34 +5047,34 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+          "description": "安装版本控制和Python"
         },
         "phase_2": {
-          "name": "\u6570\u636e\u5e93",
+          "name": "数据库",
           "tools": [
             "postgresql",
             "redis"
           ],
-          "description": "\u5b89\u88c5\u6570\u636e\u5e93\u548c\u7f13\u5b58"
+          "description": "安装数据库和缓存"
         },
         "phase_3": {
-          "name": "\u6846\u67b6",
+          "name": "框架",
           "tools": [
             "fastapi",
             "docker"
           ],
-          "description": "\u5b89\u88c5Web\u6846\u67b6\u548c\u5bb9\u5668"
+          "description": "安装Web框架和容器"
         }
       },
       "post_install_steps": [
         "pip install uvicorn gunicorn",
         "pip install sqlalchemy alembic",
-        "echo '\u540e\u7aef\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '后端开发环境准备完成!'"
       ],
       "compatible_templates": [
         "web-developer"
@@ -4686,43 +5264,43 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+          "description": "安装版本控制和Python"
         },
         "phase_2": {
-          "name": "\u5bb9\u5668\u548c\u6570\u636e\u5e93",
+          "name": "容器和数据库",
           "tools": [
             "docker",
             "redis",
             "postgresql"
           ],
-          "description": "\u5b89\u88c5\u5bb9\u5668\u548c\u7f13\u5b58/\u6570\u636e\u5e93"
+          "description": "安装容器和缓存/数据库"
         },
         "phase_3": {
-          "name": "AI\u6846\u67b6",
+          "name": "AI框架",
           "tools": [
             "pytorch",
             "huggingface",
             "jupyter"
           ],
-          "description": "\u5b89\u88c5\u673a\u5668\u5b66\u4e60\u6846\u67b6"
+          "description": "安装机器学习框架"
         },
         "phase_4": {
-          "name": "\u5f00\u53d1\u5de5\u5177",
+          "name": "开发工具",
           "tools": [
             "vscode"
           ],
-          "description": "\u5b89\u88c5\u7f16\u8f91\u5668"
+          "description": "安装编辑器"
         }
       },
       "post_install_steps": [
         "pip install langchain llama-index openai anthropic",
         "pip install pydantic fastapi uvicorn",
-        "echo 'AI Agent\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo 'AI Agent开发环境准备完成!'"
       ],
       "compatible_templates": [
         "web-developer",
@@ -4795,43 +5373,43 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "nodejs",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+          "description": "安装版本控制和语言环境"
         },
         "phase_2": {
-          "name": "\u6570\u636e\u5e93",
+          "name": "数据库",
           "tools": [
             "postgresql",
             "redis"
           ],
-          "description": "\u5b89\u88c5\u6570\u636e\u5e93\u548c\u7f13\u5b58"
+          "description": "安装数据库和缓存"
         },
         "phase_3": {
-          "name": "\u6846\u67b6",
+          "name": "框架",
           "tools": [
             "react",
             "nextjs",
             "docker"
           ],
-          "description": "\u5b89\u88c5\u524d\u7aef\u6846\u67b6\u548c\u5bb9\u5668"
+          "description": "安装前端框架和容器"
         },
         "phase_4": {
-          "name": "\u5f00\u53d1\u5de5\u5177",
+          "name": "开发工具",
           "tools": [
             "vscode"
           ],
-          "description": "\u5b89\u88c5\u7f16\u8f91\u5668"
+          "description": "安装编辑器"
         }
       },
       "post_install_steps": [
         "npm install -g typescript eslint",
         "pip install fastapi uvicorn",
-        "echo '\u5168\u6808\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '全栈开发环境准备完成!'"
       ],
       "compatible_templates": [
         "frontend-developer",
@@ -4880,30 +5458,30 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "c-cpp"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u7f16\u8bd1\u5de5\u5177"
+          "description": "安装版本控制和编译工具"
         },
         "phase_2": {
-          "name": "\u6e38\u620f\u5f15\u64ce",
+          "name": "游戏引擎",
           "tools": [
             "unity"
           ],
-          "description": "\u5b89\u88c5Unity\u6e38\u620f\u5f15\u64ce"
+          "description": "安装Unity游戏引擎"
         },
         "phase_3": {
-          "name": "\u811a\u672c\u8bed\u8a00",
+          "name": "脚本语言",
           "tools": [
             "python3"
           ],
-          "description": "\u5b89\u88c5Python\u7528\u4e8e\u811a\u672c"
+          "description": "安装Python用于脚本"
         }
       },
       "post_install_steps": [
-        "echo '\u6e38\u620f\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '游戏开发环境准备完成!'"
       ],
       "compatible_templates": [
         "mobile-developer"
@@ -4951,27 +5529,27 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3",
             "nodejs"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+          "description": "安装版本控制和语言环境"
         },
         "phase_2": {
-          "name": "\u6d4b\u8bd5\u5de5\u5177",
+          "name": "测试工具",
           "tools": [
             "docker",
             "postgresql"
           ],
-          "description": "\u5b89\u88c5\u5bb9\u5668\u548c\u6d4b\u8bd5\u6570\u636e\u5e93"
+          "description": "安装容器和测试数据库"
         }
       },
       "post_install_steps": [
         "pip install pytest selenium requests",
         "npm install -g cypress",
-        "echo 'QA\u6d4b\u8bd5\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo 'QA测试环境准备完成!'"
       ],
       "compatible_templates": [
         "backend-developer"
@@ -5039,41 +5617,41 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "java",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+          "description": "安装版本控制和语言环境"
         },
         "phase_2": {
-          "name": "\u5206\u5e03\u5f0f\u8ba1\u7b97",
+          "name": "分布式计算",
           "tools": [
             "hadoop",
             "spark"
           ],
-          "description": "\u5b89\u88c5\u5206\u5e03\u5f0f\u8ba1\u7b97\u6846\u67b6"
+          "description": "安装分布式计算框架"
         },
         "phase_3": {
-          "name": "\u6d41\u5904\u7406",
+          "name": "流处理",
           "tools": [
             "kafka"
           ],
-          "description": "\u5b89\u88c5\u6d41\u5904\u7406\u5e73\u53f0"
+          "description": "安装流处理平台"
         },
         "phase_4": {
-          "name": "\u5de5\u5177",
+          "name": "工具",
           "tools": [
             "jupyter",
             "docker"
           ],
-          "description": "\u5b89\u88c5\u5f00\u53d1\u5de5\u5177"
+          "description": "安装开发工具"
         }
       },
       "post_install_steps": [
         "pip install pyspark pandas numpy",
-        "echo '\u5927\u6570\u636e\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '大数据工程环境准备完成!'"
       ],
       "compatible_templates": [
         "data-engineering"
@@ -5305,31 +5883,31 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "nodejs"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cNode.js"
+          "description": "安装版本控制和Node.js"
         },
         "phase_2": {
-          "name": "\u533a\u5757\u94fe\u5de5\u5177",
+          "name": "区块链工具",
           "tools": [
             "ethereum"
           ],
-          "description": "\u5b89\u88c5\u4ee5\u592a\u574a\u5f00\u53d1\u5de5\u5177"
+          "description": "安装以太坊开发工具"
         },
         "phase_3": {
-          "name": "\u5bb9\u5668",
+          "name": "容器",
           "tools": [
             "docker"
           ],
-          "description": "\u5b89\u88c5Docker\u7528\u4e8e\u8282\u70b9"
+          "description": "安装Docker用于节点"
         }
       },
       "post_install_steps": [
         "npm install -g hardhat",
-        "echo '\u533a\u5757\u94fe\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '区块链开发环境准备完成!'"
       ],
       "compatible_templates": [
         "web-developer"
@@ -5389,40 +5967,40 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+          "description": "安装版本控制和Python"
         },
         "phase_2": {
-          "name": "ML\u6846\u67b6",
+          "name": "ML框架",
           "tools": [
             "pytorch",
             "tensorflow"
           ],
-          "description": "\u5b89\u88c5\u673a\u5668\u5b66\u4e60\u6846\u67b6"
+          "description": "安装机器学习框架"
         },
         "phase_3": {
-          "name": "\u5de5\u5177",
+          "name": "工具",
           "tools": [
             "jupyter",
             "huggingface"
           ],
-          "description": "\u5b89\u88c5\u5f00\u53d1\u5de5\u5177"
+          "description": "安装开发工具"
         },
         "phase_4": {
-          "name": "\u90e8\u7f72",
+          "name": "部署",
           "tools": [
             "docker"
           ],
-          "description": "\u5b89\u88c5\u5bb9\u5668"
+          "description": "安装容器"
         }
       },
       "post_install_steps": [
         "pip install scikit-learn pandas numpy matplotlib",
-        "echo '\u673a\u5668\u5b66\u4e60\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '机器学习工程环境准备完成!'"
       ],
       "compatible_templates": [
         "ai-ml-developer"
@@ -5474,32 +6052,32 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+          "description": "安装版本控制和Python"
         },
         "phase_2": {
-          "name": "\u81ea\u52a8\u5316\u5de5\u5177",
+          "name": "自动化工具",
           "tools": [
             "ansible",
             "terraform"
           ],
-          "description": "\u5b89\u88c5\u81ea\u52a8\u5316\u548c\u57fa\u7840\u8bbe\u65bd\u5de5\u5177"
+          "description": "安装自动化和基础设施工具"
         },
         "phase_3": {
-          "name": "\u5bb9\u5668",
+          "name": "容器",
           "tools": [
             "docker"
           ],
-          "description": "\u5b89\u88c5Docker"
+          "description": "安装Docker"
         }
       },
       "post_install_steps": [
         "pip install paramiko fabric",
-        "echo '\u7cfb\u7edf\u7ba1\u7406\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo '系统管理环境准备完成!'"
       ],
       "compatible_templates": [
         "devops-engineer"
@@ -5709,34 +6287,34 @@
       ],
       "installation_phases": {
         "phase_1": {
-          "name": "\u57fa\u7840\u5de5\u5177",
+          "name": "基础工具",
           "tools": [
             "git",
             "python3"
           ],
-          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+          "description": "安装版本控制和Python"
         },
         "phase_2": {
-          "name": "IoT\u786c\u4ef6",
+          "name": "IoT硬件",
           "tools": [
             "arduino",
             "raspberry-pi"
           ],
-          "description": "\u5b89\u88c5\u786c\u4ef6\u5f00\u53d1\u5de5\u5177"
+          "description": "安装硬件开发工具"
         },
         "phase_3": {
-          "name": "\u901a\u4fe1",
+          "name": "通信",
           "tools": [
             "mqtt",
             "docker"
           ],
-          "description": "\u5b89\u88c5MQTT\u548c\u5bb9\u5668"
+          "description": "安装MQTT和容器"
         }
       },
       "post_install_steps": [
         "pip install paho-mqtt",
         "pip install RPi.GPIO",
-        "echo 'IoT\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+        "echo 'IoT开发环境准备完成!'"
       ],
       "compatible_templates": [
         "embedded-developer"
@@ -5745,21 +6323,592 @@
     }
   },
   "categories": [
-    "ai-ml",
-    "big-data",
-    "blockchain",
-    "cloud",
-    "data-engineering",
-    "databases",
-    "devops",
-    "editors",
-    "embedded",
-    "frameworks",
-    "game-dev",
-    "iot",
-    "mobile",
-    "productivity",
-    "programming-languages",
-    "security"
-  ]
+    "airflow",
+    "android-sdk",
+    "angular",
+    "ansible",
+    "arduino",
+    "aws-cli",
+    "azure-cli",
+    "c-cpp",
+    "dbt",
+    "django",
+    "docker",
+    "elasticsearch",
+    "esp32",
+    "ethereum",
+    "fastapi",
+    "flutter",
+    "gcloud-cli",
+    "git",
+    "go",
+    "hadoop",
+    "helm",
+    "hive",
+    "huggingface",
+    "ios",
+    "java",
+    "jupyter",
+    "kafka",
+    "kubeflow",
+    "kubernetes",
+    "mongodb",
+    "mysql",
+    "nextjs",
+    "nodejs",
+    "openssl",
+    "php",
+    "postgresql",
+    "python",
+    "python3",
+    "pytorch",
+    "raspberry-pi",
+    "react",
+    "redis",
+    "ruby",
+    "rust",
+    "spark",
+    "sqlite",
+    "tensorflow",
+    "terraform",
+    "unity",
+    "unreal",
+    "vscode",
+    "vue"
+  ],
+  "mirrors_config": {
+    "default_regions": [
+      "cn",
+      "global"
+    ],
+    "default_mirrors": {
+      "cn": {
+        "name": "中国镜像",
+        "description": "适合中国用户的下载源",
+        "priority": 10
+      },
+      "global": {
+        "name": "官方源",
+        "description": "官方下载源",
+        "priority": 1
+      }
+    },
+    "package_managers": {
+      "apt": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/ubuntu",
+              "name": "阿里云",
+              "priority": 1
+            },
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/ubuntu",
+              "name": "清华镜像",
+              "priority": 2
+            },
+            {
+              "url": "https://mirrors.ustc.edu.cn/ubuntu",
+              "name": "中科大镜像",
+              "priority": 3
+            }
+          ],
+          "key_mirrors": [
+            "https://mirrors.aliyun.com"
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "http://archive.ubuntu.com/ubuntu",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "pip": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://pypi.tuna.tsinghua.edu.cn/simple",
+              "name": "清华镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://pypi.douban.com/simple",
+              "name": "豆瓣镜像",
+              "priority": 2
+            },
+            {
+              "url": "https://mirrors.aliyun.com/pypi/simple",
+              "name": "阿里云镜像",
+              "priority": 3
+            },
+            {
+              "url": "https://pypi.mirrors.ustc.edu.cn/simple",
+              "name": "中科大镜像",
+              "priority": 4
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://pypi.org/simple",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "npm": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://registry.npmmirror.com",
+              "name": "淘宝 NPM 镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://registry.npm.taobao.org",
+              "name": "旧淘宝镜像",
+              "priority": 2
+            },
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/npm",
+              "name": "清华 NPM 镜像",
+              "priority": 3
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://registry.npmjs.org",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "docker": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://docker.mirrors.ustc.edu.cn",
+              "name": "中科大 Docker 镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://dockerproxy.com",
+              "name": "Docker 代理",
+              "priority": 2
+            },
+            {
+              "url": "https://hub-mirror.c.163.com",
+              "name": "网易镜像",
+              "priority": 3
+            },
+            {
+              "url": "https://mirror.ccs.tencentyun.com",
+              "name": "腾讯镜像",
+              "priority": 4
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://registry-1.docker.io",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "go": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://goproxy.cn",
+              "name": "GOPROXY.CN",
+              "priority": 1
+            },
+            {
+              "url": "https://goproxy.io",
+              "name": "GOPROXY.IO",
+              "priority": 2
+            },
+            {
+              "url": "https://mirrors.aliyun.com/goproxy",
+              "name": "阿里云 Go 代理",
+              "priority": 3
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://proxy.golang.org",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "rust": {
+        "cn": {
+          "crates_io_mirrors": [
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index",
+              "name": "清华 crates.io",
+              "priority": 1
+            }
+          ],
+          "rustup_mirrors": [
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/rustup",
+              "name": "清华 rustup",
+              "priority": 1
+            }
+          ]
+        },
+        "global": {
+          "crates_io_mirrors": [
+            {
+              "url": "https://github.com/rust-lang/crates.io-index",
+              "name": "官方源",
+              "priority": 1
+            }
+          ],
+          "rustup_mirrors": [
+            {
+              "url": "https://static.rust-lang.org",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "maven": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://maven.aliyun.com/repository/public",
+              "name": "阿里云 Maven 公共仓库",
+              "priority": 1
+            },
+            {
+              "url": "https://maven.aliyun.com/repository/central",
+              "name": "阿里云中央仓库镜像",
+              "priority": 2
+            },
+            {
+              "url": "https://maven.aliyun.com/repository/spring",
+              "name": "阿里云 Spring 仓库",
+              "priority": 3
+            },
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/maven",
+              "name": "清华 Maven 镜像",
+              "priority": 4
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://repo.maven.apache.org/maven2",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "apt-k8s": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/kubernetes/apt",
+              "name": "阿里云 Kubernetes 镜像",
+              "priority": 1
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://apt.kubernetes.io",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      }
+    },
+    "llm_models": {
+      "huggingface": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://hf-mirror.com",
+              "name": "HF Mirror",
+              "priority": 1
+            },
+            {
+              "url": "https://modelscope.cn",
+              "name": "魔搭社区",
+              "priority": 2
+            },
+            {
+              "url": "https://www.modelscope.cn",
+              "name": "阿里云魔搭",
+              "priority": 3
+            },
+            {
+              "url": "https://hf-mirror.com",
+              "name": "HuggingFace 镜像",
+              "priority": 4
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://huggingface.co",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "gpt4all": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://gpt4all-models.com",
+              "name": "GPT4All 镜像",
+              "priority": 1
+            }
+          ]
+        }
+      }
+    },
+    "tool_downloads": {
+      "python": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://mirrors.huaweicloud.com/python",
+              "name": "华为云镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/python",
+              "name": "清华镜像",
+              "priority": 2
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://www.python.org/ftp/python",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "nodejs": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://npmmirror.com/mirrors/node",
+              "name": "淘宝镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release",
+              "name": "清华镜像",
+              "priority": 2
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://nodejs.org/dist",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "go": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/golang",
+              "name": "阿里云镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://go.dev/dl",
+              "name": "Go 官网 (CDN 加速)",
+              "priority": 2
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://go.dev/dl",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "java": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/Adoptium",
+              "name": "清华 Adoptium 镜像",
+              "priority": 1
+            },
+            {
+              "url": "https://mirrors.huaweicloud.com/adoptium",
+              "name": "华为云镜像",
+              "priority": 2
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://github.com/adoptium/temurin/releases",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "php": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://mirrors.aliyun.com/php",
+              "name": "阿里云镜像",
+              "priority": 1
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://www.php.net/distributions",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "rust": {
+        "cn": {
+          "rustup_script": "https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup-init.sh"
+        },
+        "global": {
+          "rustup_script": "https://sh.rustup.rs"
+        }
+      },
+      "docker": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://get.daocloud.io/docker",
+              "name": "DaoCloud 镜像",
+              "priority": 1
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://get.docker.com",
+              "name": "官方脚本",
+              "priority": 1
+            }
+          ]
+        }
+      },
+      "github": {
+        "cn": {
+          "mirrors": [
+            {
+              "url": "https://ghproxy.com",
+              "name": "GH Proxy",
+              "priority": 1
+            },
+            {
+              "url": "https://mirror.ghproxy.com",
+              "name": "GitHub 代理",
+              "priority": 2
+            },
+            {
+              "url": "https://gh.api.99988866.xyz",
+              "name": "GitHub CDN",
+              "priority": 3
+            }
+          ]
+        },
+        "global": {
+          "mirrors": [
+            {
+              "url": "https://github.com",
+              "name": "官方源",
+              "priority": 1
+            }
+          ]
+        }
+      }
+    },
+    "system_updates": {
+      "debian": {
+        "cn": {
+          "mirrors": [
+            "https://mirrors.aliyun.com/debian",
+            "https://mirrors.tuna.tsinghua.edu.cn/debian"
+          ]
+        }
+      },
+      "ubuntu": {
+        "cn": {
+          "mirrors": [
+            "https://mirrors.aliyun.com/ubuntu",
+            "https://mirrors.tuna.tsinghua.edu.cn/ubuntu"
+          ]
+        }
+      },
+      "centos": {
+        "cn": {
+          "mirrors": [
+            "https://mirrors.aliyun.com/centos",
+            "https://mirrors.tuna.tsinghua.edu.cn/centos"
+          ]
+        }
+      },
+      "alpine": {
+        "cn": {
+          "mirrors": [
+            "https://mirrors.aliyun.com/alpine"
+          ]
+        }
+      }
+    }
+  },
+  "current_region": "global",
+  "export_time": "2026-05-19T03:42:15.433789"
 }

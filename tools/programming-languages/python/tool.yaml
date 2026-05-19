@@ -1,0 +1,247 @@
+# Python Programming Language (Multi-version, Mirror Support)
+name: python
+category: programming-language
+description: "Python - 简单、优雅、强大的编程语言"
+versions:
+  - version: "3.12"
+    alias: ["3.12", "latest"]
+    description: "Python 3.12 - 最新稳定版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz"
+        macos: "https://www.python.org/ftp/python/3.12.3/python-3.12.3-macos11.pkg"
+        windows: "https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe"
+      cn:
+        linux: "https://mirrors.huaweicloud.com/python/3.12.3/Python-3.12.3.tgz"
+        macos: "https://mirrors.huaweicloud.com/python/3.12.3/python-3.12.3-macos11.pkg"
+        windows: "https://mirrors.huaweicloud.com/python/3.12.3/python-3.12.3-amd64.exe"
+    is_default: true
+  
+  - version: "3.11"
+    alias: ["3.11"]
+    description: "Python 3.11 - 长期支持版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://www.python.org/ftp/python/3.11.8/Python-3.11.8.tgz"
+        macos: "https://www.python.org/ftp/python/3.11.8/python-3.11.8-macos11.pkg"
+        windows: "https://www.python.org/ftp/python/3.11.8/python-3.11.8-amd64.exe"
+      cn:
+        linux: "https://mirrors.huaweicloud.com/python/3.11.8/Python-3.11.8.tgz"
+        macos: "https://mirrors.huaweicloud.com/python/3.11.8/python-3.11.8-macos11.pkg"
+        windows: "https://mirrors.huaweicloud.com/python/3.11.8/python-3.11.8-amd64.exe"
+  
+  - version: "3.10"
+    alias: ["3.10"]
+    description: "Python 3.10 - 稳定版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz"
+        macos: "https://www.python.org/ftp/python/3.10.13/python-3.10.13-macos11.pkg"
+        windows: "https://www.python.org/ftp/python/3.10.13/python-3.10.13-amd64.exe"
+      cn:
+        linux: "https://mirrors.huaweicloud.com/python/3.10.13/Python-3.10.13.tgz"
+        macos: "https://mirrors.huaweicloud.com/python/3.10.13/python-3.10.13-macos11.pkg"
+        windows: "https://mirrors.huaweicloud.com/python/3.10.13/python-3.10.13-amd64.exe"
+  
+  - version: "3.9"
+    alias: ["3.9"]
+    description: "Python 3.9 - 旧版"
+    supported_os: ["linux", "macos", "windows"]
+    download_urls:
+      global:
+        linux: "https://www.python.org/ftp/python/3.9.18/Python-3.9.18.tgz"
+        macos: "https://www.python.org/ftp/python/3.9.18/python-3.9.18-macos11.pkg"
+        windows: "https://www.python.org/ftp/python/3.9.18/python-3.9.18-amd64.exe"
+      cn:
+        linux: "https://mirrors.huaweicloud.com/python/3.9.18/Python-3.9.18.tgz"
+        macos: "https://mirrors.huaweicloud.com/python/3.9.18/python-3.9.18-macos11.pkg"
+        windows: "https://mirrors.huaweicloud.com/python/3.9.18/python-3.9.18-amd64.exe"
+
+homepage: "https://www.python.org/"
+documentation: "https://docs.python.org/3/"
+license: "PSF License"
+author: "Python Software Foundation"
+
+tags:
+  - python
+  - programming-language
+  - script
+  - data-science
+  - ai
+  - ml
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+package_managers:
+  - apt
+  - brew
+  - yum
+  - dnf
+  - chocolatey
+  - winget
+
+installation_sources:
+  - type: python3-deadSnakes-ppa
+    os: [linux]
+    package_name: "python3.12 python3.12-dev"
+    description: "DeadSnakes PPA (Ubuntu/Debian)"
+    priority: 1
+    region_preference: ["global", "cn"]
+    command: |
+      sudo apt update
+      sudo apt install software-properties-common -y
+      sudo add-apt-repository ppa:deadsnakes/ppa -y
+      sudo apt update
+      sudo apt install -y python3.12 python3.12-dev python3-pip
+      sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+  
+  - type: apt
+    os: [linux]
+    package_name: python3 python3-pip python3-dev
+    description: "System Python from APT"
+    priority: 2
+    region_preference: ["global", "cn"]
+    command: |
+      sudo apt update
+      sudo apt install -y python3 python3-pip python3-dev
+  
+  - type: brew
+    os: [macos]
+    package_name: python3
+    description: "Homebrew Python"
+    priority: 1
+    region_preference: ["global", "cn"]
+    command: |
+      export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
+      export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-brew.git"
+      export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
+      brew install python3
+  
+  - type: winget
+    os: [windows]
+    package_name: Python.Python.3.12
+    description: "Winget package manager"
+    priority: 1
+    region_preference: ["global", "cn"]
+  
+  - type: manual-download
+    os: [linux, macos, windows]
+    description: "Manual download with mirror support"
+    priority: 3
+    region_preference: ["cn", "global"]
+    uses_mirrors: true
+    file: "Python-{version}.tgz"
+    verify_checksum: true
+    command: |
+      # 自动选择镜像下载
+      # 根据当前地区自动选择最佳镜像
+      wget {{mirror_url}}
+      tar -xzf {{downloaded_file}}
+      cd Python-{{version}}
+      ./configure --enable-optimizations
+      make -j$(nproc)
+      sudo make altinstall
+
+optional_tools:
+  - name: pipenv
+    description: "Pipenv - 现代包管理"
+    recommended: true
+  - name: poetry
+    description: "Poetry - 依赖管理工具"
+    recommended: true
+  - name: pyenv
+    description: "Python 版本管理器"
+    recommended: true
+  - name: virtualenv
+    description: "虚拟环境工具"
+    recommended: false
+  - name: conda
+    description: "Anaconda/Miniconda"
+    recommended: false
+
+environment_vars:
+  PIP_INDEX_URL:
+    cn: "https://pypi.tuna.tsinghua.edu.cn/simple"
+    global: "https://pypi.org/simple"
+  PIP_TRUSTED_HOST:
+    cn: "pypi.tuna.tsinghua.edu.cn"
+    global: "pypi.org"
+  PYTHONUNBUFFERED: "1"
+
+pip_config:
+  cn:
+    index-url: "https://pypi.tuna.tsinghua.edu.cn/simple"
+    trusted-host: "pypi.tuna.tsinghua.edu.cn"
+    timeout: "120"
+  global:
+    index-url: "https://pypi.org/simple"
+    trusted-host: "pypi.org"
+
+post_install:
+  - description: "Configure Pip mirror (CN region)"
+    region: "cn"
+    command: |
+      pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+      pip3 config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+      pip3 config set install.timeout 120
+  - description: "Upgrade pip and install common packages"
+    region: ["cn", "global"]
+    command: |
+      python3 -m pip install --upgrade pip setuptools wheel
+      pip3 install requests beautifulsoup4 lxml selenium
+      pip3 install numpy pandas matplotlib scipy
+
+verify_commands:
+  - "python3 --version"
+  - "pip3 --version"
+  - "python3 -c 'import sys; print(sys.version_info)'"
+
+compatible_with:
+  - virtualenv
+  - poetry
+  - pipenv
+  - jupyter
+  - pandas
+
+system_requirements:
+  disk_space: "500MB minimum, 2GB recommended"
+  memory: "256MB minimum, 1GB recommended"
+
+dependencies:
+  linux:
+    - build-essential
+    - libssl-dev
+    - libsqlite3-dev
+    - libbz2-dev
+    - libreadline-dev
+    - libffi-dev
+    - zlib1g-dev
+    - libncurses5-dev
+    - libncursesw5-dev
+    - libgdbm-dev
+    - libdb5.3-dev
+    - liblzma-dev
+  macos:
+    - xcode-command-line-tools
+
+fallback_sources:
+  - type: apt
+    os: [linux]
+    package_name: "python3.11"
+    reason: "If default version fails"
+  - type: conda
+    os: [all]
+    package_name: "python=3.10"
+    reason: "Conda as fallback"
+
+notes:
+  - "Multiple versions can be installed in parallel"
+  - "Use pyenv for version management if needed"
+  - "CN region automatically uses mirror sources"
+  - "Pip is configured with mirror by default in CN"
