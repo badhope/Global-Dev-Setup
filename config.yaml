@@ -1,0 +1,77 @@
+# Global-Dev-Setup Configuration
+# This file contains global configuration settings
+
+# Registry settings
+registry:
+  # Auto-detect region based on network
+  auto_detect_region: true
+  
+  # Default region if auto-detect fails
+  default_region: global
+  
+  # Registry data paths
+  tools_dir: tools
+  templates_dir: environment-templates
+  
+  # Export settings
+  export:
+    format: json
+    output_file: tool_registry.json
+    pretty_print: true
+
+# Mirror settings
+mirrors:
+  # Enable mirror sources
+  enabled: true
+  
+  # Default region
+  region: global
+  
+  # Auto-select best mirror
+  auto_select: true
+  
+  # Mirror test timeout (seconds)
+  timeout: 3
+
+# Installation settings
+installation:
+  # Parallel installation
+  parallel: true
+  max_workers: 4
+  
+  # Auto-verify after installation
+  auto_verify: true
+  
+  # Fail on first error
+  fail_fast: false
+
+# Logging settings
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: registry.log
+
+# Agent settings
+agent:
+  # Enable agent API
+  enable_api: true
+  
+  # API host
+  host: "0.0.0.0"
+  
+  # API port
+  port: 8000
+  
+  # CORS enabled
+  cors: true
+
+# Development settings
+development:
+  # Enable debug mode
+  debug: false
+  
+  # Watch for file changes
+  watch: false
+  
+  # Auto-reload
+  auto_reload: false

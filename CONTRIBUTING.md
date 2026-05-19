@@ -1,278 +1,308 @@
 # Contributing to Global-Dev-Setup
 
-Thank you for your interest in contributing to Global-Dev-Setup! 🎉
+Thank you for your interest in contributing to Global-Dev-Setup!
 
-## 📋 Table of Contents
+## 🎯 How to Contribute
 
-- [Code of Conduct](#code-of-conduct)
-- [Ways to Contribute](#ways-to-contribute)
-- [Getting Started](#getting-started)
-- [Development Process](#development-process)
-- [Submission Guidelines](#submission-guidelines)
-- [Style Guides](#style-guides)
-- [Recognition](#recognition)
+There are several ways to contribute:
 
-## Code of Conduct
+1. **Add New Tools** - Expand the tool registry
+2. **Create Templates** - Add new environment templates
+3. **Improve Documentation** - Enhance guides and examples
+4. **Fix Issues** - Report and fix bugs
+5. **Add Mirror Sources** - Improve download sources for different regions
 
-By participating in this project, you agree to maintain a welcoming and respectful environment for everyone.
+## 📝 Adding New Tools
 
-### Our Standards
+### Step 1: Create Tool Directory
 
-- Be kind and courteous
-- Respect differing viewpoints
-- Focus on what is best for the community
-- Show empathy towards others
+Create a directory for your tool:
 
-### Our Responsibilities
-
-Project maintainers are responsible for clarifying standards and willfairly and respectfully address issues and contributions.
-
-## Ways to Contribute
-
-### 🐛 Report Bugs
-
-- Use GitHub Issues
-- Include operating system and version
-- Provide clear reproduction steps
-- Include error messages and logs
-
-### 💡 Suggest Features
-
-- Open a GitHub Discussion first
-- Explain the use case
-- Provide examples
-- Be open to feedback
-
-### 📝 Improve Documentation
-
-- Fix typos and grammar
-- Add examples
-- Improve clarity
-- Translate to other languages
-
-### 🔧 Add New Tools
-
-- Follow the tool template
-- Test on multiple platforms
-- Include installation/uninstallation scripts
-- Provide comprehensive documentation
-
-### 🧪 Test & Review
-
-- Test installation scripts
-- Verify cross-platform compatibility
-- Review pull requests
-- Provide feedback
-
-## Getting Started
-
-### Prerequisites
-
-- Git installed
-- Text editor or IDE
-- Basic command-line knowledge
-- Enthusiasm! 🚀
-
-### Fork the Repository
-
-1. Click the "Fork" button on GitHub
-2. Clone your fork:
 ```bash
-git clone https://github.com/YOUR-USERNAME/Global-Dev-Setup.git
+mkdir -p tools/[category]/[tool-name]
+```
+
+Examples:
+- `tools/programming-languages/rust`
+- `tools/databases/postgresql`
+- `tools/devops/kubernetes`
+
+### Step 2: Create Tool Definition
+
+Create a `tool.yaml` file following the format in [docs/TOOLS_GUIDE.md](docs/TOOLS_GUIDE.md).
+
+Example:
+```yaml
+name: rust
+category: programming-language
+description: "Rust - Blazingly fast and memory-safe programming language"
+homepage: "https://www.rust-lang.org/"
+documentation: "https://doc.rust-lang.org/"
+license: "MIT/Apache 2.0"
+author: "Rust Project"
+
+tags:
+  - rust
+  - systems-programming
+  - memory-safe
+  - high-performance
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: curl
+    os: [linux, macos]
+    description: "Rustup installer (recommended)"
+    priority: 1
+    command: |
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      source "$HOME/.cargo/env"
+
+verify_commands:
+  - "rustc --version"
+  - "cargo --version"
+
+compatible_with:
+  - docker
+  - vscode
+```
+
+### Step 3: Test Your Definition
+
+```bash
+python registry.py --tool rust
+```
+
+### Step 4: Export Updated Registry
+
+```bash
+python registry.py --export
+```
+
+## 📋 Creating Environment Templates
+
+### Step 1: Create Template File
+
+Create a YAML file in `environment-templates/`:
+
+```bash
+# Example: environment-templates/new-developer.yaml
+```
+
+### Step 2: Define Template
+
+Follow the format in [docs/TEMPLATES_GUIDE.md](docs/TEMPLATES_GUIDE.md).
+
+```yaml
+name: new-developer
+description: "Environment for new developers"
+category: development
+recommended_for:
+  - "Beginner developers"
+  - "Learning programming"
+
+required_tools:
+  - name: git
+    version: "2.30+"
+  - name: python3
+    version: "3.11+"
+
+recommended_tools:
+  - name: vscode
+    version: "1.80+"
+
+installation_phases:
+  phase_1:
+    name: "Foundation"
+    tools: [git, python3]
+    description: "Install basic tools"
+
+post_install_steps:
+  - "python3 --version"
+  - "git --version"
+```
+
+### Step 3: Test Template
+
+```bash
+python registry.py --template new-developer
+python registry.py --list-templates
+```
+
+## 🔧 Improving Documentation
+
+### Documentation Files
+
+- `README.md` - Main documentation (English)
+- `README_zh.md` - Chinese documentation
+- `docs/TOOLS_GUIDE.md` - Tool definition guide
+- `docs/TEMPLATES_GUIDE.md` - Template creation guide
+- `docs/API_REFERENCE.md` - API documentation
+
+### Guidelines
+
+1. **English Primary** - Use English for all code and comments
+2. **Chinese Translation** - Add Chinese versions in README_zh.md
+3. **Clear Examples** - Include working examples
+4. **Update Both Languages** - Keep English and Chinese in sync
+
+## 🐛 Reporting Issues
+
+### Before Creating an Issue
+
+1. Search existing issues
+2. Verify the issue with latest version
+3. Check if tool definition needs update
+
+### Creating an Issue
+
+Use the issue template and include:
+- Tool name and version
+- Operating system
+- Expected behavior
+- Actual behavior
+- Error messages
+
+## 🔄 Pull Request Process
+
+### 1. Fork the Repository
+
+```bash
+git clone https://github.com/badhope/Global-Dev-Setup.git
 cd Global-Dev-Setup
 ```
 
-3. Add upstream remote:
-```bash
-git remote add upstream https://github.com/badhope/Global-Dev-Setup.git
-```
-
-### Create a Branch
+### 2. Create a Branch
 
 ```bash
-# For new tools
-git checkout -b feature/add-new-tool
-
-# For bug fixes
-git checkout -b fix/issue-description
-
-# For documentation
-git checkout -b docs/improve-readme
+git checkout -b feature/new-tool
 ```
 
-## Development Process
+### 3. Make Your Changes
 
-### 1. Set Up Your Development Environment
+- Add tool definitions
+- Create templates
+- Update documentation
+- Fix issues
+
+### 4. Test Your Changes
 
 ```bash
-# Install basic tools
-./scripts/setup-basics.sh
+# Test registry
+python registry.py --export
+python registry.py --tool your-new-tool
 
-# Verify setup
-./scripts/test-environment.sh
+# Test template
+python registry.py --template your-new-template
 ```
 
-### 2. Make Your Changes
-
-- Follow the repository structure
-- Use appropriate templates
-- Test locally
-- Keep changes focused
-
-### 3. Write Tests (If Applicable)
-
-```bash
-# Run existing tests
-./scripts/test-all.sh
-
-# Add tests for new features
-./scripts/add-test.sh
-```
-
-### 4. Commit Your Changes
+### 5. Commit Your Changes
 
 ```bash
 git add .
-git commit -m "feat: Add Python 3.11 installation support"
+git commit -m "Add new-tool for new-developer category"
 ```
 
-#### Commit Message Format
-
-```
-<type>(<scope>): <description>
-
-[optional body]
-
-[optional footer]
-```
-
-**Types:**
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation
-- `style`: Formatting
-- `refactor`: Code restructuring
-- `test`: Adding tests
-- `chore`: Maintenance
-
-**Examples:**
-```
-feat(databases): Add MongoDB installation support
-fix(docker): Resolve permission issue on Linux
-docs(readme): Update installation instructions
-```
-
-### 5. Push to Your Fork
+### 6. Push and Create PR
 
 ```bash
-git push origin feature/your-feature-name
+git push origin feature/new-tool
 ```
 
-### 6. Submit a Pull Request
+Then create a Pull Request on GitHub.
 
-1. Go to the original repository
-2. Click "New Pull Request"
-3. Select your branch
-4. Fill in the template
-5. Submit! 🎉
-
-## Submission Guidelines
-
-### Pull Request Checklist
-
-- [ ] I have tested my changes locally
-- [ ] My code follows the project's style
-- [ ] I have updated documentation if needed
-- [ ] My commit messages are clear
-- [ ] I have added tests (if applicable)
-- [ ] All tests pass
-
-### Pull Request Template
+## 📋 Pull Request Template
 
 ```markdown
 ## Description
 Brief description of changes
 
-## Motivation
-Why this change is needed
-
-## Changes Made
-- List of changes
-- With bullet points
+## Type of Change
+- [ ] Add new tool
+- [ ] Add new template
+- [ ] Update existing tool
+- [ ] Update documentation
+- [ ] Bug fix
 
 ## Testing
-How was this tested?
-
-## Screenshots (If Applicable)
-Add screenshots here
+How did you test your changes?
 
 ## Checklist
-- [ ] Tested on Linux
-- [ ] Tested on macOS
-- [ ] Tested on Windows
+- [ ] Tool definition follows format
+- [ ] Template follows format
+- [ ] Tests pass
 - [ ] Documentation updated
-- [ ] No breaking changes (or justified)
+- [ ] Registry exported
 ```
 
-## Style Guides
+## 🏷️ Tool Naming Conventions
 
-### Documentation Style
+- Use lowercase names
+- Use hyphens for multi-word names (e.g., `postgresql`, `vscode`)
+- Match directory structure to tool name
+- Use official names when possible
 
-- Use clear, concise language
-- Include code examples
-- Add headings and lists
-- Keep formatting consistent
+## 📂 Category Structure
 
-### Script Style
+Use existing categories when possible:
+- `programming-language`
+- `web-framework`
+- `database`
+- `devops`
+- `security`
+- `monitoring`
+- `networking`
+- `testing`
+- `ai-ml`
+- `big-data`
+- `terminal`
+- `system`
 
-```bash
-#!/usr/bin/env bash
+Create new categories only when necessary.
 
-# Comments in English
-# Use 2-space indentation
-# Quote variables
-# Useerrexit for error handling
+## 🌐 Mirror Source Guidelines
 
-set -e
+When adding mirror sources:
 
-install_tool() {
-    local version="$1"
-    echo "Installing tool version: $version"
-    # Installation logic here
-}
-```
+1. **Verify mirrors work** - Test before adding
+2. **Prioritize by region** - CN mirrors for Chinese users
+3. **Include official source** - Always have fallback
+4. **Document in mirrors_config.yaml** - Keep organized
 
-### README Style
+## ✅ Quality Standards
 
-Each tool should have a README with:
+### Tool Definitions Must Include
 
-1. **Title** - Tool name and emoji
-2. **Description** - What it is
-3. **Installation** - How to install
-4. **Configuration** - Setup instructions
-5. **Usage** - How to use
-6. **Requirements** - Prerequisites
-7. **Troubleshooting** - Common issues
+- ✅ `name` - Tool name
+- ✅ `category` - Category
+- ✅ `description` - Short description
+- ✅ `homepage` - Official website
+- ✅ `tags` - Searchable tags
+- ✅ `supported_os` - OS compatibility
+- ✅ `installation_sources` - Installation methods
+- ✅ `verify_commands` - Installation verification
 
-## Recognition
+### Templates Must Include
 
-Contributors will be:
-- Listed in our CONTRIBUTORS.md file
-- Mentioned in release notes
-- Given credit in documentation
-- Invited to contribute more! 🎉
+- ✅ `name` - Template name
+- ✅ `description` - What it's for
+- ✅ `recommended_for` - Target audience
+- ✅ `required_tools` - Essential tools
+- ✅ `recommended_tools` - Suggested tools
+- ✅ `installation_phases` - Logical phases
 
-## Questions?
+## 📞 Getting Help
 
-- Open an issue
-- Start a discussion
-- Check existing issues
-- Email maintainers
+- **Issues**: [GitHub Issues](https://github.com/badhope/Global-Dev-Setup/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/badhope/Global-Dev-Setup/discussions)
 
-## License
+## 📜 License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-**Thank you for contributing to Global-Dev-Setup!** 💖
+Thank you for contributing to Global-Dev-Setup! 🎉
