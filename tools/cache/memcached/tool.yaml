@@ -1,0 +1,29 @@
+# Memcached - Memcached - 分布式内存缓存
+name: memcached
+category: cache
+description: "Memcached - 分布式内存缓存"
+homepage: "https://memcached.org/"
+
+tags:
+  - memcached
+  - cache
+  - distributed
+  - in-memory
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://memcached.org/ for installation instructions
+
+verify_commands:
+  - "memcached --version"
+
+compatible_with: []

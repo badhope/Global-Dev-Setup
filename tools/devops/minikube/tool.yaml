@@ -1,0 +1,29 @@
+# Minikube - Minikube - 本地Kubernetes测试环境
+name: minikube
+category: devops
+description: "Minikube - 本地Kubernetes测试环境"
+homepage: "https://minikube.sigs.k8s.io/"
+
+tags:
+  - minikube
+  - kubernetes
+  - local
+  - testing
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://minikube.sigs.k8s.io/ for installation instructions
+
+verify_commands:
+  - "minikube --version"
+
+compatible_with: []

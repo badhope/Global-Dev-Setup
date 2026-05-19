@@ -1,0 +1,29 @@
+# Snyk - Snyk - 漏洞扫描工具
+name: snyk
+category: security
+description: "Snyk - 漏洞扫描工具"
+homepage: "https://snyk.io/"
+
+tags:
+  - snyk
+  - security
+  - vulnerability
+  - scanning
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://snyk.io/ for installation instructions
+
+verify_commands:
+  - "snyk --version"
+
+compatible_with: []

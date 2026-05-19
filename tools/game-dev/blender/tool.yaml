@@ -1,0 +1,29 @@
+# Blender - Blender - 3D建模工具
+name: blender
+category: game-dev
+description: "Blender - 3D建模工具"
+homepage: "https://www.blender.org/"
+
+tags:
+  - blender
+  - 3d
+  - modeling
+  - game-dev
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.blender.org/ for installation instructions
+
+verify_commands:
+  - "blender --version"
+
+compatible_with: []

@@ -1,0 +1,29 @@
+# Activemq - ActiveMQ - 企业消息队列
+name: activemq
+category: messaging
+description: "ActiveMQ - 企业消息队列"
+homepage: "https://activemq.apache.org/"
+
+tags:
+  - activemq
+  - message-queue
+  - jms
+  - enterprise
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://activemq.apache.org/ for installation instructions
+
+verify_commands:
+  - "activemq --version"
+
+compatible_with: []

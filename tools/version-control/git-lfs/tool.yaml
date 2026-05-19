@@ -1,0 +1,29 @@
+# Git-Lfs - Git LFS - 大文件存储
+name: git-lfs
+category: version-control
+description: "Git LFS - 大文件存储"
+homepage: "https://git-lfs.com/"
+
+tags:
+  - git-lfs
+  - git
+  - large-files
+  - version-control
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://git-lfs.com/ for installation instructions
+
+verify_commands:
+  - "git-lfs --version"
+
+compatible_with: []

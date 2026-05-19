@@ -1,0 +1,29 @@
+# Neovim - Neovim - 现代化Vim编辑器
+name: neovim
+category: editor
+description: "Neovim - 现代化Vim编辑器"
+homepage: "https://neovim.io/"
+
+tags:
+  - neovim
+  - vim
+  - editor
+  - terminal
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://neovim.io/ for installation instructions
+
+verify_commands:
+  - "neovim --version"
+
+compatible_with: []

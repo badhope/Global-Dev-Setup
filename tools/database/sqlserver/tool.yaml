@@ -1,0 +1,29 @@
+# Sqlserver - SQL Server - Microsoft企业级数据库
+name: sqlserver
+category: database
+description: "SQL Server - Microsoft企业级数据库"
+homepage: "https://www.microsoft.com/en-us/sql-server/"
+
+tags:
+  - sqlserver
+  - microsoft
+  - database
+  - enterprise
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.microsoft.com/en-us/sql-server/ for installation instructions
+
+verify_commands:
+  - "sqlserver --version"
+
+compatible_with: []

@@ -1,0 +1,29 @@
+# Slack - Slack - 团队沟通工具
+name: slack
+category: productivity
+description: "Slack - 团队沟通工具"
+homepage: "https://slack.com/"
+
+tags:
+  - slack
+  - communication
+  - team
+  - collaboration
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://slack.com/ for installation instructions
+
+verify_commands:
+  - "slack --version"
+
+compatible_with: []

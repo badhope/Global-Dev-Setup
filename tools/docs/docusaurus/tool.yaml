@@ -1,0 +1,29 @@
+# Docusaurus - Docusaurus - 现代化文档框架
+name: docusaurus
+category: docs
+description: "Docusaurus - 现代化文档框架"
+homepage: "https://docusaurus.io/"
+
+tags:
+  - docusaurus
+  - documentation
+  - react
+  - markdown
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://docusaurus.io/ for installation instructions
+
+verify_commands:
+  - "docusaurus --version"
+
+compatible_with: []

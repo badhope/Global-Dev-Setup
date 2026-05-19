@@ -1,0 +1,29 @@
+# Alibaba-Cli - Alibaba Cloud CLI - 阿里云命令行
+name: alibaba-cli
+category: cloud
+description: "Alibaba Cloud CLI - 阿里云命令行"
+homepage: "https://www.alibabacloud.com/help/doc-detail/110343.htm"
+
+tags:
+  - alibaba
+  - cloud
+  - cli
+  - aliyun
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.alibabacloud.com/help/doc-detail/110343.htm for installation instructions
+
+verify_commands:
+  - "alibaba-cli --version"
+
+compatible_with: []

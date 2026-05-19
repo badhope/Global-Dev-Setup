@@ -1,0 +1,29 @@
+# Gitlab-Ci - GitLab CI - CI/CD流水线
+name: gitlab-ci
+category: devops
+description: "GitLab CI - CI/CD流水线"
+homepage: "https://docs.gitlab.com/ee/ci/"
+
+tags:
+  - gitlab-ci
+  - ci-cd
+  - gitlab
+  - automation
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://docs.gitlab.com/ee/ci/ for installation instructions
+
+verify_commands:
+  - "gitlab-ci --version"
+
+compatible_with: []

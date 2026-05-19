@@ -1,0 +1,29 @@
+# Pulsar - Apache Pulsar - 云原生消息平台
+name: pulsar
+category: messaging
+description: "Apache Pulsar - 云原生消息平台"
+homepage: "https://pulsar.apache.org/"
+
+tags:
+  - pulsar
+  - messaging
+  - streaming
+  - cloud-native
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://pulsar.apache.org/ for installation instructions
+
+verify_commands:
+  - "pulsar --version"
+
+compatible_with: []

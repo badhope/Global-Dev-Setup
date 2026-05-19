@@ -1,0 +1,29 @@
+# Flink - Apache Flink - 流处理框架
+name: flink
+category: big-data
+description: "Apache Flink - 流处理框架"
+homepage: "https://flink.apache.org/"
+
+tags:
+  - flink
+  - streaming
+  - big-data
+  - real-time
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://flink.apache.org/ for installation instructions
+
+verify_commands:
+  - "flink --version"
+
+compatible_with: []

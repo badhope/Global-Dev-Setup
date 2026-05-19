@@ -1,0 +1,29 @@
+# Godot - Godot - 开源游戏引擎
+name: godot
+category: game-dev
+description: "Godot - 开源游戏引擎"
+homepage: "https://godotengine.org/"
+
+tags:
+  - godot
+  - game-engine
+  - open-source
+  - game-dev
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://godotengine.org/ for installation instructions
+
+verify_commands:
+  - "godot --version"
+
+compatible_with: []

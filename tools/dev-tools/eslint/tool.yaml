@@ -1,0 +1,30 @@
+# Eslint - ESLint - JavaScript代码检查工具
+name: eslint
+category: dev-tools
+description: "ESLint - JavaScript代码检查工具"
+homepage: "https://eslint.org/"
+
+tags:
+  - eslint
+  - lint
+  - javascript
+  - typescript
+  - code-quality
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://eslint.org/ for installation instructions
+
+verify_commands:
+  - "eslint --version"
+
+compatible_with: []

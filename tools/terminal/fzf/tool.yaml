@@ -1,0 +1,29 @@
+# Fzf - fzf - 模糊搜索工具
+name: fzf
+category: terminal
+description: "fzf - 模糊搜索工具"
+homepage: "https://github.com/junegunn/fzf"
+
+tags:
+  - fzf
+  - fuzzy-search
+  - terminal
+  - productivity
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/junegunn/fzf for installation instructions
+
+verify_commands:
+  - "fzf --version"
+
+compatible_with: []

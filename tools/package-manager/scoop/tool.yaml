@@ -1,0 +1,29 @@
+# Scoop - Scoop - Windows命令行包管理器
+name: scoop
+category: package-manager
+description: "Scoop - Windows命令行包管理器"
+homepage: "https://scoop.sh/"
+
+tags:
+  - scoop
+  - windows
+  - package-manager
+  - cli
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://scoop.sh/ for installation instructions
+
+verify_commands:
+  - "scoop --version"
+
+compatible_with: []

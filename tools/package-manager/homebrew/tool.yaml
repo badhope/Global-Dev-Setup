@@ -1,0 +1,28 @@
+# Homebrew - Homebrew - macOS包管理器
+name: homebrew
+category: package-manager
+description: "Homebrew - macOS包管理器"
+homepage: "https://brew.sh/"
+
+tags:
+  - homebrew
+  - macos
+  - package-manager
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://brew.sh/ for installation instructions
+
+verify_commands:
+  - "homebrew --version"
+
+compatible_with: []

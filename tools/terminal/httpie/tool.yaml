@@ -1,0 +1,29 @@
+# Httpie - HTTPie - 友好的HTTP客户端
+name: httpie
+category: terminal
+description: "HTTPie - 友好的HTTP客户端"
+homepage: "https://httpie.io/"
+
+tags:
+  - httpie
+  - http-client
+  - api
+  - terminal
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://httpie.io/ for installation instructions
+
+verify_commands:
+  - "httpie --version"
+
+compatible_with: []

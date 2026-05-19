@@ -1,0 +1,29 @@
+# Newrelic - New Relic - 应用性能监控
+name: newrelic
+category: monitoring
+description: "New Relic - 应用性能监控"
+homepage: "https://newrelic.com/"
+
+tags:
+  - newrelic
+  - apm
+  - monitoring
+  - observability
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://newrelic.com/ for installation instructions
+
+verify_commands:
+  - "newrelic --version"
+
+compatible_with: []

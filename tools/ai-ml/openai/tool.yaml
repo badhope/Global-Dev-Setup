@@ -1,0 +1,29 @@
+# Openai - OpenAI API - AI服务接口
+name: openai
+category: ai-ml
+description: "OpenAI API - AI服务接口"
+homepage: "https://openai.com/"
+
+tags:
+  - openai
+  - ai
+  - api
+  - llm
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://openai.com/ for installation instructions
+
+verify_commands:
+  - "openai --version"
+
+compatible_with: []

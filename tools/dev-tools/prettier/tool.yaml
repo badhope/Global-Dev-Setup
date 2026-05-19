@@ -1,0 +1,29 @@
+# Prettier - Prettier - 代码格式化工具
+name: prettier
+category: dev-tools
+description: "Prettier - 代码格式化工具"
+homepage: "https://prettier.io/"
+
+tags:
+  - prettier
+  - formatter
+  - code-style
+  - javascript
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://prettier.io/ for installation instructions
+
+verify_commands:
+  - "prettier --version"
+
+compatible_with: []

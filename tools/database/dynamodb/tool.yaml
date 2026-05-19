@@ -1,0 +1,30 @@
+# Dynamodb - Amazon DynamoDB - 托管NoSQL数据库
+name: dynamodb
+category: database
+description: "Amazon DynamoDB - 托管NoSQL数据库"
+homepage: "https://aws.amazon.com/dynamodb/"
+
+tags:
+  - dynamodb
+  - aws
+  - nosql
+  - serverless
+  - key-value
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://aws.amazon.com/dynamodb/ for installation instructions
+
+verify_commands:
+  - "dynamodb --version"
+
+compatible_with: []

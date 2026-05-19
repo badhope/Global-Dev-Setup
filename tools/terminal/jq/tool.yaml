@@ -1,0 +1,29 @@
+# Jq - jq - JSON处理工具
+name: jq
+category: terminal
+description: "jq - JSON处理工具"
+homepage: "https://stedolan.github.io/jq/"
+
+tags:
+  - jq
+  - json
+  - terminal
+  - cli
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://stedolan.github.io/jq/ for installation instructions
+
+verify_commands:
+  - "jq --version"
+
+compatible_with: []

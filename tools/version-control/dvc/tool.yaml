@@ -1,0 +1,29 @@
+# Dvc - DVC - 数据版本控制
+name: dvc
+category: version-control
+description: "DVC - 数据版本控制"
+homepage: "https://dvc.org/"
+
+tags:
+  - dvc
+  - data-versioning
+  - mlops
+  - git
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://dvc.org/ for installation instructions
+
+verify_commands:
+  - "dvc --version"
+
+compatible_with: []

@@ -1,0 +1,29 @@
+# Github-Actions - GitHub Actions - CI/CD工作流
+name: github-actions
+category: devops
+description: "GitHub Actions - CI/CD工作流"
+homepage: "https://github.com/features/actions"
+
+tags:
+  - github-actions
+  - ci-cd
+  - automation
+  - github
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/features/actions for installation instructions
+
+verify_commands:
+  - "github-actions --version"
+
+compatible_with: []

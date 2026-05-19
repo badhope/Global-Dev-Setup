@@ -1,0 +1,29 @@
+# Tmux - tmux - 终端复用器
+name: tmux
+category: terminal
+description: "tmux - 终端复用器"
+homepage: "https://tmux.github.io/"
+
+tags:
+  - tmux
+  - terminal
+  - multiplexer
+  - shell
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://tmux.github.io/ for installation instructions
+
+verify_commands:
+  - "tmux --version"
+
+compatible_with: []

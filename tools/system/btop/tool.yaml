@@ -1,0 +1,29 @@
+# Btop - btop - 现代系统监控工具
+name: btop
+category: system
+description: "btop - 现代系统监控工具"
+homepage: "https://github.com/aristocratos/btop"
+
+tags:
+  - btop
+  - monitoring
+  - system
+  - terminal
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/aristocratos/btop for installation instructions
+
+verify_commands:
+  - "btop --version"
+
+compatible_with: []

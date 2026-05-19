@@ -1,0 +1,29 @@
+# Pinot - Apache Pinot - 实时分析数据库
+name: pinot
+category: big-data
+description: "Apache Pinot - 实时分析数据库"
+homepage: "https://pinot.apache.org/"
+
+tags:
+  - pinot
+  - olap
+  - analytics
+  - real-time
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://pinot.apache.org/ for installation instructions
+
+verify_commands:
+  - "pinot --version"
+
+compatible_with: []

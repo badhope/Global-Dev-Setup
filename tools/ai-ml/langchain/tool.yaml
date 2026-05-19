@@ -1,0 +1,29 @@
+# Langchain - LangChain - LLM应用框架
+name: langchain
+category: ai-ml
+description: "LangChain - LLM应用框架"
+homepage: "https://www.langchain.com/"
+
+tags:
+  - langchain
+  - llm
+  - ai
+  - chatbot
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.langchain.com/ for installation instructions
+
+verify_commands:
+  - "langchain --version"
+
+compatible_with: []

@@ -1,0 +1,29 @@
+# Druid - Apache Druid - 实时OLAP数据库
+name: druid
+category: big-data
+description: "Apache Druid - 实时OLAP数据库"
+homepage: "https://druid.apache.org/"
+
+tags:
+  - druid
+  - olap
+  - analytics
+  - real-time
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://druid.apache.org/ for installation instructions
+
+verify_commands:
+  - "druid --version"
+
+compatible_with: []

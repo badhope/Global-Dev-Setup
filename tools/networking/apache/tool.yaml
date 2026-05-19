@@ -1,0 +1,29 @@
+# Apache - Apache HTTP Server - 老牌Web服务器
+name: apache
+category: networking
+description: "Apache HTTP Server - 老牌Web服务器"
+homepage: "https://httpd.apache.org/"
+
+tags:
+  - apache
+  - web-server
+  - http
+  - legacy
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://httpd.apache.org/ for installation instructions
+
+verify_commands:
+  - "apache --version"
+
+compatible_with: []

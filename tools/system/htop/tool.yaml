@@ -1,0 +1,29 @@
+# Htop - htop - 进程监控工具
+name: htop
+category: system
+description: "htop - 进程监控工具"
+homepage: "https://htop.dev/"
+
+tags:
+  - htop
+  - process
+  - monitoring
+  - system
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://htop.dev/ for installation instructions
+
+verify_commands:
+  - "htop --version"
+
+compatible_with: []

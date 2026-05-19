@@ -1,0 +1,29 @@
+# Docker-Compose - Docker Compose - 容器编排工具
+name: docker-compose
+category: devops
+description: "Docker Compose - 容器编排工具"
+homepage: "https://docs.docker.com/compose/"
+
+tags:
+  - docker-compose
+  - containers
+  - orchestration
+  - development
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://docs.docker.com/compose/ for installation instructions
+
+verify_commands:
+  - "docker-compose --version"
+
+compatible_with: []

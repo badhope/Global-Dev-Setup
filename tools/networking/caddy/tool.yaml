@@ -1,0 +1,29 @@
+# Caddy - Caddy - 现代化Web服务器
+name: caddy
+category: networking
+description: "Caddy - 现代化Web服务器"
+homepage: "https://caddyserver.com/"
+
+tags:
+  - caddy
+  - web-server
+  - https
+  - automation
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://caddyserver.com/ for installation instructions
+
+verify_commands:
+  - "caddy --version"
+
+compatible_with: []

@@ -1,0 +1,29 @@
+# Oh-My-Zsh - Oh My Zsh - Zsh配置框架
+name: oh-my-zsh
+category: terminal
+description: "Oh My Zsh - Zsh配置框架"
+homepage: "https://ohmyz.sh/"
+
+tags:
+  - oh-my-zsh
+  - zsh
+  - terminal
+  - shell
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://ohmyz.sh/ for installation instructions
+
+verify_commands:
+  - "oh-my-zsh --version"
+
+compatible_with: []

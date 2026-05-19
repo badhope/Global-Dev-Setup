@@ -1,0 +1,29 @@
+# Black - Black - Python代码格式化工具
+name: black
+category: dev-tools
+description: "Black - Python代码格式化工具"
+homepage: "https://black.readthedocs.io/"
+
+tags:
+  - black
+  - python
+  - formatter
+  - code-style
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://black.readthedocs.io/ for installation instructions
+
+verify_commands:
+  - "black --version"
+
+compatible_with: []

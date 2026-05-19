@@ -1,0 +1,29 @@
+# Powerlevel10K - Powerlevel10k - Zsh主题
+name: powerlevel10k
+category: terminal
+description: "Powerlevel10k - Zsh主题"
+homepage: "https://github.com/romkatv/powerlevel10k"
+
+tags:
+  - powerlevel10k
+  - zsh
+  - theme
+  - terminal
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/romkatv/powerlevel10k for installation instructions
+
+verify_commands:
+  - "powerlevel10k --version"
+
+compatible_with: []

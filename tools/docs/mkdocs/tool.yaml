@@ -1,0 +1,29 @@
+# Mkdocs - MkDocs - 基于Markdown的文档工具
+name: mkdocs
+category: docs
+description: "MkDocs - 基于Markdown的文档工具"
+homepage: "https://www.mkdocs.org/"
+
+tags:
+  - mkdocs
+  - documentation
+  - markdown
+  - python
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.mkdocs.org/ for installation instructions
+
+verify_commands:
+  - "mkdocs --version"
+
+compatible_with: []

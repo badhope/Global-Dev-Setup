@@ -1,0 +1,29 @@
+# Circleci - CircleCI - CI/CD平台
+name: circleci
+category: devops
+description: "CircleCI - CI/CD平台"
+homepage: "https://circleci.com/"
+
+tags:
+  - circleci
+  - ci-cd
+  - cloud
+  - automation
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://circleci.com/ for installation instructions
+
+verify_commands:
+  - "circleci --version"
+
+compatible_with: []

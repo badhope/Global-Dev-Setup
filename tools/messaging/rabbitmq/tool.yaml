@@ -1,0 +1,29 @@
+# Rabbitmq - RabbitMQ - 消息队列系统
+name: rabbitmq
+category: messaging
+description: "RabbitMQ - 消息队列系统"
+homepage: "https://www.rabbitmq.com/"
+
+tags:
+  - rabbitmq
+  - message-queue
+  - amqp
+  - messaging
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.rabbitmq.com/ for installation instructions
+
+verify_commands:
+  - "rabbitmq --version"
+
+compatible_with: []

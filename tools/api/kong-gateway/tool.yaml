@@ -1,0 +1,29 @@
+# Kong-Gateway - Kong Gateway - 企业级API网关
+name: kong-gateway
+category: api
+description: "Kong Gateway - 企业级API网关"
+homepage: "https://konghq.com/products/kong-gateway/"
+
+tags:
+  - kong
+  - api-gateway
+  - microservices
+  - api-management
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://konghq.com/products/kong-gateway/ for installation instructions
+
+verify_commands:
+  - "kong-gateway --version"
+
+compatible_with: []

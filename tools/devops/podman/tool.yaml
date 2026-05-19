@@ -1,0 +1,29 @@
+# Podman - Podman - Docker兼容的容器引擎
+name: podman
+category: devops
+description: "Podman - Docker兼容的容器引擎"
+homepage: "https://podman.io/"
+
+tags:
+  - podman
+  - container
+  - docker-alternative
+  - oci
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://podman.io/ for installation instructions
+
+verify_commands:
+  - "podman --version"
+
+compatible_with: []

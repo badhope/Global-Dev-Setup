@@ -1,0 +1,29 @@
+# Cockroachdb - CockroachDB - 分布式SQL数据库
+name: cockroachdb
+category: database
+description: "CockroachDB - 分布式SQL数据库"
+homepage: "https://www.cockroachlabs.com/"
+
+tags:
+  - cockroachdb
+  - distributed
+  - sql
+  - scalable
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.cockroachlabs.com/ for installation instructions
+
+verify_commands:
+  - "cockroachdb --version"
+
+compatible_with: []

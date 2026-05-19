@@ -1,5 +1,38 @@
 {
   "tools": {
+    "tyk": {
+      "name": "tyk",
+      "category": "tyk",
+      "description": "Tyk - 开源API网关",
+      "homepage": "https://tyk.io/",
+      "tags": [
+        "tyk",
+        "api-gateway",
+        "open-source",
+        "api-management"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://tyk.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "tyk --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/api/tyk/tool.yaml"
+    },
     "insomnia": {
       "name": "insomnia",
       "category": "insomnia",
@@ -101,6 +134,39 @@
       ],
       "compatible_with": [],
       "path": "tools/api/swagger/tool.yaml"
+    },
+    "kong-gateway": {
+      "name": "kong-gateway",
+      "category": "kong-gateway",
+      "description": "Kong Gateway - 企业级API网关",
+      "homepage": "https://konghq.com/products/kong-gateway/",
+      "tags": [
+        "kong",
+        "api-gateway",
+        "microservices",
+        "api-management"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://konghq.com/products/kong-gateway/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "kong-gateway --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/api/kong-gateway/tool.yaml"
     },
     "openssl": {
       "name": "openssl",
@@ -333,6 +399,72 @@
       "compatible_with": [],
       "path": "tools/security/vault/tool.yaml"
     },
+    "snyk": {
+      "name": "snyk",
+      "category": "snyk",
+      "description": "Snyk - 漏洞扫描工具",
+      "homepage": "https://snyk.io/",
+      "tags": [
+        "snyk",
+        "security",
+        "vulnerability",
+        "scanning"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://snyk.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "snyk --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/security/snyk/tool.yaml"
+    },
+    "neovim": {
+      "name": "neovim",
+      "category": "neovim",
+      "description": "Neovim - 现代化Vim编辑器",
+      "homepage": "https://neovim.io/",
+      "tags": [
+        "neovim",
+        "vim",
+        "editor",
+        "terminal"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://neovim.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "neovim --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/editor/neovim/tool.yaml"
+    },
     "vscode": {
       "name": "vscode",
       "category": "vscode",
@@ -469,6 +601,138 @@
       ],
       "path": "tools/editors/vscode/tool.yaml"
     },
+    "pulsar": {
+      "name": "pulsar",
+      "category": "pulsar",
+      "description": "Apache Pulsar - 云原生消息平台",
+      "homepage": "https://pulsar.apache.org/",
+      "tags": [
+        "pulsar",
+        "messaging",
+        "streaming",
+        "cloud-native"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://pulsar.apache.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "pulsar --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/messaging/pulsar/tool.yaml"
+    },
+    "nats": {
+      "name": "nats",
+      "category": "nats",
+      "description": "NATS - 高性能消息系统",
+      "homepage": "https://nats.io/",
+      "tags": [
+        "nats",
+        "messaging",
+        "high-performance",
+        "cloud-native"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://nats.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "nats --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/messaging/nats/tool.yaml"
+    },
+    "activemq": {
+      "name": "activemq",
+      "category": "activemq",
+      "description": "ActiveMQ - 企业消息队列",
+      "homepage": "https://activemq.apache.org/",
+      "tags": [
+        "activemq",
+        "message-queue",
+        "jms",
+        "enterprise"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://activemq.apache.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "activemq --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/messaging/activemq/tool.yaml"
+    },
+    "rabbitmq": {
+      "name": "rabbitmq",
+      "category": "rabbitmq",
+      "description": "RabbitMQ - 消息队列系统",
+      "homepage": "https://www.rabbitmq.com/",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "amqp",
+        "messaging"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.rabbitmq.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "rabbitmq --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/messaging/rabbitmq/tool.yaml"
+    },
     "azure-cli": {
       "name": "azure-cli",
       "category": "azure-cli",
@@ -531,6 +795,39 @@
         "memory": "512MB minimum"
       },
       "path": "tools/cloud/azure-cli/tool.yaml"
+    },
+    "alibaba-cli": {
+      "name": "alibaba-cli",
+      "category": "alibaba-cli",
+      "description": "Alibaba Cloud CLI - 阿里云命令行",
+      "homepage": "https://www.alibabacloud.com/help/doc-detail/110343.htm",
+      "tags": [
+        "alibaba",
+        "cloud",
+        "cli",
+        "aliyun"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.alibabacloud.com/help/doc-detail/110343.htm for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "alibaba-cli --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/cloud/alibaba-cli/tool.yaml"
     },
     "aws-cli": {
       "name": "aws-cli",
@@ -713,6 +1010,39 @@
       },
       "path": "tools/big-data/hadoop/tool.yaml"
     },
+    "pinot": {
+      "name": "pinot",
+      "category": "pinot",
+      "description": "Apache Pinot - 实时分析数据库",
+      "homepage": "https://pinot.apache.org/",
+      "tags": [
+        "pinot",
+        "olap",
+        "analytics",
+        "real-time"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://pinot.apache.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "pinot --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/big-data/pinot/tool.yaml"
+    },
     "hive": {
       "name": "hive",
       "category": "hive",
@@ -767,6 +1097,39 @@
         "memory": "4GB minimum"
       },
       "path": "tools/big-data/hive/tool.yaml"
+    },
+    "flink": {
+      "name": "flink",
+      "category": "flink",
+      "description": "Apache Flink - 流处理框架",
+      "homepage": "https://flink.apache.org/",
+      "tags": [
+        "flink",
+        "streaming",
+        "big-data",
+        "real-time"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://flink.apache.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "flink --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/big-data/flink/tool.yaml"
     },
     "spark": {
       "name": "spark",
@@ -896,6 +1259,39 @@
       },
       "path": "tools/big-data/kafka/tool.yaml"
     },
+    "druid": {
+      "name": "druid",
+      "category": "druid",
+      "description": "Apache Druid - 实时OLAP数据库",
+      "homepage": "https://druid.apache.org/",
+      "tags": [
+        "druid",
+        "olap",
+        "analytics",
+        "real-time"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://druid.apache.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "druid --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/big-data/druid/tool.yaml"
+    },
     "esp32": {
       "name": "esp32",
       "category": "esp32",
@@ -947,6 +1343,39 @@
         "memory": "4GB minimum"
       },
       "path": "tools/embedded/esp32/tool.yaml"
+    },
+    "memcached": {
+      "name": "memcached",
+      "category": "memcached",
+      "description": "Memcached - 分布式内存缓存",
+      "homepage": "https://memcached.org/",
+      "tags": [
+        "memcached",
+        "cache",
+        "distributed",
+        "in-memory"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://memcached.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "memcached --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/cache/memcached/tool.yaml"
     },
     "loki": {
       "name": "loki",
@@ -1265,6 +1694,138 @@
         "memory": "256MB minimum"
       },
       "path": "tools/devops/helm/tool.yaml"
+    },
+    "docker-compose": {
+      "name": "docker-compose",
+      "category": "docker-compose",
+      "description": "Docker Compose - 容器编排工具",
+      "homepage": "https://docs.docker.com/compose/",
+      "tags": [
+        "docker-compose",
+        "containers",
+        "orchestration",
+        "development"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://docs.docker.com/compose/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "docker-compose --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/devops/docker-compose/tool.yaml"
+    },
+    "podman": {
+      "name": "podman",
+      "category": "podman",
+      "description": "Podman - Docker兼容的容器引擎",
+      "homepage": "https://podman.io/",
+      "tags": [
+        "podman",
+        "container",
+        "docker-alternative",
+        "oci"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://podman.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "podman --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/devops/podman/tool.yaml"
+    },
+    "github-actions": {
+      "name": "github-actions",
+      "category": "github-actions",
+      "description": "GitHub Actions - CI/CD工作流",
+      "homepage": "https://github.com/features/actions",
+      "tags": [
+        "github-actions",
+        "ci-cd",
+        "automation",
+        "github"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/features/actions for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "github-actions --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/devops/github-actions/tool.yaml"
+    },
+    "gitlab-ci": {
+      "name": "gitlab-ci",
+      "category": "gitlab-ci",
+      "description": "GitLab CI - CI/CD流水线",
+      "homepage": "https://docs.gitlab.com/ee/ci/",
+      "tags": [
+        "gitlab-ci",
+        "ci-cd",
+        "gitlab",
+        "automation"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://docs.gitlab.com/ee/ci/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "gitlab-ci --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/devops/gitlab-ci/tool.yaml"
     },
     "docker": {
       "name": "docker",
@@ -1619,6 +2180,72 @@
       "compatible_with": [],
       "path": "tools/devops/jenkins/tool.yaml"
     },
+    "minikube": {
+      "name": "minikube",
+      "category": "minikube",
+      "description": "Minikube - 本地Kubernetes测试环境",
+      "homepage": "https://minikube.sigs.k8s.io/",
+      "tags": [
+        "minikube",
+        "kubernetes",
+        "local",
+        "testing"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://minikube.sigs.k8s.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "minikube --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/devops/minikube/tool.yaml"
+    },
+    "circleci": {
+      "name": "circleci",
+      "category": "circleci",
+      "description": "CircleCI - CI/CD平台",
+      "homepage": "https://circleci.com/",
+      "tags": [
+        "circleci",
+        "ci-cd",
+        "cloud",
+        "automation"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://circleci.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "circleci --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/devops/circleci/tool.yaml"
+    },
     "elk": {
       "name": "elk",
       "category": "elk",
@@ -1822,6 +2449,72 @@
       ],
       "compatible_with": [],
       "path": "tools/networking/kong/tool.yaml"
+    },
+    "apache": {
+      "name": "apache",
+      "category": "apache",
+      "description": "Apache HTTP Server - 老牌Web服务器",
+      "homepage": "https://httpd.apache.org/",
+      "tags": [
+        "apache",
+        "web-server",
+        "http",
+        "legacy"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://httpd.apache.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "apache --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/networking/apache/tool.yaml"
+    },
+    "caddy": {
+      "name": "caddy",
+      "category": "caddy",
+      "description": "Caddy - 现代化Web服务器",
+      "homepage": "https://caddyserver.com/",
+      "tags": [
+        "caddy",
+        "web-server",
+        "https",
+        "automation"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://caddyserver.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "caddy --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/networking/caddy/tool.yaml"
     },
     "nginx": {
       "name": "nginx",
@@ -2726,6 +3419,139 @@
       "compatible_with": [],
       "path": "tools/programming-language/erlang/tool.yaml"
     },
+    "flake8": {
+      "name": "flake8",
+      "category": "flake8",
+      "description": "Flake8 - Python代码检查工具",
+      "homepage": "https://flake8.pycqa.org/",
+      "tags": [
+        "flake8",
+        "python",
+        "lint",
+        "code-quality"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://flake8.pycqa.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "flake8 --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/dev-tools/flake8/tool.yaml"
+    },
+    "black": {
+      "name": "black",
+      "category": "black",
+      "description": "Black - Python代码格式化工具",
+      "homepage": "https://black.readthedocs.io/",
+      "tags": [
+        "black",
+        "python",
+        "formatter",
+        "code-style"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://black.readthedocs.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "black --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/dev-tools/black/tool.yaml"
+    },
+    "eslint": {
+      "name": "eslint",
+      "category": "eslint",
+      "description": "ESLint - JavaScript代码检查工具",
+      "homepage": "https://eslint.org/",
+      "tags": [
+        "eslint",
+        "lint",
+        "javascript",
+        "typescript",
+        "code-quality"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://eslint.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "eslint --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/dev-tools/eslint/tool.yaml"
+    },
+    "prettier": {
+      "name": "prettier",
+      "category": "prettier",
+      "description": "Prettier - 代码格式化工具",
+      "homepage": "https://prettier.io/",
+      "tags": [
+        "prettier",
+        "formatter",
+        "code-style",
+        "javascript"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://prettier.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "prettier --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/dev-tools/prettier/tool.yaml"
+    },
     "cargo": {
       "name": "cargo",
       "category": "cargo",
@@ -2793,6 +3619,103 @@
       ],
       "compatible_with": [],
       "path": "tools/package-manager/conda/tool.yaml"
+    },
+    "chocolatey": {
+      "name": "chocolatey",
+      "category": "chocolatey",
+      "description": "Chocolatey - Windows包管理器",
+      "homepage": "https://chocolatey.org/",
+      "tags": [
+        "chocolatey",
+        "windows",
+        "package-manager"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://chocolatey.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "chocolatey --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/package-manager/chocolatey/tool.yaml"
+    },
+    "homebrew": {
+      "name": "homebrew",
+      "category": "homebrew",
+      "description": "Homebrew - macOS包管理器",
+      "homepage": "https://brew.sh/",
+      "tags": [
+        "homebrew",
+        "macos",
+        "package-manager"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://brew.sh/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "homebrew --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/package-manager/homebrew/tool.yaml"
+    },
+    "scoop": {
+      "name": "scoop",
+      "category": "scoop",
+      "description": "Scoop - Windows命令行包管理器",
+      "homepage": "https://scoop.sh/",
+      "tags": [
+        "scoop",
+        "windows",
+        "package-manager",
+        "cli"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://scoop.sh/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "scoop --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/package-manager/scoop/tool.yaml"
     },
     "poetry": {
       "name": "poetry",
@@ -2963,6 +3886,72 @@
       ],
       "compatible_with": [],
       "path": "tools/cloud-service/digitalocean/tool.yaml"
+    },
+    "dvc": {
+      "name": "dvc",
+      "category": "dvc",
+      "description": "DVC - 数据版本控制",
+      "homepage": "https://dvc.org/",
+      "tags": [
+        "dvc",
+        "data-versioning",
+        "mlops",
+        "git"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://dvc.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "dvc --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/version-control/dvc/tool.yaml"
+    },
+    "git-lfs": {
+      "name": "git-lfs",
+      "category": "git-lfs",
+      "description": "Git LFS - 大文件存储",
+      "homepage": "https://git-lfs.com/",
+      "tags": [
+        "git-lfs",
+        "git",
+        "large-files",
+        "version-control"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://git-lfs.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "git-lfs --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/version-control/git-lfs/tool.yaml"
     },
     "github-cli": {
       "name": "github-cli",
@@ -6022,6 +7011,72 @@
       },
       "path": "tools/frameworks/angular/tool.yaml"
     },
+    "docusaurus": {
+      "name": "docusaurus",
+      "category": "docusaurus",
+      "description": "Docusaurus - 现代化文档框架",
+      "homepage": "https://docusaurus.io/",
+      "tags": [
+        "docusaurus",
+        "documentation",
+        "react",
+        "markdown"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://docusaurus.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "docusaurus --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/docs/docusaurus/tool.yaml"
+    },
+    "mkdocs": {
+      "name": "mkdocs",
+      "category": "mkdocs",
+      "description": "MkDocs - 基于Markdown的文档工具",
+      "homepage": "https://www.mkdocs.org/",
+      "tags": [
+        "mkdocs",
+        "documentation",
+        "markdown",
+        "python"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.mkdocs.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "mkdocs --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/docs/mkdocs/tool.yaml"
+    },
     "airflow": {
       "name": "airflow",
       "category": "airflow",
@@ -6179,6 +7234,138 @@
       },
       "path": "tools/data-engineering/kubeflow/tool.yaml"
     },
+    "btop": {
+      "name": "btop",
+      "category": "btop",
+      "description": "btop - 现代系统监控工具",
+      "homepage": "https://github.com/aristocratos/btop",
+      "tags": [
+        "btop",
+        "monitoring",
+        "system",
+        "terminal"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/aristocratos/btop for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "btop --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/system/btop/tool.yaml"
+    },
+    "neofetch": {
+      "name": "neofetch",
+      "category": "neofetch",
+      "description": "neofetch - 系统信息显示",
+      "homepage": "https://github.com/dylanaraps/neofetch",
+      "tags": [
+        "neofetch",
+        "system-info",
+        "terminal",
+        "shell"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/dylanaraps/neofetch for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "neofetch --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/system/neofetch/tool.yaml"
+    },
+    "lazygit": {
+      "name": "lazygit",
+      "category": "lazygit",
+      "description": "lazygit - Git终端UI",
+      "homepage": "https://github.com/jesseduffield/lazygit",
+      "tags": [
+        "lazygit",
+        "git",
+        "terminal",
+        "ui"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/jesseduffield/lazygit for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "lazygit --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/system/lazygit/tool.yaml"
+    },
+    "htop": {
+      "name": "htop",
+      "category": "htop",
+      "description": "htop - 进程监控工具",
+      "homepage": "https://htop.dev/",
+      "tags": [
+        "htop",
+        "process",
+        "monitoring",
+        "system"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://htop.dev/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "htop --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/system/htop/tool.yaml"
+    },
     "jupyter": {
       "name": "jupyter",
       "category": "jupyter",
@@ -6252,6 +7439,72 @@
         "memory": "2GB minimum"
       },
       "path": "tools/ai-ml/jupyter/tool.yaml"
+    },
+    "langchain": {
+      "name": "langchain",
+      "category": "langchain",
+      "description": "LangChain - LLM应用框架",
+      "homepage": "https://www.langchain.com/",
+      "tags": [
+        "langchain",
+        "llm",
+        "ai",
+        "chatbot"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.langchain.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "langchain --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/ai-ml/langchain/tool.yaml"
+    },
+    "mlflow": {
+      "name": "mlflow",
+      "category": "mlflow",
+      "description": "MLflow - ML生命周期管理",
+      "homepage": "https://mlflow.org/",
+      "tags": [
+        "mlflow",
+        "machine-learning",
+        "mlops",
+        "tracking"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://mlflow.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "mlflow --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/ai-ml/mlflow/tool.yaml"
     },
     "pytorch": {
       "name": "pytorch",
@@ -6466,6 +7719,303 @@
       },
       "path": "tools/ai-ml/tensorflow/tool.yaml"
     },
+    "openai": {
+      "name": "openai",
+      "category": "openai",
+      "description": "OpenAI API - AI服务接口",
+      "homepage": "https://openai.com/",
+      "tags": [
+        "openai",
+        "ai",
+        "api",
+        "llm"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://openai.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "openai --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/ai-ml/openai/tool.yaml"
+    },
+    "ollama": {
+      "name": "ollama",
+      "category": "ollama",
+      "description": "Ollama - 本地LLM运行工具",
+      "homepage": "https://ollama.com/",
+      "tags": [
+        "ollama",
+        "llm",
+        "local",
+        "ai"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://ollama.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "ollama --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/ai-ml/ollama/tool.yaml"
+    },
+    "fzf": {
+      "name": "fzf",
+      "category": "fzf",
+      "description": "fzf - 模糊搜索工具",
+      "homepage": "https://github.com/junegunn/fzf",
+      "tags": [
+        "fzf",
+        "fuzzy-search",
+        "terminal",
+        "productivity"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/junegunn/fzf for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "fzf --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/fzf/tool.yaml"
+    },
+    "httpie": {
+      "name": "httpie",
+      "category": "httpie",
+      "description": "HTTPie - 友好的HTTP客户端",
+      "homepage": "https://httpie.io/",
+      "tags": [
+        "httpie",
+        "http-client",
+        "api",
+        "terminal"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://httpie.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "httpie --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/httpie/tool.yaml"
+    },
+    "jq": {
+      "name": "jq",
+      "category": "jq",
+      "description": "jq - JSON处理工具",
+      "homepage": "https://stedolan.github.io/jq/",
+      "tags": [
+        "jq",
+        "json",
+        "terminal",
+        "cli"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://stedolan.github.io/jq/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "jq --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/jq/tool.yaml"
+    },
+    "powerlevel10k": {
+      "name": "powerlevel10k",
+      "category": "powerlevel10k",
+      "description": "Powerlevel10k - Zsh主题",
+      "homepage": "https://github.com/romkatv/powerlevel10k",
+      "tags": [
+        "powerlevel10k",
+        "zsh",
+        "theme",
+        "terminal"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/romkatv/powerlevel10k for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "powerlevel10k --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/powerlevel10k/tool.yaml"
+    },
+    "ripgrep": {
+      "name": "ripgrep",
+      "category": "ripgrep",
+      "description": "ripgrep - 快速文件搜索",
+      "homepage": "https://github.com/BurntSushi/ripgrep",
+      "tags": [
+        "ripgrep",
+        "search",
+        "terminal",
+        "fast"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://github.com/BurntSushi/ripgrep for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "ripgrep --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/ripgrep/tool.yaml"
+    },
+    "oh-my-zsh": {
+      "name": "oh-my-zsh",
+      "category": "oh-my-zsh",
+      "description": "Oh My Zsh - Zsh配置框架",
+      "homepage": "https://ohmyz.sh/",
+      "tags": [
+        "oh-my-zsh",
+        "zsh",
+        "terminal",
+        "shell"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://ohmyz.sh/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "oh-my-zsh --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/oh-my-zsh/tool.yaml"
+    },
+    "tmux": {
+      "name": "tmux",
+      "category": "tmux",
+      "description": "tmux - 终端复用器",
+      "homepage": "https://tmux.github.io/",
+      "tags": [
+        "tmux",
+        "terminal",
+        "multiplexer",
+        "shell"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://tmux.github.io/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "tmux --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/terminal/tmux/tool.yaml"
+    },
     "jaeger": {
       "name": "jaeger",
       "category": "jaeger",
@@ -6499,6 +8049,39 @@
       ],
       "compatible_with": [],
       "path": "tools/monitoring/jaeger/tool.yaml"
+    },
+    "newrelic": {
+      "name": "newrelic",
+      "category": "newrelic",
+      "description": "New Relic - 应用性能监控",
+      "homepage": "https://newrelic.com/",
+      "tags": [
+        "newrelic",
+        "apm",
+        "monitoring",
+        "observability"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://newrelic.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "newrelic --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/monitoring/newrelic/tool.yaml"
     },
     "opentelemetry": {
       "name": "opentelemetry",
@@ -6567,6 +8150,39 @@
       ],
       "compatible_with": [],
       "path": "tools/monitoring/sentry/tool.yaml"
+    },
+    "datadog": {
+      "name": "datadog",
+      "category": "datadog",
+      "description": "Datadog - 云原生监控平台",
+      "homepage": "https://www.datadoghq.com/",
+      "tags": [
+        "datadog",
+        "monitoring",
+        "cloud",
+        "observability"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.datadoghq.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "datadog --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/monitoring/datadog/tool.yaml"
     },
     "goland": {
       "name": "goland",
@@ -6876,6 +8492,39 @@
       },
       "path": "tools/mobile/flutter/tool.yaml"
     },
+    "notion": {
+      "name": "notion",
+      "category": "notion",
+      "description": "Notion - 文档协作平台",
+      "homepage": "https://www.notion.so/",
+      "tags": [
+        "notion",
+        "productivity",
+        "documentation",
+        "collaboration"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.notion.so/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "notion --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/productivity/notion/tool.yaml"
+    },
     "git": {
       "name": "git",
       "category": "git",
@@ -6989,6 +8638,39 @@
       ],
       "path": "tools/productivity/git/tool.yaml"
     },
+    "slack": {
+      "name": "slack",
+      "category": "slack",
+      "description": "Slack - 团队沟通工具",
+      "homepage": "https://slack.com/",
+      "tags": [
+        "slack",
+        "communication",
+        "team",
+        "collaboration"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://slack.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "slack --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/productivity/slack/tool.yaml"
+    },
     "influxdb": {
       "name": "influxdb",
       "category": "influxdb",
@@ -7023,6 +8705,40 @@
       "compatible_with": [],
       "path": "tools/database/influxdb/tool.yaml"
     },
+    "dynamodb": {
+      "name": "dynamodb",
+      "category": "dynamodb",
+      "description": "Amazon DynamoDB - 托管NoSQL数据库",
+      "homepage": "https://aws.amazon.com/dynamodb/",
+      "tags": [
+        "dynamodb",
+        "aws",
+        "nosql",
+        "serverless",
+        "key-value"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://aws.amazon.com/dynamodb/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "dynamodb --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/database/dynamodb/tool.yaml"
+    },
     "oceanbase": {
       "name": "oceanbase",
       "category": "oceanbase",
@@ -7056,6 +8772,39 @@
       ],
       "compatible_with": [],
       "path": "tools/database/oceanbase/tool.yaml"
+    },
+    "sqlserver": {
+      "name": "sqlserver",
+      "category": "sqlserver",
+      "description": "SQL Server - Microsoft企业级数据库",
+      "homepage": "https://www.microsoft.com/en-us/sql-server/",
+      "tags": [
+        "sqlserver",
+        "microsoft",
+        "database",
+        "enterprise"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.microsoft.com/en-us/sql-server/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "sqlserver --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/database/sqlserver/tool.yaml"
     },
     "tidb": {
       "name": "tidb",
@@ -7124,6 +8873,40 @@
       ],
       "compatible_with": [],
       "path": "tools/database/mariadb/tool.yaml"
+    },
+    "oracle": {
+      "name": "oracle",
+      "category": "oracle",
+      "description": "Oracle Database - 企业级关系数据库",
+      "homepage": "https://www.oracle.com/database/",
+      "tags": [
+        "oracle",
+        "database",
+        "enterprise",
+        "sql",
+        "plsql"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.oracle.com/database/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "oracle --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/database/oracle/tool.yaml"
     },
     "neo4j": {
       "name": "neo4j",
@@ -7295,6 +9078,39 @@
       "compatible_with": [],
       "path": "tools/database/clickhouse/tool.yaml"
     },
+    "cockroachdb": {
+      "name": "cockroachdb",
+      "category": "cockroachdb",
+      "description": "CockroachDB - 分布式SQL数据库",
+      "homepage": "https://www.cockroachlabs.com/",
+      "tags": [
+        "cockroachdb",
+        "distributed",
+        "sql",
+        "scalable"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.cockroachlabs.com/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "cockroachdb --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/database/cockroachdb/tool.yaml"
+    },
     "unreal": {
       "name": "unreal",
       "category": "unreal",
@@ -7345,6 +9161,39 @@
         "memory": "16GB minimum"
       },
       "path": "tools/game-dev/unreal/tool.yaml"
+    },
+    "godot": {
+      "name": "godot",
+      "category": "godot",
+      "description": "Godot - 开源游戏引擎",
+      "homepage": "https://godotengine.org/",
+      "tags": [
+        "godot",
+        "game-engine",
+        "open-source",
+        "game-dev"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://godotengine.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "godot --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/game-dev/godot/tool.yaml"
     },
     "unity": {
       "name": "unity",
@@ -7397,6 +9246,39 @@
         "memory": "8GB minimum"
       },
       "path": "tools/game-dev/unity/tool.yaml"
+    },
+    "blender": {
+      "name": "blender",
+      "category": "blender",
+      "description": "Blender - 3D建模工具",
+      "homepage": "https://www.blender.org/",
+      "tags": [
+        "blender",
+        "3d",
+        "modeling",
+        "game-dev"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "official",
+          "os": [
+            "all"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "# See https://www.blender.org/ for installation instructions\n"
+        }
+      ],
+      "verify_commands": [
+        "blender --version"
+      ],
+      "compatible_with": [],
+      "path": "tools/game-dev/blender/tool.yaml"
     }
   },
   "templates": {
@@ -9256,46 +11138,70 @@
     }
   },
   "categories": [
+    "activemq",
     "airflow",
+    "alibaba-cli",
     "android-sdk",
     "angular",
     "ansible",
+    "apache",
     "arduino",
     "argocd",
     "astro",
     "aws-cli",
     "azure-cli",
+    "black",
+    "blender",
+    "btop",
     "c-cpp",
+    "caddy",
     "cargo",
     "cassandra",
+    "chocolatey",
+    "circleci",
     "clash",
     "clickhouse",
     "clojure",
+    "cockroachdb",
     "conda",
     "cypress",
     "dart",
+    "datadog",
     "datagrip",
     "dbt",
     "digitalocean",
     "django",
     "docker",
+    "docker-compose",
+    "docusaurus",
+    "druid",
     "duckdb",
+    "dvc",
+    "dynamodb",
     "elasticsearch",
     "elixir",
     "elk",
     "erlang",
+    "eslint",
     "esp32",
     "ethereum",
     "express",
     "fastapi",
     "fastify",
+    "flake8",
+    "flink",
     "flutter",
     "fsharp",
+    "fzf",
     "gcloud-cli",
     "git",
+    "git-lfs",
+    "github-actions",
     "github-cli",
     "gitlab",
+    "gitlab-ci",
     "go",
+    "godot",
     "goland",
     "grafana",
     "graphql",
@@ -9304,6 +11210,9 @@
     "haskell",
     "helm",
     "hive",
+    "homebrew",
+    "htop",
+    "httpie",
     "huggingface",
     "influxdb",
     "insomnia",
@@ -9312,6 +11221,7 @@
     "jaeger",
     "java",
     "jenkins",
+    "jq",
     "julia",
     "jupyter",
     "k6",
@@ -9319,54 +11229,81 @@
     "keycloak",
     "koa",
     "kong",
+    "kong-gateway",
     "kotlin",
     "kubeflow",
     "kubernetes",
+    "langchain",
+    "lazygit",
     "locust",
     "loki",
     "lua",
     "mariadb",
+    "memcached",
+    "minikube",
+    "mkdocs",
+    "mlflow",
     "mongodb",
     "mysql",
+    "nats",
     "neo4j",
+    "neofetch",
+    "neovim",
     "nestjs",
     "netlify",
+    "newrelic",
     "nextjs",
     "nginx",
     "nim",
     "nodejs",
+    "notion",
     "nuxt",
     "ocaml",
     "oceanbase",
+    "oh-my-zsh",
+    "ollama",
+    "openai",
     "openssl",
     "opentelemetry",
+    "oracle",
     "owasp-zap",
     "perl",
     "php",
+    "pinot",
     "playwright",
     "pnpm",
+    "podman",
     "poetry",
     "postgresql",
     "postman",
+    "powerlevel10k",
+    "prettier",
     "prometheus",
+    "pulsar",
     "pycharm",
     "python",
     "python3",
     "pytorch",
     "r",
+    "rabbitmq",
     "raspberry-pi",
     "react",
     "redis",
     "remix",
+    "ripgrep",
     "ruby",
     "rust",
     "scala",
+    "scoop",
     "selenium",
     "sentry",
+    "slack",
+    "snyk",
     "solidjs",
     "sonarqube",
     "spark",
     "sqlite",
+    "sqlserver",
     "strapi",
     "supabase",
     "svelte",
@@ -9375,8 +11312,10 @@
     "tensorflow",
     "terraform",
     "tidb",
+    "tmux",
     "traefik",
     "trivy",
+    "tyk",
     "typescript",
     "unity",
     "unreal",
@@ -9921,5 +11860,5 @@
     }
   },
   "current_region": "global",
-  "export_time": "2026-05-19T05:55:38.589124"
+  "export_time": "2026-05-19T06:42:27.624769"
 }

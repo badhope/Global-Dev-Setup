@@ -1,0 +1,29 @@
+# Mlflow - MLflow - ML生命周期管理
+name: mlflow
+category: ai-ml
+description: "MLflow - ML生命周期管理"
+homepage: "https://mlflow.org/"
+
+tags:
+  - mlflow
+  - machine-learning
+  - mlops
+  - tracking
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://mlflow.org/ for installation instructions
+
+verify_commands:
+  - "mlflow --version"
+
+compatible_with: []

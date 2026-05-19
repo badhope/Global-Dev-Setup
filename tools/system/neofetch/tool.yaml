@@ -1,0 +1,29 @@
+# Neofetch - neofetch - 系统信息显示
+name: neofetch
+category: system
+description: "neofetch - 系统信息显示"
+homepage: "https://github.com/dylanaraps/neofetch"
+
+tags:
+  - neofetch
+  - system-info
+  - terminal
+  - shell
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/dylanaraps/neofetch for installation instructions
+
+verify_commands:
+  - "neofetch --version"
+
+compatible_with: []

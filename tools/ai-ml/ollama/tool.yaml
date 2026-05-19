@@ -1,0 +1,29 @@
+# Ollama - Ollama - 本地LLM运行工具
+name: ollama
+category: ai-ml
+description: "Ollama - 本地LLM运行工具"
+homepage: "https://ollama.com/"
+
+tags:
+  - ollama
+  - llm
+  - local
+  - ai
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://ollama.com/ for installation instructions
+
+verify_commands:
+  - "ollama --version"
+
+compatible_with: []

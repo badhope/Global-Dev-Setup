@@ -1,0 +1,29 @@
+# Ripgrep - ripgrep - 快速文件搜索
+name: ripgrep
+category: terminal
+description: "ripgrep - 快速文件搜索"
+homepage: "https://github.com/BurntSushi/ripgrep"
+
+tags:
+  - ripgrep
+  - search
+  - terminal
+  - fast
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/BurntSushi/ripgrep for installation instructions
+
+verify_commands:
+  - "ripgrep --version"
+
+compatible_with: []

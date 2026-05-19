@@ -1,0 +1,28 @@
+# Chocolatey - Chocolatey - Windows包管理器
+name: chocolatey
+category: package-manager
+description: "Chocolatey - Windows包管理器"
+homepage: "https://chocolatey.org/"
+
+tags:
+  - chocolatey
+  - windows
+  - package-manager
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://chocolatey.org/ for installation instructions
+
+verify_commands:
+  - "chocolatey --version"
+
+compatible_with: []

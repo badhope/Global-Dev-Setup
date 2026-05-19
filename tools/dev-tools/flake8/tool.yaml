@@ -1,0 +1,29 @@
+# Flake8 - Flake8 - Python代码检查工具
+name: flake8
+category: dev-tools
+description: "Flake8 - Python代码检查工具"
+homepage: "https://flake8.pycqa.org/"
+
+tags:
+  - flake8
+  - python
+  - lint
+  - code-quality
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://flake8.pycqa.org/ for installation instructions
+
+verify_commands:
+  - "flake8 --version"
+
+compatible_with: []

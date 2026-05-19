@@ -1,0 +1,29 @@
+# Nats - NATS - 高性能消息系统
+name: nats
+category: messaging
+description: "NATS - 高性能消息系统"
+homepage: "https://nats.io/"
+
+tags:
+  - nats
+  - messaging
+  - high-performance
+  - cloud-native
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://nats.io/ for installation instructions
+
+verify_commands:
+  - "nats --version"
+
+compatible_with: []

@@ -1,0 +1,30 @@
+# Oracle - Oracle Database - 企业级关系数据库
+name: oracle
+category: database
+description: "Oracle Database - 企业级关系数据库"
+homepage: "https://www.oracle.com/database/"
+
+tags:
+  - oracle
+  - database
+  - enterprise
+  - sql
+  - plsql
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://www.oracle.com/database/ for installation instructions
+
+verify_commands:
+  - "oracle --version"
+
+compatible_with: []

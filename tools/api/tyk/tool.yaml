@@ -1,0 +1,29 @@
+# Tyk - Tyk - 开源API网关
+name: tyk
+category: api
+description: "Tyk - 开源API网关"
+homepage: "https://tyk.io/"
+
+tags:
+  - tyk
+  - api-gateway
+  - open-source
+  - api-management
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://tyk.io/ for installation instructions
+
+verify_commands:
+  - "tyk --version"
+
+compatible_with: []

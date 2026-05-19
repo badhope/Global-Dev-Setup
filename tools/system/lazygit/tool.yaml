@@ -1,0 +1,29 @@
+# Lazygit - lazygit - Git终端UI
+name: lazygit
+category: system
+description: "lazygit - Git终端UI"
+homepage: "https://github.com/jesseduffield/lazygit"
+
+tags:
+  - lazygit
+  - git
+  - terminal
+  - ui
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: official
+    os: [all]
+    description: "Official installation"
+    priority: 1
+    command: |
+      # See https://github.com/jesseduffield/lazygit for installation instructions
+
+verify_commands:
+  - "lazygit --version"
+
+compatible_with: []
