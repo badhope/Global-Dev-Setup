@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global-Dev-Setup - Environment Registry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .search-bar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            border-color: #667eea;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .card-category {
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .card-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            padding: 4px 10px;
+            background: #f0f0f0;
+            color: #555;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .version {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: #eee;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .modal-close:hover {
+            background: #ddd;
+        }
+        
+        .modal h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .modal-section {
+            margin-bottom: 20px;
+        }
+        
+        .modal-section h3 {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1rem;
+        }
+        
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .modal-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-section code {
+            background: #f4f4f4;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .category-chip {
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .category-chip.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .empty-state p {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Global-Dev-Setup</h1>
+            <p>Development Environment Registry - Discover tools and templates for your projects</p>
+        </header>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('tools')">Tools</button>
+            <button class="tab" onclick="showTab('templates')">Templates</button>
+            <button class="tab" onclick="showTab('categories')">Categories</button>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search tools, templates, or tags..." onkeyup="searchItems()">
+        </div>
+        
+        <div class="category-filter" id="category-filter" style="display: none;">
+        </div>
+        
+        <div id="tools-content" class="content">
+            <div class="grid" id="tools-grid">
+            </div>
+        </div>
+        
+        <div id="templates-content" class="content" style="display: none;">
+            <div class="grid" id="templates-grid">
+            </div>
+        </div>
+        
+        <div id="categories-content" class="content" style="display: none;">
+            <div class="grid" id="categories-grid">
+            </div>
+        </div>
+        
+        <div class="modal" id="detail-modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let toolsData = [];
+        let templatesData = [];
+        let categoriesData = [];
+        
+        async function loadData() {
+            try {
+                const response = await fetch('tool_registry.json');
+                const data = await response.json();
+                toolsData = Object.values(data.tools);
+                templatesData = Object.values(data.templates);
+                categoriesData = data.categories;
+                renderTools();
+                renderCategoryFilter();
+            } catch (error) {
+                console.error('Failed to load data:', error);
+            }
+        }
+        
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab:nth-child(${tab === 'tools' ? 1 : tab === 'templates' ? 2 : 3})`).classList.add('active');
+            
+            document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+            document.getElementById(`${tab}-content`).style.display = 'block';
+            
+            if (tab === 'tools') {
+                document.getElementById('category-filter').style.display = 'flex';
+                renderTools();
+            } else if (tab === 'templates') {
+                document.getElementById('category-filter').style.display = 'none';
+                renderTemplates();
+            } else if (tab === 'categories') {
+                document.getElementById('category-filter').style.display = 'none';
+                renderCategories();
+            }
+        }
+        
+        function renderCategoryFilter() {
+            const filter = document.getElementById('category-filter');
+            filter.innerHTML = `
+                <button class="category-chip active" onclick="filterByCategory('all')">All</button>
+                ${categoriesData.map(cat => `
+                    <button class="category-chip" onclick="filterByCategory('${cat}')">${cat}</button>
+                `).join('')}
+            `;
+        }
+        
+        let currentCategory = 'all';
+        
+        function filterByCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+            document.querySelector(`.category-chip[onclick="filterByCategory('${category}')"]`).classList.add('active');
+            renderTools();
+        }
+        
+        function searchItems() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            renderTools(query);
+        }
+        
+        function renderTools(query = '') {
+            const grid = document.getElementById('tools-grid');
+            let filtered = toolsData;
+            
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(t => t.category === currentCategory);
+            }
+            
+            if (query) {
+                filtered = filtered.filter(t => 
+                    t.name.toLowerCase().includes(query) ||
+                    t.description.toLowerCase().includes(query) ||
+                    t.tags.some(tag => tag.toLowerCase().includes(query))
+                );
+            }
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No tools found</h3>
+                        <p>Try adjusting your search or category filter</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = filtered.map(tool => `
+                <div class="card" onclick="showToolDetail('${tool.name}')">
+                    <div class="card-header">
+                        <h3 class="card-title">${tool.name}</h3>
+                        <span class="card-category">${tool.category}</span>
+                    </div>
+                    <p class="card-description">${tool.description}</p>
+                    <div class="card-tags">
+                        ${tool.tags.slice(0, 5).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="card-footer">
+                        <span class="version">v${tool.version}</span>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderTemplates() {
+            const grid = document.getElementById('templates-grid');
+            
+            grid.innerHTML = templatesData.map(template => `
+                <div class="card" onclick="showTemplateDetail('${template.name}')">
+                    <div class="card-header">
+                        <h3 class="card-title">${template.name}</h3>
+                        <span class="card-category">${template.category}</span>
+                    </div>
+                    <p class="card-description">${template.description}</p>
+                    <div class="card-tags">
+                        ${template.recommended_for.slice(0, 3).map(item => `<span class="tag">${item}</span>`).join('')}
+                    </div>
+                    <div class="card-footer">
+                        <span class="version">${template.required_tools?.length || 0} required tools</span>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderCategories() {
+            const grid = document.getElementById('categories-grid');
+            
+            grid.innerHTML = categoriesData.map(cat => {
+                const count = toolsData.filter(t => t.category === cat).length;
+                return `
+                    <div class="card" onclick="filterByCategory('${cat}'); showTab('tools');">
+                        <div class="card-header">
+                            <h3 class="card-title">${cat}</h3>
+                            <span class="card-category">${count} tools</span>
+                        </div>
+                        <p class="card-description">Click to explore ${count} tools in this category</p>
+                        <div class="card-footer">
+                            <button class="btn btn-outline">Explore</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function showToolDetail(toolName) {
+            const tool = toolsData.find(t => t.name === toolName);
+            if (!tool) return;
+            
+            const content = `
+                <h2>${tool.name}</h2>
+                <div class="modal-section">
+                    <h3>Description</h3>
+                    <p>${tool.description}</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Version</h3>
+                    <code>${tool.version}</code>
+                </div>
+                <div class="modal-section">
+                    <h3>Supported OS</h3>
+                    <ul>${tool.supported_os.map(os => `<li>${os}</li>`).join('')}</ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Tags</h3>
+                    <div>${tool.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</div>
+                </div>
+                <div class="modal-section">
+                    <h3>Installation Sources</h3>
+                    <ul>${tool.installation_sources?.map(src => `<li><strong>${src.type}</strong>: ${src.description}</li>`).join('') || '<li>No installation sources available</li>'}</ul>
+                </div>
+            `;
+            
+            document.getElementById('modal-body').innerHTML = content;
+            document.getElementById('detail-modal').classList.add('active');
+        }
+        
+        function showTemplateDetail(templateName) {
+            const template = templatesData.find(t => t.name === templateName);
+            if (!template) return;
+            
+            const content = `
+                <h2>${template.name}</h2>
+                <div class="modal-section">
+                    <h3>Description</h3>
+                    <p>${template.description}</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Recommended For</h3>
+                    <ul>${template.recommended_for?.map(item => `<li>${item}</li>`).join('')}</ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Required Tools</h3>
+                    <ul>${template.required_tools?.map(t => `<li>${t.name} (${t.version})</li>`).join('') || '<li>None</li>'}</ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Recommended Tools</h3>
+                    <ul>${template.recommended_tools?.map(t => `<li>${t.name} (${t.version})</li>`).join('') || '<li>None</li>'}</ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Optional Tools</h3>
+                    <ul>${template.optional_tools?.map(t => `<li>${t.name} (${t.version})</li>`).join('') || '<li>None</li>'}</ul>
+                </div>
+            `;
+            
+            document.getElementById('modal-body').innerHTML = content;
+            document.getElementById('detail-modal').classList.add('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('detail-modal').classList.remove('active');
+        }
+        
+        window.onclick = function(e) {
+            if (e.target === document.getElementById('detail-modal')) {
+                closeModal();
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>

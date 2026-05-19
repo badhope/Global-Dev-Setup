@@ -1,0 +1,5765 @@
+{
+  "tools": {
+    "kafka": {
+      "name": "kafka",
+      "category": "big-data",
+      "description": "Apache Kafka - distributed streaming platform",
+      "version": "3.6",
+      "latest_version": "3.6",
+      "homepage": "https://kafka.apache.org/",
+      "documentation": "https://kafka.apache.org/documentation/",
+      "license": "Apache 2.0",
+      "author": "Apache Software Foundation",
+      "tags": [
+        "kafka",
+        "streaming",
+        "messaging",
+        "real-time",
+        "event-driven"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://www.apache.org/dyn/closer.cgi?path=/kafka/3.6.0/kafka_2.13-3.6.0.tgz",
+          "description": "Manual download",
+          "priority": 1,
+          "command": "wget https://dlcdn.apache.org/kafka/3.6.0/kafka_2.13-3.6.0.tgz\ntar -xzf kafka_2.13-3.6.0.tgz\nsudo mv kafka_2.13-3.6.0 /opt/kafka\n"
+        },
+        {
+          "type": "docker",
+          "os": [
+            "all"
+          ],
+          "image": "bitnami/kafka:3.6.0",
+          "description": "Docker container",
+          "priority": 1,
+          "command": "docker run -d --name kafka -p 9092:9092 bitnami/kafka:3.6.0\n"
+        }
+      ],
+      "environment_vars": {
+        "KAFKA_HOME": "/opt/kafka",
+        "PATH": "$KAFKA_HOME/bin:$PATH"
+      },
+      "post_install": [
+        "kafka-topics.sh --version"
+      ],
+      "verify_commands": [
+        "kafka-topics.sh --version"
+      ],
+      "compatible_with": [
+        "java",
+        "zookeeper"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB",
+        "memory": "4GB minimum"
+      },
+      "path": "tools/big-data/kafka/tool.yaml"
+    },
+    "hadoop": {
+      "name": "hadoop",
+      "category": "big-data",
+      "description": "Apache Hadoop - distributed storage and processing framework",
+      "version": "3.4",
+      "latest_version": "3.4",
+      "homepage": "https://hadoop.apache.org/",
+      "documentation": "https://hadoop.apache.org/docs/current/",
+      "license": "Apache 2.0",
+      "author": "Apache Software Foundation",
+      "tags": [
+        "hadoop",
+        "big-data",
+        "distributed-storage",
+        "hdfs",
+        "mapreduce"
+      ],
+      "supported_os": [
+        "linux",
+        "macos"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "url": "https://hadoop.apache.org/releases.html",
+          "description": "Manual download",
+          "priority": 1,
+          "command": "wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz\ntar -xzf hadoop-3.4.0.tar.gz\nsudo mv hadoop-3.4.0 /opt/hadoop\n"
+        }
+      ],
+      "environment_vars": {
+        "HADOOP_HOME": "/opt/hadoop",
+        "PATH": "$HADOOP_HOME/bin:$PATH"
+      },
+      "post_install": [
+        "hadoop version"
+      ],
+      "verify_commands": [
+        "hadoop version"
+      ],
+      "compatible_with": [
+        "java",
+        "spark"
+      ],
+      "system_requirements": {
+        "disk_space": "10GB",
+        "memory": "8GB minimum"
+      },
+      "path": "tools/big-data/hadoop/tool.yaml"
+    },
+    "hive": {
+      "name": "hive",
+      "category": "big-data",
+      "description": "Apache Hive - data warehouse infrastructure",
+      "version": "4.0",
+      "latest_version": "4.0",
+      "homepage": "https://hive.apache.org/",
+      "documentation": "https://cwiki.apache.org/confluence/display/hive/",
+      "license": "Apache 2.0",
+      "author": "Apache Software Foundation",
+      "tags": [
+        "hive",
+        "data-warehouse",
+        "sql",
+        "big-data",
+        "analytics"
+      ],
+      "supported_os": [
+        "linux",
+        "macos"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "url": "https://hive.apache.org/downloads.html",
+          "description": "Manual download",
+          "priority": 1,
+          "command": "wget https://dlcdn.apache.org/hive/hive-4.0.0/apache-hive-4.0.0-bin.tar.gz\ntar -xzf apache-hive-4.0.0-bin.tar.gz\nsudo mv apache-hive-4.0.0-bin /opt/hive\n"
+        }
+      ],
+      "environment_vars": {
+        "HIVE_HOME": "/opt/hive",
+        "PATH": "$HIVE_HOME/bin:$PATH"
+      },
+      "post_install": [
+        "hive --version"
+      ],
+      "verify_commands": [
+        "hive --version"
+      ],
+      "compatible_with": [
+        "java",
+        "hadoop",
+        "spark"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB",
+        "memory": "4GB minimum"
+      },
+      "path": "tools/big-data/hive/tool.yaml"
+    },
+    "spark": {
+      "name": "spark",
+      "category": "big-data",
+      "description": "Apache Spark - unified analytics engine for big data",
+      "version": "3.5",
+      "latest_version": "3.5",
+      "homepage": "https://spark.apache.org/",
+      "documentation": "https://spark.apache.org/docs/latest/",
+      "license": "Apache 2.0",
+      "author": "Apache Software Foundation",
+      "tags": [
+        "spark",
+        "big-data",
+        "analytics",
+        "data-processing",
+        "distributed"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://spark.apache.org/downloads.html",
+          "description": "Manual download",
+          "priority": 1,
+          "command": "wget https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz\ntar -xzf spark-3.5.0-bin-hadoop3.tgz\nsudo mv spark-3.5.0-bin-hadoop3 /opt/spark\n"
+        },
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "pyspark",
+          "description": "Python API",
+          "priority": 2
+        }
+      ],
+      "environment_vars": {
+        "SPARK_HOME": "/opt/spark",
+        "PATH": "$SPARK_HOME/bin:$PATH"
+      },
+      "post_install": [
+        "spark-submit --version"
+      ],
+      "verify_commands": [
+        "spark-submit --version"
+      ],
+      "compatible_with": [
+        "java",
+        "python3",
+        "hadoop"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB",
+        "memory": "8GB minimum"
+      },
+      "path": "tools/big-data/spark/tool.yaml"
+    },
+    "huggingface": {
+      "name": "huggingface",
+      "category": "ai-ml",
+      "description": "Hugging Face - natural language processing library",
+      "version": "4.36",
+      "latest_version": "4.36",
+      "homepage": "https://huggingface.co/",
+      "documentation": "https://huggingface.co/docs/transformers/",
+      "license": "Apache 2.0",
+      "author": "Hugging Face",
+      "tags": [
+        "huggingface",
+        "nlp",
+        "transformers",
+        "llm",
+        "ai"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "transformers datasets accelerate",
+          "description": "pip installation",
+          "priority": 1
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "peft",
+          "description": "Parameter-efficient fine-tuning",
+          "recommended": true
+        },
+        {
+          "name": "trl",
+          "description": "Transformer reinforcement learning",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "HUGGINGFACE_HUB_CACHE": "$HOME/.cache/huggingface"
+      },
+      "post_install": [
+        "python -c 'from transformers import pipeline; print(\"Hugging Face ready\")'"
+      ],
+      "verify_commands": [
+        "python -c 'from transformers import __version__; print(__version__)'"
+      ],
+      "compatible_with": [
+        "python3",
+        "torch",
+        "tensorflow"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB minimum",
+        "memory": "8GB minimum"
+      },
+      "path": "tools/ai-ml/huggingface/tool.yaml"
+    },
+    "jupyter": {
+      "name": "jupyter",
+      "category": "ai-ml",
+      "description": "Jupyter - interactive computing environment",
+      "version": "7.0",
+      "latest_version": "7.0",
+      "homepage": "https://jupyter.org/",
+      "documentation": "https://docs.jupyter.org/",
+      "license": "BSD",
+      "author": "Jupyter Project",
+      "tags": [
+        "jupyter",
+        "notebooks",
+        "data-science",
+        "python",
+        "interactive"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "jupyter",
+          "description": "pip installation",
+          "priority": 1
+        },
+        {
+          "type": "pip-full",
+          "os": [
+            "all"
+          ],
+          "package_name": "jupyterlab pandas numpy matplotlib scikit-learn",
+          "description": "Full data science stack",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "jupyterlab",
+          "description": "Jupyter Lab",
+          "recommended": true
+        },
+        {
+          "name": "nbconvert",
+          "description": "Notebook conversion",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "JUPYTER_PORT": "8888"
+      },
+      "post_install": [
+        "jupyter --version"
+      ],
+      "verify_commands": [
+        "jupyter --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "pandas",
+        "numpy"
+      ],
+      "system_requirements": {
+        "disk_space": "2GB",
+        "memory": "2GB minimum"
+      },
+      "path": "tools/ai-ml/jupyter/tool.yaml"
+    },
+    "pytorch": {
+      "name": "pytorch",
+      "category": "ai-ml",
+      "description": "PyTorch - deep learning framework",
+      "version": "2.1",
+      "latest_version": "2.1",
+      "homepage": "https://pytorch.org/",
+      "documentation": "https://pytorch.org/docs/stable/",
+      "license": "BSD",
+      "author": "Meta",
+      "tags": [
+        "pytorch",
+        "machine-learning",
+        "deep-learning",
+        "ai",
+        "research"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "torch torchvision torchaudio",
+          "description": "pip installation",
+          "priority": 1
+        },
+        {
+          "type": "conda",
+          "os": [
+            "all"
+          ],
+          "package_name": "pytorch torchvision torchaudio",
+          "description": "conda installation",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "torchtext",
+          "description": "Text processing",
+          "recommended": true
+        },
+        {
+          "name": "torchmetrics",
+          "description": "Metrics",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "CUDA_VISIBLE_DEVICES": "0"
+      },
+      "post_install": [
+        "python -c 'import torch; print(torch.__version__)'"
+      ],
+      "verify_commands": [
+        "python -c 'import torch; print(torch.__version__)'"
+      ],
+      "compatible_with": [
+        "python3",
+        "jupyter",
+        "numpy"
+      ],
+      "system_requirements": {
+        "disk_space": "10GB",
+        "memory": "8GB minimum (16GB recommended)"
+      },
+      "path": "tools/ai-ml/pytorch/tool.yaml"
+    },
+    "tensorflow": {
+      "name": "tensorflow",
+      "category": "ai-ml",
+      "description": "TensorFlow - end-to-end platform for machine learning",
+      "version": "2.15",
+      "latest_version": "2.15",
+      "homepage": "https://www.tensorflow.org/",
+      "documentation": "https://www.tensorflow.org/guide",
+      "license": "Apache 2.0",
+      "author": "Google",
+      "tags": [
+        "tensorflow",
+        "machine-learning",
+        "deep-learning",
+        "ai",
+        "neural-networks"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "tensorflow",
+          "description": "pip installation",
+          "priority": 1
+        },
+        {
+          "type": "pip-gpu",
+          "os": [
+            "linux"
+          ],
+          "package_name": "tensorflow-gpu",
+          "description": "GPU version",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "tensorflow-datasets",
+          "description": "Datasets",
+          "recommended": true
+        },
+        {
+          "name": "tensorboard",
+          "description": "Visualization",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "CUDA_VISIBLE_DEVICES": "0"
+      },
+      "post_install": [
+        "python -c 'import tensorflow; print(tensorflow.__version__)'"
+      ],
+      "verify_commands": [
+        "python -c 'import tensorflow; print(tensorflow.__version__)'"
+      ],
+      "compatible_with": [
+        "python3",
+        "jupyter",
+        "numpy"
+      ],
+      "system_requirements": {
+        "disk_space": "10GB",
+        "memory": "8GB minimum (16GB recommended)"
+      },
+      "path": "tools/ai-ml/tensorflow/tool.yaml"
+    },
+    "openssl": {
+      "name": "openssl",
+      "category": "security",
+      "description": "OpenSSL - cryptography toolkit",
+      "version": "3.2",
+      "latest_version": "3.2",
+      "homepage": "https://www.openssl.org/",
+      "documentation": "https://www.openssl.org/docs/",
+      "license": "Apache 2.0",
+      "author": "OpenSSL Project",
+      "tags": [
+        "openssl",
+        "security",
+        "cryptography",
+        "ssl",
+        "tls"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "openssl",
+          "description": "Apt installation",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "openssl@3",
+          "description": "Homebrew",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "OPENSSL_CONF": "/etc/ssl/openssl.cnf"
+      },
+      "post_install": [
+        "openssl version"
+      ],
+      "verify_commands": [
+        "openssl version"
+      ],
+      "compatible_with": [
+        "nginx",
+        "apache"
+      ],
+      "system_requirements": {
+        "disk_space": "100MB",
+        "memory": "128MB minimum"
+      },
+      "path": "tools/security/openssl/tool.yaml"
+    },
+    "python3": {
+      "name": "python3",
+      "category": "programming-languages",
+      "description": "Python programming language - the most popular language for AI/ML, web development, and automation",
+      "version": "3.12",
+      "latest_version": "3.12",
+      "homepage": "https://www.python.org/",
+      "documentation": "https://docs.python.org/",
+      "license": "PSF License",
+      "author": "Python Software Foundation",
+      "tags": [
+        "programming-language",
+        "python",
+        "data-science",
+        "ai-ml",
+        "web-development",
+        "automation",
+        "backend"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows",
+        "all"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "python3 python3-pip python3-dev python3-venv",
+          "description": "System package manager for Debian/Ubuntu",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "python3",
+          "description": "Homebrew package manager for macOS",
+          "priority": 1
+        },
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "url": "https://www.python.org/ftp/python/3.12.0/python-3.12.0-{os}-{arch}.{ext}",
+          "command": "# Linux: Deadsnakes PPA\nsudo add-apt-repository ppa:deadsnakes/ppa\nsudo apt update\nsudo apt install -y python3.12 python3.12-pip python3.12-dev python3.12-venv\n\n# macOS: Download official installer\ncurl -O https://www.python.org/ftp/python/3.12.0/python-3.12.0-macos11.pkg\nsudo installer -pkg python-3.12.0-macos11.pkg -target /\n",
+          "description": "Direct download from python.org",
+          "priority": 2
+        },
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://www.python.org/downloads/",
+          "description": "Manual installation from official website",
+          "priority": 3
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "build-essential",
+          "version": "",
+          "optional": false,
+          "os": [
+            "linux"
+          ],
+          "description": "Build tools required for compiling Python packages"
+        },
+        {
+          "name": "curl",
+          "version": "",
+          "optional": false,
+          "description": "Required for downloading packages"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "poetry",
+          "description": "Python dependency management and packaging",
+          "recommended": true
+        },
+        {
+          "name": "pipenv",
+          "description": "Pipenv - Python Development Workflow for Humans",
+          "recommended": false
+        },
+        {
+          "name": "conda",
+          "description": "Conda package and environment manager",
+          "recommended": false
+        }
+      ],
+      "config_files": [
+        {
+          "path": "~/.pip/pip.conf",
+          "content": "[global]\nindex-url = https://pypi.org/simple\ntrusted-host = pypi.org\n"
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$HOME/.local/bin:$PATH",
+        "PYTHONIOENCODING": "UTF-8",
+        "PIP_REQUIRE_VENV": "false"
+      },
+      "post_install": [
+        "pip3 install --upgrade pip setuptools wheel",
+        "pip3 install --upgrade virtualenv"
+      ],
+      "verify_commands": [
+        "python3 --version",
+        "pip3 --version"
+      ],
+      "popular_packages": [
+        {
+          "name": "numpy",
+          "description": "Numerical computing",
+          "category": "data-science",
+          "recommended": true
+        },
+        {
+          "name": "pandas",
+          "description": "Data analysis and manipulation",
+          "category": "data-science",
+          "recommended": true
+        },
+        {
+          "name": "requests",
+          "description": "HTTP requests",
+          "category": "web",
+          "recommended": true
+        },
+        {
+          "name": "flask",
+          "description": "Web framework",
+          "category": "web",
+          "recommended": false
+        },
+        {
+          "name": "django",
+          "description": "Full-stack web framework",
+          "category": "web",
+          "recommended": false
+        }
+      ],
+      "integrations": [
+        {
+          "name": "vscode-python",
+          "description": "VS Code Python extension",
+          "auto_install": true
+        },
+        {
+          "name": "jupyter",
+          "description": "Jupyter Notebooks",
+          "auto_install": true
+        }
+      ],
+      "compatible_with": [
+        "nodejs",
+        "docker",
+        "git",
+        "postgresql",
+        "mongodb"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "256MB minimum",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "optimization_tips": [
+        "Use uv instead of pip for faster package installation",
+        "Enable pip cache",
+        "Use virtual environments for project isolation"
+      ],
+      "security_notes": [
+        "Use virtual environments",
+        "Keep packages updated",
+        "Use pip-audit to check for vulnerabilities"
+      ],
+      "path": "tools/programming-languages/python3/tool.yaml"
+    },
+    "c-cpp": {
+      "name": "c-cpp",
+      "category": "programming-languages",
+      "description": "C/C++ compilers and development tools",
+      "version": "14",
+      "latest_version": "14",
+      "homepage": "https://gcc.gnu.org/",
+      "documentation": "https://gcc.gnu.org/onlinedocs/",
+      "license": "GPL",
+      "author": "GNU",
+      "tags": [
+        "c",
+        "cpp",
+        "systems-programming",
+        "embedded",
+        "game-dev"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "build-essential gcc g++ cmake",
+          "description": "GCC from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "gcc cmake",
+          "description": "Homebrew GCC",
+          "priority": 1
+        },
+        {
+          "type": "manual",
+          "os": [
+            "windows"
+          ],
+          "url": "https://visualstudio.microsoft.com/vs/features/cplusplus/",
+          "description": "Visual Studio Build Tools",
+          "priority": 1
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "make",
+          "description": "Build automation",
+          "recommended": true
+        },
+        {
+          "name": "ninja",
+          "description": "Build system",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/usr/local/bin:$PATH"
+      },
+      "post_install": [
+        "gcc --version",
+        "g++ --version"
+      ],
+      "verify_commands": [
+        "gcc --version",
+        "g++ --version",
+        "cmake --version"
+      ],
+      "compatible_with": [
+        "git",
+        "docker",
+        "make"
+      ],
+      "system_requirements": {
+        "disk_space": "1GB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/programming-languages/c-cpp/tool.yaml"
+    },
+    "java": {
+      "name": "java",
+      "category": "programming-languages",
+      "description": "Java JDK - platform for building enterprise applications",
+      "version": "21",
+      "latest_version": "21",
+      "lts_version": "21",
+      "homepage": "https://adoptium.net/",
+      "documentation": "https://docs.oracle.com/en/java/",
+      "license": "GPL",
+      "author": "OpenJDK",
+      "tags": [
+        "java",
+        "jdk",
+        "spring",
+        "enterprise",
+        "android"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "openjdk-21-jdk",
+          "description": "OpenJDK from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "openjdk@21",
+          "description": "Homebrew OpenJDK",
+          "priority": 1
+        },
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://adoptium.net/temurin/releases/",
+          "description": "Manual download",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "maven",
+          "description": "Maven build tool",
+          "recommended": true
+        },
+        {
+          "name": "gradle",
+          "description": "Gradle build tool",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "JAVA_HOME": "/usr/lib/jvm/java-21-openjdk-amd64",
+        "PATH": "$JAVA_HOME/bin:$PATH"
+      },
+      "post_install": [
+        "java -version"
+      ],
+      "verify_commands": [
+        "java -version",
+        "javac -version"
+      ],
+      "compatible_with": [
+        "maven",
+        "gradle",
+        "spring-boot"
+      ],
+      "system_requirements": {
+        "disk_space": "3GB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/programming-languages/java/tool.yaml"
+    },
+    "nodejs": {
+      "name": "nodejs",
+      "category": "programming-languages",
+      "description": "Node.js JavaScript runtime - for building scalable network applications",
+      "version": "20",
+      "lts_version": "20",
+      "latest_version": "21",
+      "homepage": "https://nodejs.org/",
+      "documentation": "https://nodejs.org/docs/latest/api/",
+      "license": "MIT",
+      "author": "Node.js Foundation",
+      "tags": [
+        "javascript",
+        "nodejs",
+        "web-development",
+        "backend",
+        "frontend",
+        "full-stack",
+        "serverless"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows",
+        "all"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "nodejs npm",
+          "description": "Node.js from NodeSource repository",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "node",
+          "description": "Homebrew package manager",
+          "priority": 1
+        },
+        {
+          "type": "nvm",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Node Version Manager (NVM) - recommended",
+          "priority": 2,
+          "command": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"\nnvm install 20\nnvm use 20\n"
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "git",
+          "optional": true
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "yarn",
+          "description": "Yarn package manager",
+          "recommended": true
+        },
+        {
+          "name": "pnpm",
+          "description": "Fast, disk space efficient package manager",
+          "recommended": true
+        },
+        {
+          "name": "typescript",
+          "description": "TypeScript language",
+          "recommended": true
+        }
+      ],
+      "config_files": [
+        {
+          "path": "~/.npmrc",
+          "content": "prefix=${HOME}/.npm-global\ninit-author-name=Your Name\ninit-author-email=your@email.com\ninit-license=MIT\n"
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$HOME/.npm-global/bin:$PATH",
+        "NODE_ENV": "development"
+      },
+      "post_install": [
+        "npm install -g npm@latest",
+        "npm install -g yarn pnpm typescript"
+      ],
+      "verify_commands": [
+        "node --version",
+        "npm --version"
+      ],
+      "popular_packages": [
+        {
+          "name": "express",
+          "description": "Web framework",
+          "category": "web",
+          "recommended": true
+        },
+        {
+          "name": "react",
+          "description": "UI library",
+          "category": "frontend",
+          "recommended": true
+        },
+        {
+          "name": "vue",
+          "description": "Progressive framework",
+          "category": "frontend",
+          "recommended": false
+        },
+        {
+          "name": "nextjs",
+          "description": "React framework",
+          "category": "frontend",
+          "recommended": true
+        }
+      ],
+      "integrations": [
+        {
+          "name": "vscode-eslint",
+          "description": "VS Code ESLint extension",
+          "auto_install": true
+        }
+      ],
+      "compatible_with": [
+        "python3",
+        "docker",
+        "git",
+        "postgresql",
+        "mongodb",
+        "redis"
+      ],
+      "system_requirements": {
+        "disk_space": "1GB",
+        "memory": "512MB minimum",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "optimization_tips": [
+        "Use pnpm instead of npm for faster installs",
+        "Enable npm cache",
+        "Use corepack for package manager management"
+      ],
+      "path": "tools/programming-languages/nodejs/tool.yaml"
+    },
+    "ruby": {
+      "name": "ruby",
+      "category": "programming-languages",
+      "description": "Ruby - elegant, dynamic programming language",
+      "version": "3.2",
+      "latest_version": "3.2",
+      "homepage": "https://www.ruby-lang.org/",
+      "documentation": "https://ruby-doc.org/",
+      "license": "Ruby License",
+      "author": "Ruby Core Team",
+      "tags": [
+        "ruby",
+        "rails",
+        "web-development",
+        "scripting",
+        "automation"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "rbenv",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Ruby Version Manager (recommended)",
+          "priority": 1,
+          "command": "git clone https://github.com/rbenv/rbenv.git ~/.rbenv\necho 'export PATH=\"$HOME/.rbenv/bin:$PATH\"' >> ~/.bashrc\necho 'eval \"$(rbenv init -)\"' >> ~/.bashrc\nsource ~/.bashrc\nrbenv install 3.2.0\nrbenv global 3.2.0\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "ruby",
+          "description": "Homebrew Ruby",
+          "priority": 2
+        },
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "ruby ruby-dev",
+          "description": "System Ruby",
+          "priority": 3
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "rails",
+          "description": "Ruby on Rails framework",
+          "recommended": true
+        },
+        {
+          "name": "bundler",
+          "description": "Dependency manager",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$HOME/.rbenv/bin:$PATH"
+      },
+      "post_install": [
+        "gem install bundler"
+      ],
+      "verify_commands": [
+        "ruby --version",
+        "gem --version"
+      ],
+      "compatible_with": [
+        "rails",
+        "postgresql",
+        "redis"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/programming-languages/ruby/tool.yaml"
+    },
+    "rust": {
+      "name": "rust",
+      "category": "programming-languages",
+      "description": "Rust - blazingly fast, memory-safe systems programming language",
+      "version": "1.77",
+      "latest_version": "1.77",
+      "homepage": "https://www.rust-lang.org/",
+      "documentation": "https://doc.rust-lang.org/",
+      "license": "MIT/Apache 2.0",
+      "author": "Rust Project",
+      "tags": [
+        "rust",
+        "systems-programming",
+        "memory-safe",
+        "high-performance",
+        "wasm"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Rustup installer (recommended)",
+          "priority": 1,
+          "command": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\nsource \"$HOME/.cargo/env\"\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "rust",
+          "description": "Homebrew installation",
+          "priority": 2
+        },
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "rustc cargo",
+          "description": "System packages",
+          "priority": 3
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "rust-analyzer",
+          "description": "Rust language server",
+          "recommended": true
+        },
+        {
+          "name": "cargo-edit",
+          "description": "Cargo add/rm/edit",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$HOME/.cargo/bin:$PATH"
+      },
+      "post_install": [
+        "rustup update",
+        "cargo install cargo-edit"
+      ],
+      "verify_commands": [
+        "rustc --version",
+        "cargo --version"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "docker",
+        "wasm-tools"
+      ],
+      "system_requirements": {
+        "disk_space": "2GB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/programming-languages/rust/tool.yaml"
+    },
+    "php": {
+      "name": "php",
+      "category": "programming-languages",
+      "description": "PHP - server-side scripting for web development",
+      "version": "8.3",
+      "latest_version": "8.3",
+      "homepage": "https://www.php.net/",
+      "documentation": "https://www.php.net/docs.php",
+      "license": "PHP License",
+      "author": "PHP Group",
+      "tags": [
+        "php",
+        "web-development",
+        "laravel",
+        "wordpress",
+        "backend"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "php php-cli php-fpm php-mysql php-pgsql php-redis",
+          "description": "PHP from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "php",
+          "description": "Homebrew PHP",
+          "priority": 1
+        },
+        {
+          "type": "manual",
+          "os": [
+            "windows"
+          ],
+          "url": "https://windows.php.net/download/",
+          "description": "Windows PHP",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "composer",
+          "description": "PHP package manager",
+          "recommended": true
+        },
+        {
+          "name": "laravel",
+          "description": "Laravel framework",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/usr/local/bin:$PATH"
+      },
+      "post_install": [
+        "php -v",
+        "curl -sS https://getcomposer.org/installer | php"
+      ],
+      "verify_commands": [
+        "php --version"
+      ],
+      "compatible_with": [
+        "apache",
+        "nginx",
+        "mysql",
+        "postgresql"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/programming-languages/php/tool.yaml"
+    },
+    "go": {
+      "name": "go",
+      "category": "programming-languages",
+      "description": "Go - simple, reliable, efficient programming language",
+      "version": "1.22",
+      "latest_version": "1.22",
+      "homepage": "https://go.dev/",
+      "documentation": "https://go.dev/doc/",
+      "license": "BSD",
+      "author": "Google",
+      "tags": [
+        "go",
+        "golang",
+        "backend",
+        "cloud-native",
+        "microservices"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installer",
+          "priority": 1,
+          "command": "GO_VERSION=\"1.22.0\"\nwget \"https://dl.google.com/go/go$GO_VERSION.linux-amd64.tar.gz\"\nsudo tar -C /usr/local -xzf \"go$GO_VERSION.linux-amd64.tar.gz\"\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "go",
+          "description": "Homebrew installation",
+          "priority": 1
+        },
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "golang-go",
+          "description": "System packages",
+          "priority": 2
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$GOPATH/bin:$PATH",
+        "GOPATH": "$HOME/go"
+      },
+      "post_install": [
+        "go version"
+      ],
+      "verify_commands": [
+        "go version",
+        "go env"
+      ],
+      "compatible_with": [
+        "docker",
+        "kubernetes",
+        "git"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/programming-languages/go/tool.yaml"
+    },
+    "ethereum": {
+      "name": "ethereum",
+      "category": "blockchain",
+      "description": "Ethereum - smart contract development tools",
+      "version": "12",
+      "latest_version": "12",
+      "homepage": "https://ethereum.org/",
+      "documentation": "https://ethereum.org/en/developers/",
+      "license": "MIT",
+      "author": "Ethereum Foundation",
+      "tags": [
+        "ethereum",
+        "blockchain",
+        "smart-contracts",
+        "solidity",
+        "web3"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "npm",
+          "os": [
+            "all"
+          ],
+          "package_name": "hardhat truffle ganache",
+          "description": "npm tools",
+          "priority": 1
+        },
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Foundry",
+          "priority": 2,
+          "command": "curl -L https://foundry.paradigm.xyz | bash\nfoundryup\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "solidity",
+          "description": "Solidity compiler",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$HOME/.foundry/bin:$PATH"
+      },
+      "post_install": [
+        "hardhat --version"
+      ],
+      "verify_commands": [
+        "npx hardhat --version"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "npm"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/blockchain/ethereum/tool.yaml"
+    },
+    "git": {
+      "name": "git",
+      "category": "productivity",
+      "description": "Git - the most popular distributed version control system",
+      "version": "2.45",
+      "latest_version": "2.45",
+      "homepage": "https://git-scm.com/",
+      "documentation": "https://git-scm.com/docs",
+      "license": "GPL v2",
+      "author": "Linus Torvalds",
+      "tags": [
+        "version-control",
+        "git",
+        "source-control",
+        "devops",
+        "productivity"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows",
+        "all"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "git git-gui git-doc",
+          "description": "System package manager",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "git",
+          "description": "Homebrew package manager",
+          "priority": 1
+        },
+        {
+          "type": "manual",
+          "os": [
+            "windows"
+          ],
+          "url": "https://git-scm.com/download/win",
+          "description": "Git for Windows",
+          "priority": 1
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "curl",
+          "optional": true
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "gh",
+          "description": "GitHub CLI",
+          "recommended": true
+        },
+        {
+          "name": "git-lfs",
+          "description": "Git Large File Storage",
+          "recommended": false
+        }
+      ],
+      "config_files": [
+        {
+          "path": "~/.gitconfig",
+          "template": "[user]\n  name = {{ username }}\n  email = {{ email }}\n[core]\n  editor = vim\n  autocrlf = input\n  excludesfile = ~/.gitignore_global\n[init]\n  defaultBranch = main\n[pull]\n  rebase = true\n[push]\n  autoSetupRemote = true\n[color]\n  ui = true\n"
+        }
+      ],
+      "environment_vars": {
+        "GIT_PAGER": "less -r",
+        "EDITOR": "vim"
+      },
+      "post_install": [
+        "git --version"
+      ],
+      "verify_commands": [
+        "git --version",
+        "git config --list"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "python3",
+        "docker",
+        "all-tools"
+      ],
+      "system_requirements": {
+        "disk_space": "100MB",
+        "memory": "64MB minimum",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "optimization_tips": [
+        "Enable Git LFS for large files",
+        "Use shallow clones for big repos",
+        "Set up credential helpers"
+      ],
+      "best_practices": [
+        "Use meaningful commit messages",
+        "Create branches for features",
+        "Write good pull requests"
+      ],
+      "path": "tools/productivity/git/tool.yaml"
+    },
+    "postgresql": {
+      "name": "postgresql",
+      "category": "databases",
+      "description": "PostgreSQL - world's most advanced open-source database",
+      "version": "16",
+      "latest_version": "16",
+      "homepage": "https://www.postgresql.org/",
+      "documentation": "https://www.postgresql.org/docs/",
+      "license": "PostgreSQL License",
+      "author": "PostgreSQL Global Development Group",
+      "tags": [
+        "database",
+        "postgresql",
+        "sql",
+        "relational-database",
+        "data-storage"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows",
+        "all"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "postgresql postgresql-contrib",
+          "description": "PostgreSQL from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "postgresql@16",
+          "description": "Homebrew PostgreSQL",
+          "priority": 1
+        },
+        {
+          "type": "docker",
+          "os": [
+            "all"
+          ],
+          "description": "Run PostgreSQL in Docker container",
+          "priority": 2,
+          "command": "docker run --name postgres16 \\\n  -e POSTGRES_PASSWORD=mysecretpassword \\\n  -p 5432:5432 \\\n  -d postgres:16\n"
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "docker",
+          "optional": true
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "pgadmin4",
+          "description": "PgAdmin 4 - PostgreSQL administration",
+          "recommended": true
+        },
+        {
+          "name": "dbeaver",
+          "description": "DBeaver universal database tool",
+          "recommended": true
+        }
+      ],
+      "config_files": [
+        {
+          "path": "/etc/postgresql/16/main/postgresql.conf",
+          "optional": true
+        },
+        {
+          "path": "/etc/postgresql/16/main/pg_hba.conf",
+          "optional": true
+        }
+      ],
+      "environment_vars": {
+        "PGDATA": "/var/lib/postgresql/16/main",
+        "PGUSER": "postgres",
+        "PGDATABASE": "postgres"
+      },
+      "post_install": [
+        "psql --version",
+        "sudo -u postgres psql -c 'CREATE EXTENSION IF NOT EXISTS pgcrypto;'"
+      ],
+      "verify_commands": [
+        "psql --version",
+        "pg_isready"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "python3",
+        "docker",
+        "redis",
+        "all-programming-languages"
+      ],
+      "system_requirements": {
+        "disk_space": "2GB minimum",
+        "memory": "512MB minimum",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "optimization_tips": [
+        "Enable pg_stat_statements for query analysis",
+        "Use connection pooling (pgBouncer)",
+        "Regular VACUUM and ANALYZE"
+      ],
+      "path": "tools/databases/postgresql/tool.yaml"
+    },
+    "sqlite": {
+      "name": "sqlite",
+      "category": "databases",
+      "description": "SQLite - embedded relational database",
+      "version": "3.45",
+      "latest_version": "3.45",
+      "homepage": "https://www.sqlite.org/",
+      "documentation": "https://www.sqlite.org/docs.html",
+      "license": "Public Domain",
+      "author": "SQLite Development Team",
+      "tags": [
+        "sqlite",
+        "embedded",
+        "lightweight",
+        "mobile",
+        "testing"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "sqlite3",
+          "description": "SQLite from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "sqlite",
+          "description": "Homebrew SQLite",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "SQLITE_PATH": "/usr/bin/sqlite3"
+      },
+      "post_install": [
+        "sqlite3 --version"
+      ],
+      "verify_commands": [
+        "sqlite3 --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "nodejs"
+      ],
+      "system_requirements": {
+        "disk_space": "100MB",
+        "memory": "64MB minimum"
+      },
+      "path": "tools/databases/sqlite/tool.yaml"
+    },
+    "mysql": {
+      "name": "mysql",
+      "category": "databases",
+      "description": "MySQL - world's most popular open source database",
+      "version": "8.3",
+      "latest_version": "8.3",
+      "homepage": "https://www.mysql.com/",
+      "documentation": "https://dev.mysql.com/doc/",
+      "license": "GPL",
+      "author": "Oracle",
+      "tags": [
+        "mysql",
+        "database",
+        "relational",
+        "sql",
+        "web-development"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "mysql-server",
+          "description": "MySQL from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "mysql",
+          "description": "Homebrew MySQL",
+          "priority": 1
+        },
+        {
+          "type": "docker",
+          "os": [
+            "all"
+          ],
+          "image": "mysql:8.3",
+          "description": "Docker container (recommended)",
+          "priority": 1,
+          "command": "docker run -d -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=secret mysql:8.3\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "mysql-workbench",
+          "description": "MySQL GUI client",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "MYSQL_ROOT_PASSWORD": "password"
+      },
+      "post_install": [
+        "mysql --version"
+      ],
+      "verify_commands": [
+        "mysql --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "nodejs",
+        "php",
+        "docker"
+      ],
+      "system_requirements": {
+        "disk_space": "2GB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/databases/mysql/tool.yaml"
+    },
+    "redis": {
+      "name": "redis",
+      "category": "databases",
+      "description": "Redis - in-memory data structure store",
+      "version": "7.2",
+      "latest_version": "7.2",
+      "homepage": "https://redis.io/",
+      "documentation": "https://redis.io/docs/",
+      "license": "BSD",
+      "author": "Redis Labs",
+      "tags": [
+        "redis",
+        "cache",
+        "in-memory",
+        "pubsub",
+        "real-time"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "redis-server",
+          "description": "Redis from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "redis",
+          "description": "Homebrew Redis",
+          "priority": 1
+        },
+        {
+          "type": "docker",
+          "os": [
+            "all"
+          ],
+          "image": "redis:7.2",
+          "description": "Docker container",
+          "priority": 1,
+          "command": "docker run -d -p 6379:6379 --name redis redis:7.2\n"
+        }
+      ],
+      "environment_vars": {
+        "REDIS_URL": "redis://localhost:6379"
+      },
+      "post_install": [
+        "redis-server --version"
+      ],
+      "verify_commands": [
+        "redis-server --version",
+        "redis-cli ping"
+      ],
+      "compatible_with": [
+        "python3",
+        "nodejs",
+        "docker"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/databases/redis/tool.yaml"
+    },
+    "mongodb": {
+      "name": "mongodb",
+      "category": "databases",
+      "description": "MongoDB - NoSQL document database",
+      "version": "7.0",
+      "latest_version": "7.0",
+      "homepage": "https://www.mongodb.com/",
+      "documentation": "https://www.mongodb.com/docs/",
+      "license": "SSPL",
+      "author": "MongoDB Inc.",
+      "tags": [
+        "mongodb",
+        "nosql",
+        "document-database",
+        "big-data",
+        "real-time"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "mongodb-org",
+          "description": "MongoDB from official repo",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "mongodb-community",
+          "description": "Homebrew MongoDB",
+          "priority": 1
+        },
+        {
+          "type": "docker",
+          "os": [
+            "all"
+          ],
+          "image": "mongo:7.0",
+          "description": "Docker container (recommended)",
+          "priority": 1,
+          "command": "docker run -d -p 27017:27017 --name mongodb mongo:7.0\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "mongodb-compass",
+          "description": "MongoDB GUI",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "MONGO_URI": "mongodb://localhost:27017"
+      },
+      "post_install": [
+        "mongod --version"
+      ],
+      "verify_commands": [
+        "mongod --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "nodejs",
+        "docker"
+      ],
+      "system_requirements": {
+        "disk_space": "2GB",
+        "memory": "2GB minimum"
+      },
+      "path": "tools/databases/mongodb/tool.yaml"
+    },
+    "elasticsearch": {
+      "name": "elasticsearch",
+      "category": "databases",
+      "description": "Elasticsearch - distributed search and analytics engine",
+      "version": "8.13",
+      "latest_version": "8.13",
+      "homepage": "https://www.elastic.co/",
+      "documentation": "https://www.elastic.co/guide/index.html",
+      "license": "Elastic License",
+      "author": "Elastic",
+      "tags": [
+        "elasticsearch",
+        "search",
+        "analytics",
+        "log-analysis",
+        "big-data"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "elasticsearch",
+          "description": "Elasticsearch from apt",
+          "priority": 1
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "elasticsearch-full",
+          "description": "Homebrew Elasticsearch",
+          "priority": 1
+        },
+        {
+          "type": "docker",
+          "os": [
+            "all"
+          ],
+          "image": "elasticsearch:8.13.0",
+          "description": "Docker container",
+          "priority": 1,
+          "command": "docker run -d -p 9200:9200 -p 9300:9300 --name elasticsearch elasticsearch:8.13.0\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "kibana",
+          "description": "Visualization dashboard",
+          "recommended": true
+        },
+        {
+          "name": "logstash",
+          "description": "Data processing pipeline",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "ELASTICSEARCH_URL": "http://localhost:9200"
+      },
+      "post_install": [
+        "curl -X GET 'http://localhost:9200'"
+      ],
+      "verify_commands": [
+        "curl -X GET 'http://localhost:9200'"
+      ],
+      "compatible_with": [
+        "kibana",
+        "logstash",
+        "docker"
+      ],
+      "system_requirements": {
+        "disk_space": "3GB",
+        "memory": "4GB minimum"
+      },
+      "path": "tools/databases/elasticsearch/tool.yaml"
+    },
+    "aws-cli": {
+      "name": "aws-cli",
+      "category": "cloud",
+      "description": "AWS CLI - command-line interface for Amazon Web Services",
+      "version": "2.15",
+      "latest_version": "2.15",
+      "homepage": "https://aws.amazon.com/cli/",
+      "documentation": "https://docs.aws.amazon.com/cli/",
+      "license": "Apache 2.0",
+      "author": "Amazon",
+      "tags": [
+        "aws",
+        "cloud",
+        "cli",
+        "devops",
+        "infrastructure"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installer",
+          "priority": 1,
+          "command": "curl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"\nunzip awscliv2.zip\nsudo ./aws/install\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "awscli",
+          "description": "Homebrew",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "AWS_CONFIG_FILE": "$HOME/.aws/config",
+        "AWS_SHARED_CREDENTIALS_FILE": "$HOME/.aws/credentials"
+      },
+      "post_install": [
+        "aws --version",
+        "aws configure"
+      ],
+      "verify_commands": [
+        "aws --version"
+      ],
+      "compatible_with": [
+        "terraform",
+        "ansible"
+      ],
+      "system_requirements": {
+        "disk_space": "200MB",
+        "memory": "256MB minimum"
+      },
+      "path": "tools/cloud/aws-cli/tool.yaml"
+    },
+    "gcloud-cli": {
+      "name": "gcloud-cli",
+      "category": "cloud",
+      "description": "gcloud CLI - command-line interface for Google Cloud Platform",
+      "version": "455",
+      "latest_version": "455",
+      "homepage": "https://cloud.google.com/sdk/docs/install",
+      "documentation": "https://cloud.google.com/sdk/docs/reference",
+      "license": "Apache 2.0",
+      "author": "Google",
+      "tags": [
+        "gcloud",
+        "google-cloud",
+        "cloud",
+        "cli",
+        "devops"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installer",
+          "priority": 1,
+          "command": "curl https://sdk.cloud.google.com | bash\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "google-cloud-sdk",
+          "description": "Homebrew",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$HOME/google-cloud-sdk/bin:$PATH"
+      },
+      "post_install": [
+        "gcloud --version",
+        "gcloud init"
+      ],
+      "verify_commands": [
+        "gcloud --version"
+      ],
+      "compatible_with": [
+        "terraform",
+        "kubectl"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/cloud/gcloud-cli/tool.yaml"
+    },
+    "azure-cli": {
+      "name": "azure-cli",
+      "category": "cloud",
+      "description": "Azure CLI - command-line interface for Microsoft Azure",
+      "version": "2.57",
+      "latest_version": "2.57",
+      "homepage": "https://learn.microsoft.com/en-us/cli/azure/",
+      "documentation": "https://learn.microsoft.com/en-us/cli/azure/reference-index",
+      "license": "MIT",
+      "author": "Microsoft",
+      "tags": [
+        "azure",
+        "cloud",
+        "cli",
+        "devops",
+        "infrastructure"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installer",
+          "priority": 1,
+          "command": "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "azure-cli",
+          "description": "Homebrew",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "AZURE_CONFIG_DIR": "$HOME/.azure"
+      },
+      "post_install": [
+        "az --version",
+        "az login"
+      ],
+      "verify_commands": [
+        "az --version"
+      ],
+      "compatible_with": [
+        "terraform",
+        "ansible"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/cloud/azure-cli/tool.yaml"
+    },
+    "dbt": {
+      "name": "dbt",
+      "category": "data-engineering",
+      "description": "dbt - data build tool for analytics",
+      "version": "1.7",
+      "latest_version": "1.7",
+      "homepage": "https://www.getdbt.com/",
+      "documentation": "https://docs.getdbt.com/",
+      "license": "Apache 2.0",
+      "author": "dbt Labs",
+      "tags": [
+        "dbt",
+        "data-engineering",
+        "analytics",
+        "data-warehouse",
+        "sql"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "dbt-postgres dbt-redshift dbt-bigquery",
+          "description": "pip installation",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "DBT_PROFILES_DIR": "$HOME/.dbt"
+      },
+      "post_install": [
+        "dbt --version"
+      ],
+      "verify_commands": [
+        "dbt --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "postgresql",
+        "bigquery"
+      ],
+      "system_requirements": {
+        "disk_space": "200MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/data-engineering/dbt/tool.yaml"
+    },
+    "kubeflow": {
+      "name": "kubeflow",
+      "category": "data-engineering",
+      "description": "Kubeflow - machine learning toolkit for Kubernetes",
+      "version": "1.8",
+      "latest_version": "1.8",
+      "homepage": "https://www.kubeflow.org/",
+      "documentation": "https://www.kubeflow.org/docs/",
+      "license": "Apache 2.0",
+      "author": "Kubeflow",
+      "tags": [
+        "kubeflow",
+        "mlops",
+        "kubernetes",
+        "machine-learning",
+        "orchestration"
+      ],
+      "supported_os": [
+        "linux",
+        "macos"
+      ],
+      "installation_sources": [
+        {
+          "type": "kustomize",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Kubernetes installation",
+          "priority": 1,
+          "command": "kubectl apply -k \"github.com/kubeflow/kubeflow/manifests/v1.8-branch/distributed-training\"\n"
+        }
+      ],
+      "environment_vars": {
+        "KUBECONFIG": "$HOME/.kube/config"
+      },
+      "post_install": [
+        "kubectl get pods -n kubeflow"
+      ],
+      "verify_commands": [
+        "kubectl get pods -n kubeflow"
+      ],
+      "compatible_with": [
+        "kubectl",
+        "kubernetes"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB",
+        "memory": "8GB minimum"
+      },
+      "path": "tools/data-engineering/kubeflow/tool.yaml"
+    },
+    "airflow": {
+      "name": "airflow",
+      "category": "data-engineering",
+      "description": "Apache Airflow - orchestration platform for data workflows",
+      "version": "2.8",
+      "latest_version": "2.8",
+      "homepage": "https://airflow.apache.org/",
+      "documentation": "https://airflow.apache.org/docs/",
+      "license": "Apache 2.0",
+      "author": "Apache Software Foundation",
+      "tags": [
+        "airflow",
+        "data-engineering",
+        "orchestration",
+        "workflow",
+        "etl"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "apache-airflow",
+          "description": "pip installation",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "AIRFLOW_HOME": "$HOME/airflow"
+      },
+      "post_install": [
+        "airflow version"
+      ],
+      "verify_commands": [
+        "airflow version"
+      ],
+      "compatible_with": [
+        "python3",
+        "kubernetes"
+      ],
+      "system_requirements": {
+        "disk_space": "1GB",
+        "memory": "2GB minimum"
+      },
+      "path": "tools/data-engineering/airflow/tool.yaml"
+    },
+    "vscode": {
+      "name": "vscode",
+      "category": "editors",
+      "description": "Visual Studio Code - powerful extensible code editor",
+      "version": "latest",
+      "latest_version": "1.90",
+      "homepage": "https://code.visualstudio.com/",
+      "documentation": "https://code.visualstudio.com/docs",
+      "license": "MIT",
+      "author": "Microsoft",
+      "tags": [
+        "editor",
+        "ide",
+        "vscode",
+        "text-editor",
+        "programming"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows",
+        "all"
+      ],
+      "installation_sources": [
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "code",
+          "description": "VS Code from Microsoft repository",
+          "priority": 1,
+          "command": "wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg\nsudo mv microsoft.gpg /etc/apt/trusted.gpg.d/\necho \"deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main\" | sudo tee /etc/apt/sources.list.d/vscode.list\nsudo apt update\nsudo apt install -y code\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "--cask visual-studio-code",
+          "description": "VS Code via Homebrew",
+          "priority": 1
+        },
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://code.visualstudio.com/",
+          "description": "Download from VS Code website",
+          "priority": 2
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "git",
+          "optional": true
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "vscode-extensions",
+          "description": "Recommended VS Code extensions",
+          "recommended": true
+        }
+      ],
+      "config_files": [
+        {
+          "path": "~/.config/Code/User/settings.json",
+          "template": "{\n  \"editor.fontSize\": 14,\n  \"editor.tabSize\": 2,\n  \"editor.insertSpaces\": true,\n  \"editor.formatOnSave\": true,\n  \"terminal.integrated.fontSize\": 13,\n  \"git.enabled\": true,\n  \"git.autofetch\": true\n}\n"
+        }
+      ],
+      "environment_vars": {
+        "PATH": "$PATH"
+      },
+      "post_install": [
+        "code --version",
+        "code --install-extension ms-python.python",
+        "code --install-extension dbaeumer.vscode-eslint",
+        "code --install-extension eamodio.gitlens"
+      ],
+      "verify_commands": [
+        "code --version"
+      ],
+      "recommended_extensions": [
+        {
+          "name": "ms-python.python",
+          "description": "Python extension",
+          "category": "language",
+          "recommended": true
+        },
+        {
+          "name": "dbaeumer.vscode-eslint",
+          "description": "ESLint",
+          "category": "language",
+          "recommended": true
+        },
+        {
+          "name": "eamodio.gitlens",
+          "description": "Git lens",
+          "category": "vcs",
+          "recommended": true
+        },
+        {
+          "name": "ms-azuretools.vscode-docker",
+          "description": "Docker",
+          "category": "devops",
+          "recommended": true
+        },
+        {
+          "name": "redhat.vscode-yaml",
+          "description": "YAML support",
+          "category": "language",
+          "recommended": true
+        }
+      ],
+      "compatible_with": [
+        "all-programming-languages",
+        "git",
+        "docker"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "1GB minimum",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "optimization_tips": [
+        "Disable unused extensions",
+        "Use Workspace Trust for security",
+        "Sync settings across devices"
+      ],
+      "path": "tools/editors/vscode/tool.yaml"
+    },
+    "kubectl": {
+      "name": "kubectl",
+      "category": "devops",
+      "description": "Kubectl - Kubernetes command-line tool",
+      "version": "1.29",
+      "latest_version": "1.29",
+      "homepage": "https://kubernetes.io/docs/reference/kubectl/",
+      "documentation": "https://kubernetes.io/docs/reference/kubectl/overview/",
+      "license": "Apache 2.0",
+      "author": "Kubernetes",
+      "tags": [
+        "kubernetes",
+        "kubectl",
+        "containers",
+        "devops",
+        "cloud-native"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "curl -LO \"https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl\"\nchmod +x kubectl\nsudo mv kubectl /usr/local/bin/\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "kubectl",
+          "description": "Homebrew",
+          "priority": 1
+        },
+        {
+          "type": "snap",
+          "os": [
+            "linux"
+          ],
+          "package_name": "kubectl",
+          "description": "Snap",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "helm",
+          "description": "Kubernetes package manager",
+          "recommended": true
+        },
+        {
+          "name": "k9s",
+          "description": "Kubernetes UI",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "KUBECONFIG": "$HOME/.kube/config"
+      },
+      "post_install": [
+        "kubectl version --client"
+      ],
+      "verify_commands": [
+        "kubectl version --client"
+      ],
+      "compatible_with": [
+        "docker",
+        "helm",
+        "terraform"
+      ],
+      "system_requirements": {
+        "disk_space": "100MB",
+        "memory": "256MB minimum"
+      },
+      "path": "tools/devops/kubernetes/tool.yaml"
+    },
+    "ansible": {
+      "name": "ansible",
+      "category": "devops",
+      "description": "Ansible - IT automation platform",
+      "version": "9.0",
+      "latest_version": "9.0",
+      "homepage": "https://www.ansible.com/",
+      "documentation": "https://docs.ansible.com/",
+      "license": "GPL 3.0",
+      "author": "Red Hat",
+      "tags": [
+        "ansible",
+        "automation",
+        "configuration-management",
+        "devops",
+        "orchestration"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "ansible",
+          "description": "pip installation",
+          "priority": 1
+        },
+        {
+          "type": "apt",
+          "os": [
+            "linux"
+          ],
+          "package_name": "ansible",
+          "description": "Apt installation",
+          "priority": 2
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "ansible",
+          "description": "Homebrew",
+          "priority": 2
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "ansible-core",
+          "description": "Core ansible",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "ANSIBLE_CONFIG": "$HOME/.ansible.cfg"
+      },
+      "post_install": [
+        "ansible --version"
+      ],
+      "verify_commands": [
+        "ansible --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "ssh"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/devops/ansible/tool.yaml"
+    },
+    "docker": {
+      "name": "docker",
+      "category": "devops",
+      "description": "Docker - container platform for developing, shipping, and running applications",
+      "version": "26",
+      "latest_version": "26",
+      "homepage": "https://www.docker.com/",
+      "documentation": "https://docs.docker.com/",
+      "license": "Apache 2.0",
+      "author": "Docker Inc.",
+      "tags": [
+        "docker",
+        "containers",
+        "devops",
+        "deployment",
+        "virtualization",
+        "kubernetes"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows",
+        "all"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux"
+          ],
+          "description": "Docker convenience script (official)",
+          "priority": 1,
+          "command": "curl -fsSL https://get.docker.com -o get-docker.sh\nsudo sh get-docker.sh\nsudo usermod -aG docker $USER\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "--cask docker",
+          "description": "Docker Desktop for macOS",
+          "priority": 1
+        },
+        {
+          "type": "manual",
+          "os": [
+            "windows"
+          ],
+          "url": "https://www.docker.com/products/docker-desktop/",
+          "description": "Docker Desktop for Windows with WSL2",
+          "priority": 1
+        }
+      ],
+      "dependencies": [
+        {
+          "name": "curl",
+          "optional": false
+        },
+        {
+          "name": "git",
+          "optional": true
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "docker-compose",
+          "description": "Docker Compose",
+          "recommended": true
+        },
+        {
+          "name": "kubernetes",
+          "description": "Kubernetes (Docker Desktop)",
+          "recommended": false
+        }
+      ],
+      "config_files": [
+        {
+          "path": "~/.docker/config.json"
+        },
+        {
+          "path": "/etc/docker/daemon.json",
+          "optional": true
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/usr/local/bin:$PATH"
+      },
+      "post_install": [
+        "docker --version",
+        "docker run --rm hello-world"
+      ],
+      "verify_commands": [
+        "docker --version",
+        "docker compose version",
+        "docker info"
+      ],
+      "popular_images": [
+        {
+          "name": "postgres",
+          "description": "PostgreSQL database"
+        },
+        {
+          "name": "redis",
+          "description": "Redis cache"
+        },
+        {
+          "name": "nginx",
+          "description": "Nginx web server"
+        },
+        {
+          "name": "node",
+          "description": "Node.js"
+        },
+        {
+          "name": "python",
+          "description": "Python"
+        }
+      ],
+      "integrations": [
+        {
+          "name": "docker-vscode",
+          "description": "VS Code Docker extension",
+          "auto_install": true
+        }
+      ],
+      "compatible_with": [
+        "nodejs",
+        "python3",
+        "git",
+        "postgresql",
+        "mongodb",
+        "redis",
+        "all-databases"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB minimum",
+        "memory": "2GB minimum",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ],
+        "virtualization": true
+      },
+      "optimization_tips": [
+        "Use Docker Compose for multi-container apps",
+        "Use multi-stage builds for small images",
+        {
+          "Clean up unused resources": "docker system prune"
+        }
+      ],
+      "security_notes": [
+        "Don't run containers as root",
+        "Limit container resources",
+        "Use official base images"
+      ],
+      "path": "tools/devops/docker/tool.yaml"
+    },
+    "helm": {
+      "name": "helm",
+      "category": "devops",
+      "description": "Helm - Kubernetes package manager",
+      "version": "3.14",
+      "latest_version": "3.14",
+      "homepage": "https://helm.sh/",
+      "documentation": "https://helm.sh/docs/",
+      "license": "Apache 2.0",
+      "author": "Helm",
+      "tags": [
+        "helm",
+        "kubernetes",
+        "charts",
+        "devops",
+        "cloud-native"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "helm",
+          "description": "Homebrew",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/usr/local/bin:$PATH"
+      },
+      "post_install": [
+        "helm version"
+      ],
+      "verify_commands": [
+        "helm version"
+      ],
+      "compatible_with": [
+        "kubectl",
+        "docker"
+      ],
+      "system_requirements": {
+        "disk_space": "100MB",
+        "memory": "256MB minimum"
+      },
+      "path": "tools/devops/helm/tool.yaml"
+    },
+    "terraform": {
+      "name": "terraform",
+      "category": "devops",
+      "description": "Terraform - Infrastructure as Code",
+      "version": "1.7",
+      "latest_version": "1.7",
+      "homepage": "https://developer.hashicorp.com/terraform",
+      "documentation": "https://developer.hashicorp.com/terraform/docs",
+      "license": "MPL 2.0",
+      "author": "HashiCorp",
+      "tags": [
+        "terraform",
+        "infrastructure-as-code",
+        "iac",
+        "devops",
+        "cloud"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "curl",
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "description": "Official installation",
+          "priority": 1,
+          "command": "wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg\necho \"deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main\" | sudo tee /etc/apt/sources.list.d/hashicorp.list\nsudo apt update && sudo apt install terraform\n"
+        },
+        {
+          "type": "brew",
+          "os": [
+            "macos"
+          ],
+          "package_name": "terraform",
+          "description": "Homebrew",
+          "priority": 1
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "terragrunt",
+          "description": "Terraform wrapper",
+          "recommended": false
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/usr/local/bin:$PATH"
+      },
+      "post_install": [
+        "terraform version"
+      ],
+      "verify_commands": [
+        "terraform version"
+      ],
+      "compatible_with": [
+        "aws-cli",
+        "gcloud-cli",
+        "azure-cli"
+      ],
+      "system_requirements": {
+        "disk_space": "200MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/devops/terraform/tool.yaml"
+    },
+    "nextjs": {
+      "name": "nextjs",
+      "category": "frameworks",
+      "description": "Next.js - React framework for production",
+      "version": "14",
+      "latest_version": "14",
+      "homepage": "https://nextjs.org/",
+      "documentation": "https://nextjs.org/docs",
+      "license": "MIT",
+      "author": "Vercel",
+      "tags": [
+        "nextjs",
+        "react",
+        "full-stack",
+        "ssr",
+        "vercel"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "create-next-app",
+          "os": [
+            "all"
+          ],
+          "description": "Create Next.js app",
+          "priority": 1,
+          "command": "npx create-next-app@14.0.0 .\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "typescript",
+          "description": "TypeScript support",
+          "recommended": true
+        },
+        {
+          "name": "tailwindcss",
+          "description": "CSS framework",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "NODE_ENV": "development"
+      },
+      "post_install": [
+        "npm install"
+      ],
+      "verify_commands": [
+        "node -v"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "react",
+        "typescript"
+      ],
+      "system_requirements": {
+        "disk_space": "1GB",
+        "memory": "2GB minimum"
+      },
+      "path": "tools/frameworks/nextjs/tool.yaml"
+    },
+    "angular": {
+      "name": "angular",
+      "category": "frameworks",
+      "description": "Angular - platform for building mobile and desktop applications",
+      "version": "17",
+      "latest_version": "17",
+      "homepage": "https://angular.io/",
+      "documentation": "https://angular.io/docs",
+      "license": "MIT",
+      "author": "Google",
+      "tags": [
+        "angular",
+        "frontend",
+        "typescript",
+        "enterprise",
+        "spa"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "npm",
+          "os": [
+            "all"
+          ],
+          "package_name": "@angular/cli",
+          "description": "npm installation",
+          "priority": 1,
+          "command": "npm install -g @angular/cli\n"
+        },
+        {
+          "type": "ng-new",
+          "os": [
+            "all"
+          ],
+          "description": "Create Angular app",
+          "priority": 1,
+          "command": "ng new my-app\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "typescript",
+          "description": "TypeScript",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "NODE_ENV": "development"
+      },
+      "post_install": [
+        "npm install"
+      ],
+      "verify_commands": [
+        "ng version"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "typescript"
+      ],
+      "system_requirements": {
+        "disk_space": "1GB",
+        "memory": "2GB minimum"
+      },
+      "path": "tools/frameworks/angular/tool.yaml"
+    },
+    "django": {
+      "name": "django",
+      "category": "frameworks",
+      "description": "Django - high-level Python web framework",
+      "version": "5.0",
+      "latest_version": "5.0",
+      "homepage": "https://www.djangoproject.com/",
+      "documentation": "https://docs.djangoproject.com/",
+      "license": "BSD",
+      "author": "Django Software Foundation",
+      "tags": [
+        "django",
+        "python",
+        "web-development",
+        "backend",
+        "orm"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "django",
+          "description": "pip installation",
+          "priority": 1
+        },
+        {
+          "type": "django-admin",
+          "os": [
+            "all"
+          ],
+          "description": "Create Django project",
+          "priority": 1,
+          "command": "django-admin startproject myproject\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "djangorestframework",
+          "description": "REST framework",
+          "recommended": true
+        },
+        {
+          "name": "django-cors-headers",
+          "description": "CORS support",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "DJANGO_SETTINGS_MODULE": "myproject.settings"
+      },
+      "post_install": [
+        "python manage.py migrate"
+      ],
+      "verify_commands": [
+        "django-admin --version"
+      ],
+      "compatible_with": [
+        "python3",
+        "postgresql",
+        "redis"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/frameworks/django/tool.yaml"
+    },
+    "fastapi": {
+      "name": "fastapi",
+      "category": "frameworks",
+      "description": "FastAPI - modern, fast web framework for building APIs",
+      "version": "0.104",
+      "latest_version": "0.104",
+      "homepage": "https://fastapi.tiangolo.com/",
+      "documentation": "https://fastapi.tiangolo.com/docs/",
+      "license": "MIT",
+      "author": "Sebastian Ramirez",
+      "tags": [
+        "fastapi",
+        "python",
+        "api",
+        "async",
+        "modern"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "pip",
+          "os": [
+            "all"
+          ],
+          "package_name": "fastapi uvicorn",
+          "description": "pip installation",
+          "priority": 1
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "pydantic",
+          "description": "Data validation",
+          "recommended": true
+        },
+        {
+          "name": "sqlalchemy",
+          "description": "ORM",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "PYTHONPATH": "."
+      },
+      "post_install": [
+        "python -c 'import fastapi; print(fastapi.__version__)'"
+      ],
+      "verify_commands": [
+        "python -c 'import fastapi; print(fastapi.__version__)'"
+      ],
+      "compatible_with": [
+        "python3",
+        "uvicorn",
+        "pydantic"
+      ],
+      "system_requirements": {
+        "disk_space": "200MB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/frameworks/fastapi/tool.yaml"
+    },
+    "vue": {
+      "name": "vue",
+      "category": "frameworks",
+      "description": "Vue.js - progressive JavaScript framework",
+      "version": "3",
+      "latest_version": "3",
+      "homepage": "https://vuejs.org/",
+      "documentation": "https://vuejs.org/guide/introduction.html",
+      "license": "MIT",
+      "author": "Evan You",
+      "tags": [
+        "vue",
+        "vuejs",
+        "frontend",
+        "ui",
+        "progressive"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "npm",
+          "os": [
+            "all"
+          ],
+          "package_name": "vue",
+          "description": "npm installation",
+          "priority": 1
+        },
+        {
+          "type": "create-vue",
+          "os": [
+            "all"
+          ],
+          "description": "Create Vue App",
+          "priority": 1,
+          "command": "npm create vue@6.5.0 .\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "vue-router",
+          "description": "Routing",
+          "recommended": true
+        },
+        {
+          "name": "pinia",
+          "description": "State management",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "NODE_ENV": "development"
+      },
+      "post_install": [
+        "npm install"
+      ],
+      "verify_commands": [
+        "node -v"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "npm"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/frameworks/vue/tool.yaml"
+    },
+    "react": {
+      "name": "react",
+      "category": "frameworks",
+      "description": "React - JavaScript library for building user interfaces",
+      "version": "18",
+      "latest_version": "18",
+      "homepage": "https://react.dev/",
+      "documentation": "https://react.dev/learn",
+      "license": "MIT",
+      "author": "Meta",
+      "tags": [
+        "react",
+        "frontend",
+        "ui",
+        "javascript",
+        "web-development"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "npm",
+          "os": [
+            "all"
+          ],
+          "package_name": "react react-dom",
+          "description": "npm installation",
+          "priority": 1
+        },
+        {
+          "type": "create-react-app",
+          "os": [
+            "all"
+          ],
+          "description": "Create React App",
+          "priority": 1,
+          "command": "npx create-react-app my-app\n"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "typescript",
+          "description": "TypeScript support",
+          "recommended": true
+        },
+        {
+          "name": "react-router",
+          "description": "Routing",
+          "recommended": true
+        }
+      ],
+      "environment_vars": {
+        "NODE_ENV": "development"
+      },
+      "post_install": [
+        "npm install"
+      ],
+      "verify_commands": [
+        "node -v"
+      ],
+      "compatible_with": [
+        "nodejs",
+        "npm",
+        "typescript"
+      ],
+      "system_requirements": {
+        "disk_space": "500MB",
+        "memory": "1GB minimum"
+      },
+      "path": "tools/frameworks/react/tool.yaml"
+    },
+    "esp32": {
+      "name": "esp32",
+      "category": "embedded",
+      "description": "ESP32 - IoT development framework",
+      "version": "5.2",
+      "latest_version": "5.2",
+      "homepage": "https://www.espressif.com/en/products/socs/esp32",
+      "documentation": "https://docs.espressif.com/projects/esp-idf/en/latest/",
+      "license": "Apache 2.0",
+      "author": "Espressif",
+      "tags": [
+        "esp32",
+        "iot",
+        "embedded",
+        "microcontroller",
+        "wifi"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/",
+          "description": "ESP-IDF",
+          "priority": 1,
+          "command": "git clone --recursive https://github.com/espressif/esp-idf.git\ncd esp-idf\n./install.sh\n"
+        }
+      ],
+      "environment_vars": {
+        "IDF_PATH": "$HOME/esp/esp-idf"
+      },
+      "post_install": [
+        "idf.py --version"
+      ],
+      "verify_commands": [
+        "idf.py --version"
+      ],
+      "compatible_with": [
+        "c-cpp"
+      ],
+      "system_requirements": {
+        "disk_space": "5GB",
+        "memory": "4GB minimum"
+      },
+      "path": "tools/embedded/esp32/tool.yaml"
+    },
+    "unreal": {
+      "name": "unreal",
+      "category": "game-dev",
+      "description": "Unreal Engine - advanced real-time 3D creation tool",
+      "version": "5.4",
+      "latest_version": "5.4",
+      "homepage": "https://www.unrealengine.com/",
+      "documentation": "https://docs.unrealengine.com/",
+      "license": "Epic EULA",
+      "author": "Epic Games",
+      "tags": [
+        "unreal",
+        "game-dev",
+        "game-engine",
+        "3d",
+        "real-time"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://www.unrealengine.com/en-US/download",
+          "description": "Epic Games Launcher",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "UNREAL_ENGINE_PATH": "$HOME/UnrealEngine"
+      },
+      "post_install": [
+        "ue4editor"
+      ],
+      "verify_commands": [
+        "ue4editor"
+      ],
+      "compatible_with": [
+        "c-cpp"
+      ],
+      "system_requirements": {
+        "disk_space": "30GB",
+        "memory": "16GB minimum"
+      },
+      "path": "tools/game-dev/unreal/tool.yaml"
+    },
+    "unity": {
+      "name": "unity",
+      "category": "game-dev",
+      "description": "Unity - cross-platform game engine",
+      "version": "6000",
+      "latest_version": "6000",
+      "homepage": "https://unity.com/",
+      "documentation": "https://docs.unity3d.com/",
+      "license": "Unity EULA",
+      "author": "Unity Technologies",
+      "tags": [
+        "unity",
+        "game-dev",
+        "game-engine",
+        "3d",
+        "cross-platform"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://unity.com/download",
+          "description": "Unity Hub",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "UNITY_PATH": "/opt/Unity/Hub/Editor"
+      },
+      "post_install": [
+        "unityhub --version"
+      ],
+      "verify_commands": [
+        "unityhub --version"
+      ],
+      "compatible_with": [
+        "c-cpp",
+        "dotnet"
+      ],
+      "system_requirements": {
+        "disk_space": "20GB",
+        "memory": "8GB minimum"
+      },
+      "path": "tools/game-dev/unity/tool.yaml"
+    },
+    "ios": {
+      "name": "ios",
+      "category": "mobile",
+      "description": "iOS Development - tools for building iOS apps",
+      "version": "17",
+      "latest_version": "17",
+      "homepage": "https://developer.apple.com/xcode/",
+      "documentation": "https://developer.apple.com/documentation/",
+      "license": "Apple EULA",
+      "author": "Apple",
+      "tags": [
+        "ios",
+        "mobile",
+        "swift",
+        "xcode",
+        "apple"
+      ],
+      "supported_os": [
+        "macos"
+      ],
+      "installation_sources": [
+        {
+          "type": "appstore",
+          "os": [
+            "macos"
+          ],
+          "description": "Xcode from App Store",
+          "priority": 1
+        },
+        {
+          "type": "xcode-select",
+          "os": [
+            "macos"
+          ],
+          "description": "Command line tools",
+          "priority": 2,
+          "command": "xcode-select --install\n"
+        }
+      ],
+      "environment_vars": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "post_install": [
+        "xcodebuild -version"
+      ],
+      "verify_commands": [
+        "xcodebuild -version"
+      ],
+      "compatible_with": [
+        "swift",
+        "cocoapods"
+      ],
+      "system_requirements": {
+        "disk_space": "25GB",
+        "memory": "8GB minimum"
+      },
+      "path": "tools/mobile/ios/tool.yaml"
+    },
+    "android-sdk": {
+      "name": "android-sdk",
+      "category": "mobile",
+      "description": "Android SDK - tools for building Android apps",
+      "version": "34",
+      "latest_version": "34",
+      "homepage": "https://developer.android.com/studio",
+      "documentation": "https://developer.android.com/docs",
+      "license": "Apache 2.0",
+      "author": "Google",
+      "tags": [
+        "android",
+        "mobile",
+        "sdk",
+        "development",
+        "java"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://developer.android.com/studio#downloads",
+          "description": "Android Studio",
+          "priority": 1
+        },
+        {
+          "type": "sdkmanager",
+          "os": [
+            "all"
+          ],
+          "description": "Command-line tools",
+          "priority": 2,
+          "command": "wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip\nunzip commandlinetools-linux-11076708_latest.zip\n"
+        }
+      ],
+      "environment_vars": {
+        "ANDROID_HOME": "$HOME/Android/Sdk",
+        "PATH": "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+      },
+      "post_install": [
+        "sdkmanager --list"
+      ],
+      "verify_commands": [
+        "adb version"
+      ],
+      "compatible_with": [
+        "java",
+        "flutter"
+      ],
+      "system_requirements": {
+        "disk_space": "10GB",
+        "memory": "4GB minimum"
+      },
+      "path": "tools/mobile/android-sdk/tool.yaml"
+    },
+    "flutter": {
+      "name": "flutter",
+      "category": "mobile",
+      "description": "Flutter - cross-platform mobile app framework",
+      "version": "3.19",
+      "latest_version": "3.19",
+      "homepage": "https://flutter.dev/",
+      "documentation": "https://docs.flutter.dev/",
+      "license": "BSD",
+      "author": "Google",
+      "tags": [
+        "flutter",
+        "mobile",
+        "cross-platform",
+        "dart",
+        "ui"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.19.0-stable.tar.xz",
+          "description": "Manual download",
+          "priority": 1,
+          "command": "wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.19.0-stable.tar.xz\ntar xf flutter_linux_3.19.0-stable.tar.xz\nsudo mv flutter /opt/flutter\n"
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/opt/flutter/bin:$PATH"
+      },
+      "post_install": [
+        "flutter doctor"
+      ],
+      "verify_commands": [
+        "flutter --version"
+      ],
+      "compatible_with": [
+        "dart",
+        "android-sdk"
+      ],
+      "system_requirements": {
+        "disk_space": "6GB",
+        "memory": "4GB minimum"
+      },
+      "path": "tools/mobile/flutter/tool.yaml"
+    },
+    "raspberry-pi": {
+      "name": "raspberry-pi",
+      "category": "iot",
+      "description": "Raspberry Pi - single-board computer tools",
+      "version": "64",
+      "latest_version": "64",
+      "homepage": "https://www.raspberrypi.com/",
+      "documentation": "https://www.raspberrypi.com/documentation/computers/",
+      "license": "BSD",
+      "author": "Raspberry Pi Foundation",
+      "tags": [
+        "raspberry-pi",
+        "iot",
+        "embedded",
+        "linux",
+        "single-board"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://www.raspberrypi.com/software/",
+          "description": "Raspberry Pi Imager",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "PATH": "/usr/local/bin:$PATH"
+      },
+      "post_install": [
+        "rpicam-vid --version"
+      ],
+      "verify_commands": [
+        "rpicam-vid --version"
+      ],
+      "compatible_with": [
+        "python3"
+      ],
+      "system_requirements": {
+        "disk_space": "8GB minimum (SD card)",
+        "memory": "Depends on Pi model"
+      },
+      "path": "tools/iot/raspberry-pi/tool.yaml"
+    },
+    "arduino": {
+      "name": "arduino",
+      "category": "iot",
+      "description": "Arduino - open-source electronics platform",
+      "version": "2.2",
+      "latest_version": "2.2",
+      "homepage": "https://www.arduino.cc/",
+      "documentation": "https://www.arduino.cc/reference/en/",
+      "license": "GPL",
+      "author": "Arduino",
+      "tags": [
+        "arduino",
+        "iot",
+        "electronics",
+        "embedded",
+        "microcontroller"
+      ],
+      "supported_os": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "installation_sources": [
+        {
+          "type": "manual",
+          "os": [
+            "all"
+          ],
+          "url": "https://www.arduino.cc/en/software",
+          "description": "Arduino IDE",
+          "priority": 1
+        }
+      ],
+      "environment_vars": {
+        "ARDUINO_PATH": "/opt/arduino"
+      },
+      "post_install": [
+        "arduino-cli version"
+      ],
+      "verify_commands": [
+        "arduino-cli version"
+      ],
+      "compatible_with": [
+        "c-cpp"
+      ],
+      "system_requirements": {
+        "disk_space": "1GB",
+        "memory": "512MB minimum"
+      },
+      "path": "tools/iot/arduino/tool.yaml"
+    }
+  },
+  "templates": {
+    "embedded-developer": {
+      "name": "embedded-developer",
+      "description": "Complete environment for embedded systems development",
+      "category": "embedded",
+      "recommended_for": [
+        "Embedded developers",
+        "IoT developers",
+        "Hardware engineers"
+      ],
+      "required_tools": [
+        {
+          "name": "c-cpp",
+          "version": "14+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "arduino",
+          "version": "2.2+"
+        },
+        {
+          "name": "esp32",
+          "version": "5.2+"
+        },
+        {
+          "name": "cmake",
+          "version": "3.20+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "raspberry-pi",
+          "version": "64+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "c-cpp"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cC/C++\u5de5\u5177\u94fe"
+        },
+        "phase_2": {
+          "name": "\u5d4c\u5165\u5f0f\u6846\u67b6",
+          "tools": [
+            "arduino",
+            "esp32"
+          ],
+          "description": "\u5b89\u88c5\u5d4c\u5165\u5f0f\u5f00\u53d1\u6846\u67b6"
+        },
+        "phase_3": {
+          "name": "\u6784\u5efa\u5de5\u5177",
+          "tools": [
+            "cmake"
+          ],
+          "description": "\u5b89\u88c5\u6784\u5efa\u5de5\u5177"
+        }
+      },
+      "post_install_steps": [
+        "echo '\u5d4c\u5165\u5f0f\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "iot-developer"
+      ],
+      "path": "environment-templates/embedded-developer.yaml"
+    },
+    "frontend-developer": {
+      "name": "frontend-developer",
+      "description": "Complete environment for frontend web development",
+      "category": "web-development",
+      "recommended_for": [
+        "Frontend developers",
+        "UI/UX developers",
+        "JavaScript/TypeScript developers"
+      ],
+      "required_tools": [
+        {
+          "name": "nodejs",
+          "version": "20+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "react",
+          "version": "18+"
+        },
+        {
+          "name": "vue",
+          "version": "3+"
+        },
+        {
+          "name": "vscode",
+          "version": "1.80+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "angular",
+          "version": "17+"
+        },
+        {
+          "name": "nextjs",
+          "version": "14+"
+        },
+        {
+          "name": "typescript",
+          "version": "5.0+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "nodejs"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cNode.js"
+        },
+        "phase_2": {
+          "name": "\u6846\u67b6",
+          "tools": [
+            "react",
+            "vue"
+          ],
+          "description": "\u5b89\u88c5\u4e3b\u6d41\u524d\u7aef\u6846\u67b6"
+        },
+        "phase_3": {
+          "name": "\u5f00\u53d1\u5de5\u5177",
+          "tools": [
+            "vscode",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5\u7f16\u8f91\u5668\u548c\u5bb9\u5668"
+        }
+      },
+      "post_install_steps": [
+        "npm install -g npm@latest",
+        "npm install -g typescript",
+        "npm install -g eslint prettier",
+        "echo '\u524d\u7aef\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "web-developer"
+      ],
+      "path": "environment-templates/frontend-developer.yaml"
+    },
+    "data-engineering": {
+      "name": "data-engineering",
+      "description": "Complete environment for data engineering",
+      "category": "data-engineering",
+      "recommended_for": [
+        "Data engineers",
+        "ETL developers",
+        "Data pipeline developers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        },
+        {
+          "name": "java",
+          "version": "21+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "spark",
+          "version": "3.5+"
+        },
+        {
+          "name": "dbt",
+          "version": "1.7+"
+        },
+        {
+          "name": "airflow",
+          "version": "2.8+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "postgresql",
+          "version": "15+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "kubeflow",
+          "version": "1.8+"
+        },
+        {
+          "name": "kafka",
+          "version": "3.6+"
+        },
+        {
+          "name": "jupyter",
+          "version": "7.0+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3",
+            "java"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+        },
+        "phase_2": {
+          "name": "\u6570\u636e\u5e93",
+          "tools": [
+            "postgresql"
+          ],
+          "description": "\u5b89\u88c5\u6570\u636e\u5e93"
+        },
+        "phase_3": {
+          "name": "\u5904\u7406\u6846\u67b6",
+          "tools": [
+            "spark",
+            "dbt"
+          ],
+          "description": "\u5b89\u88c5\u6570\u636e\u5904\u7406\u6846\u67b6"
+        },
+        "phase_4": {
+          "name": "\u7f16\u6392",
+          "tools": [
+            "airflow",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5\u7f16\u6392\u5de5\u5177"
+        }
+      },
+      "post_install_steps": [
+        "pip install pandas numpy scipy",
+        "echo '\u6570\u636e\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "big-data-engineer"
+      ],
+      "path": "environment-templates/data-engineering.yaml"
+    },
+    "security-engineer": {
+      "name": "security-engineer",
+      "description": "Complete environment for security engineering",
+      "category": "security",
+      "recommended_for": [
+        "Security engineers",
+        "Penetration testers",
+        "Security analysts"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "openssl",
+          "version": "3.2+"
+        },
+        {
+          "name": "go",
+          "version": "1.22+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "burp-suite",
+          "version": "2023+"
+        },
+        {
+          "name": "metasploit",
+          "version": "6.0+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+        },
+        "phase_2": {
+          "name": "\u5b89\u5168\u5de5\u5177",
+          "tools": [
+            "openssl",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5\u5b89\u5168\u5de5\u5177\u548c\u5bb9\u5668"
+        },
+        "phase_3": {
+          "name": "\u8bed\u8a00",
+          "tools": [
+            "go"
+          ],
+          "description": "\u5b89\u88c5Go\u8bed\u8a00"
+        }
+      },
+      "post_install_steps": [
+        "pip install requests beautifulsoup4",
+        "echo '\u5b89\u5168\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "backend-developer"
+      ],
+      "path": "environment-templates/security-engineer.yaml"
+    },
+    "devops-engineer": {
+      "name": "devops-engineer",
+      "description": "Complete environment for DevOps engineering",
+      "category": "devops",
+      "recommended_for": [
+        "DevOps engineers",
+        "SRE engineers",
+        "Infrastructure engineers"
+      ],
+      "required_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        },
+        {
+          "name": "kubectl",
+          "version": "1.29+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "terraform",
+          "version": "1.7+"
+        },
+        {
+          "name": "ansible",
+          "version": "9.0+"
+        },
+        {
+          "name": "helm",
+          "version": "3.14+"
+        },
+        {
+          "name": "aws-cli",
+          "version": "2.15+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "gcloud-cli",
+          "version": "455+"
+        },
+        {
+          "name": "azure-cli",
+          "version": "2.57+"
+        },
+        {
+          "name": "go",
+          "version": "1.22+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u5bb9\u5668",
+          "tools": [
+            "git",
+            "docker",
+            "kubectl"
+          ],
+          "description": "\u5b89\u88c5\u5bb9\u5668\u548cKubernetes"
+        },
+        "phase_2": {
+          "name": "\u57fa\u7840\u8bbe\u65bd",
+          "tools": [
+            "terraform",
+            "ansible"
+          ],
+          "description": "\u5b89\u88c5\u57fa\u7840\u8bbe\u65bd\u7ba1\u7406\u5de5\u5177"
+        },
+        "phase_3": {
+          "name": "\u4e91CLI",
+          "tools": [
+            "aws-cli",
+            "helm"
+          ],
+          "description": "\u5b89\u88c5\u4e91CLI\u548cHelm"
+        }
+      },
+      "post_install_steps": [
+        "echo 'DevOps\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "cloud-native-developer"
+      ],
+      "path": "environment-templates/devops-engineer.yaml"
+    },
+    "cloud-native-developer": {
+      "name": "cloud-native-developer",
+      "description": "Complete environment for cloud native development",
+      "category": "devops",
+      "recommended_for": [
+        "Cloud native developers",
+        "Kubernetes developers",
+        "DevOps engineers"
+      ],
+      "required_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "kubectl",
+          "version": "1.29+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "helm",
+          "version": "3.14+"
+        },
+        {
+          "name": "terraform",
+          "version": "1.7+"
+        },
+        {
+          "name": "aws-cli",
+          "version": "2.15+"
+        },
+        {
+          "name": "go",
+          "version": "1.22+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "gcloud-cli",
+          "version": "455+"
+        },
+        {
+          "name": "azure-cli",
+          "version": "2.57+"
+        },
+        {
+          "name": "ansible",
+          "version": "9.0+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u5bb9\u5668\u57fa\u7840",
+          "tools": [
+            "git",
+            "docker",
+            "kubectl"
+          ],
+          "description": "\u5b89\u88c5\u5bb9\u5668\u548cKubernetes CLI"
+        },
+        "phase_2": {
+          "name": "K8s\u5de5\u5177",
+          "tools": [
+            "helm"
+          ],
+          "description": "\u5b89\u88c5Helm\u5305\u7ba1\u7406\u5668"
+        },
+        "phase_3": {
+          "name": "\u57fa\u7840\u8bbe\u65bd",
+          "tools": [
+            "terraform",
+            "aws-cli"
+          ],
+          "description": "\u5b89\u88c5\u57fa\u7840\u8bbe\u65bd\u5de5\u5177"
+        }
+      },
+      "post_install_steps": [
+        "helm repo add stable https://charts.helm.sh/stable",
+        "echo '\u4e91\u539f\u751f\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "devops-engineer"
+      ],
+      "path": "environment-templates/cloud-native-developer.yaml"
+    },
+    "backend-developer": {
+      "name": "backend-developer",
+      "description": "Complete environment for backend development",
+      "category": "backend",
+      "recommended_for": [
+        "Backend developers",
+        "API developers",
+        "Server-side developers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "postgresql",
+          "version": "15+"
+        },
+        {
+          "name": "redis",
+          "version": "7.0+"
+        },
+        {
+          "name": "fastapi",
+          "version": "0.100+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "django",
+          "version": "5.0+"
+        },
+        {
+          "name": "nodejs",
+          "version": "20+"
+        },
+        {
+          "name": "go",
+          "version": "1.22+"
+        },
+        {
+          "name": "java",
+          "version": "21+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+        },
+        "phase_2": {
+          "name": "\u6570\u636e\u5e93",
+          "tools": [
+            "postgresql",
+            "redis"
+          ],
+          "description": "\u5b89\u88c5\u6570\u636e\u5e93\u548c\u7f13\u5b58"
+        },
+        "phase_3": {
+          "name": "\u6846\u67b6",
+          "tools": [
+            "fastapi",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5Web\u6846\u67b6\u548c\u5bb9\u5668"
+        }
+      },
+      "post_install_steps": [
+        "pip install uvicorn gunicorn",
+        "pip install sqlalchemy alembic",
+        "echo '\u540e\u7aef\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "web-developer"
+      ],
+      "path": "environment-templates/backend-developer.yaml"
+    },
+    "web-developer": {
+      "name": "web-developer",
+      "description": "Complete web development environment with frontend and backend tools",
+      "version": "1.0",
+      "category": "environment-template",
+      "author": "Global-Dev-Setup",
+      "core_tools": [
+        {
+          "name": "git",
+          "required": true,
+          "description": "Version control"
+        },
+        {
+          "name": "nodejs",
+          "required": true,
+          "description": "JavaScript runtime"
+        },
+        {
+          "name": "python3",
+          "required": true,
+          "description": "Python backend"
+        },
+        {
+          "name": "vscode",
+          "required": true,
+          "description": "Code editor"
+        },
+        {
+          "name": "docker",
+          "required": true,
+          "description": "Container runtime"
+        }
+      ],
+      "database_tools": [
+        {
+          "name": "postgresql",
+          "required": false,
+          "default": true,
+          "description": "Primary database"
+        },
+        {
+          "name": "redis",
+          "required": false,
+          "default": true,
+          "description": "Cache and session store"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "nginx",
+          "required": false,
+          "default": false,
+          "description": "Web server"
+        },
+        {
+          "name": "mongodb",
+          "required": false,
+          "default": false,
+          "description": "NoSQL database"
+        }
+      ],
+      "vscode_extensions": [
+        "ms-python.python",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "env_config": {
+        "node_version": "20",
+        "python_version": "3.12",
+        "docker_enabled": true,
+        "database": "postgresql"
+      },
+      "quick_start": [
+        {
+          "description": "Start development database",
+          "command": "docker compose up -d"
+        },
+        {
+          "description": "Install npm dependencies",
+          "command": "npm install"
+        },
+        {
+          "description": "Set up Python venv",
+          "command": "python -m venv venv && source venv/bin/activate && pip install -r requirements.txt"
+        }
+      ],
+      "project_templates": [
+        {
+          "name": "react-node",
+          "description": "React frontend + Node backend",
+          "url": "https://github.com/..."
+        },
+        {
+          "name": "nextjs-fullstack",
+          "description": "Next.js full-stack app",
+          "url": "https://github.com/..."
+        },
+        {
+          "name": "flask-react",
+          "description": "Flask backend + React frontend",
+          "url": "https://github.com/..."
+        }
+      ],
+      "estimated_setup_time": "15-30 minutes",
+      "system_requirements": {
+        "disk_space": "10GB minimum",
+        "memory": "8GB recommended",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "tags": [
+        "web-development",
+        "full-stack",
+        "javascript",
+        "python",
+        "react",
+        "nodejs",
+        "postgresql"
+      ],
+      "path": "environment-templates/web-developer.yaml"
+    },
+    "ai-agent-developer": {
+      "name": "ai-agent-developer",
+      "description": "Complete environment for AI Agent development",
+      "category": "ai-ml",
+      "recommended_for": [
+        "AI Agent developers",
+        "LLM application builders",
+        "Chatbot developers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "pytorch",
+          "version": "2.0+"
+        },
+        {
+          "name": "huggingface",
+          "version": "4.30+"
+        },
+        {
+          "name": "jupyter",
+          "version": "7.0+"
+        },
+        {
+          "name": "redis",
+          "version": "7.0+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "tensorflow",
+          "version": "2.15+"
+        },
+        {
+          "name": "postgresql",
+          "version": "15+"
+        },
+        {
+          "name": "vscode",
+          "version": "1.80+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+        },
+        "phase_2": {
+          "name": "\u5bb9\u5668\u548c\u6570\u636e\u5e93",
+          "tools": [
+            "docker",
+            "redis",
+            "postgresql"
+          ],
+          "description": "\u5b89\u88c5\u5bb9\u5668\u548c\u7f13\u5b58/\u6570\u636e\u5e93"
+        },
+        "phase_3": {
+          "name": "AI\u6846\u67b6",
+          "tools": [
+            "pytorch",
+            "huggingface",
+            "jupyter"
+          ],
+          "description": "\u5b89\u88c5\u673a\u5668\u5b66\u4e60\u6846\u67b6"
+        },
+        "phase_4": {
+          "name": "\u5f00\u53d1\u5de5\u5177",
+          "tools": [
+            "vscode"
+          ],
+          "description": "\u5b89\u88c5\u7f16\u8f91\u5668"
+        }
+      },
+      "post_install_steps": [
+        "pip install langchain llama-index openai anthropic",
+        "pip install pydantic fastapi uvicorn",
+        "echo 'AI Agent\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "web-developer",
+        "backend-developer"
+      ],
+      "path": "environment-templates/ai-agent-developer.yaml"
+    },
+    "fullstack-developer": {
+      "name": "fullstack-developer",
+      "description": "Complete environment for full-stack web development",
+      "category": "web-development",
+      "recommended_for": [
+        "Full-stack developers",
+        "Full-stack engineers",
+        "Web application developers"
+      ],
+      "required_tools": [
+        {
+          "name": "git",
+          "version": "2.30+"
+        },
+        {
+          "name": "nodejs",
+          "version": "20+"
+        },
+        {
+          "name": "python3",
+          "version": "3.11+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "postgresql",
+          "version": "15+"
+        },
+        {
+          "name": "redis",
+          "version": "7.0+"
+        },
+        {
+          "name": "react",
+          "version": "18+"
+        },
+        {
+          "name": "nextjs",
+          "version": "14+"
+        },
+        {
+          "name": "vscode",
+          "version": "1.80+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "vue",
+          "version": "3+"
+        },
+        {
+          "name": "fastapi",
+          "version": "0.100+"
+        },
+        {
+          "name": "typescript",
+          "version": "5.0+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "nodejs",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+        },
+        "phase_2": {
+          "name": "\u6570\u636e\u5e93",
+          "tools": [
+            "postgresql",
+            "redis"
+          ],
+          "description": "\u5b89\u88c5\u6570\u636e\u5e93\u548c\u7f13\u5b58"
+        },
+        "phase_3": {
+          "name": "\u6846\u67b6",
+          "tools": [
+            "react",
+            "nextjs",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5\u524d\u7aef\u6846\u67b6\u548c\u5bb9\u5668"
+        },
+        "phase_4": {
+          "name": "\u5f00\u53d1\u5de5\u5177",
+          "tools": [
+            "vscode"
+          ],
+          "description": "\u5b89\u88c5\u7f16\u8f91\u5668"
+        }
+      },
+      "post_install_steps": [
+        "npm install -g typescript eslint",
+        "pip install fastapi uvicorn",
+        "echo '\u5168\u6808\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "frontend-developer",
+        "backend-developer"
+      ],
+      "path": "environment-templates/fullstack-developer.yaml"
+    },
+    "game-developer": {
+      "name": "game-developer",
+      "description": "Complete environment for game development",
+      "category": "game-dev",
+      "recommended_for": [
+        "Game developers",
+        "Unity/Unreal developers",
+        "3D artists"
+      ],
+      "required_tools": [
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "unity",
+          "version": "6000+"
+        },
+        {
+          "name": "c-cpp",
+          "version": "14+"
+        },
+        {
+          "name": "python3",
+          "version": "3.11+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "unreal",
+          "version": "5.4+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "c-cpp"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u7f16\u8bd1\u5de5\u5177"
+        },
+        "phase_2": {
+          "name": "\u6e38\u620f\u5f15\u64ce",
+          "tools": [
+            "unity"
+          ],
+          "description": "\u5b89\u88c5Unity\u6e38\u620f\u5f15\u64ce"
+        },
+        "phase_3": {
+          "name": "\u811a\u672c\u8bed\u8a00",
+          "tools": [
+            "python3"
+          ],
+          "description": "\u5b89\u88c5Python\u7528\u4e8e\u811a\u672c"
+        }
+      },
+      "post_install_steps": [
+        "echo '\u6e38\u620f\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "mobile-developer"
+      ],
+      "path": "environment-templates/game-developer.yaml"
+    },
+    "qa-engineer": {
+      "name": "qa-engineer",
+      "description": "Complete environment for QA and testing",
+      "category": "qa",
+      "recommended_for": [
+        "QA engineers",
+        "Test automation engineers",
+        "SDET engineers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "nodejs",
+          "version": "20+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "postgresql",
+          "version": "15+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "java",
+          "version": "21+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3",
+            "nodejs"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+        },
+        "phase_2": {
+          "name": "\u6d4b\u8bd5\u5de5\u5177",
+          "tools": [
+            "docker",
+            "postgresql"
+          ],
+          "description": "\u5b89\u88c5\u5bb9\u5668\u548c\u6d4b\u8bd5\u6570\u636e\u5e93"
+        }
+      },
+      "post_install_steps": [
+        "pip install pytest selenium requests",
+        "npm install -g cypress",
+        "echo 'QA\u6d4b\u8bd5\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "backend-developer"
+      ],
+      "path": "environment-templates/qa-engineer.yaml"
+    },
+    "big-data-engineer": {
+      "name": "big-data-engineer",
+      "description": "Complete environment for big data engineering",
+      "category": "big-data",
+      "recommended_for": [
+        "Big data engineers",
+        "Data analysts",
+        "Data scientists"
+      ],
+      "required_tools": [
+        {
+          "name": "java",
+          "version": "21+"
+        },
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "spark",
+          "version": "3.5+"
+        },
+        {
+          "name": "hadoop",
+          "version": "3.4+"
+        },
+        {
+          "name": "kafka",
+          "version": "3.6+"
+        },
+        {
+          "name": "jupyter",
+          "version": "7.0+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "hive",
+          "version": "4.0+"
+        },
+        {
+          "name": "elasticsearch",
+          "version": "8.13+"
+        },
+        {
+          "name": "airflow",
+          "version": "2.8+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "java",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548c\u8bed\u8a00\u73af\u5883"
+        },
+        "phase_2": {
+          "name": "\u5206\u5e03\u5f0f\u8ba1\u7b97",
+          "tools": [
+            "hadoop",
+            "spark"
+          ],
+          "description": "\u5b89\u88c5\u5206\u5e03\u5f0f\u8ba1\u7b97\u6846\u67b6"
+        },
+        "phase_3": {
+          "name": "\u6d41\u5904\u7406",
+          "tools": [
+            "kafka"
+          ],
+          "description": "\u5b89\u88c5\u6d41\u5904\u7406\u5e73\u53f0"
+        },
+        "phase_4": {
+          "name": "\u5de5\u5177",
+          "tools": [
+            "jupyter",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5\u5f00\u53d1\u5de5\u5177"
+        }
+      },
+      "post_install_steps": [
+        "pip install pyspark pandas numpy",
+        "echo '\u5927\u6570\u636e\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "data-engineering"
+      ],
+      "path": "environment-templates/big-data-engineer.yaml"
+    },
+    "ai-ml-developer": {
+      "name": "ai-ml-developer",
+      "description": "Complete AI and Machine Learning development environment",
+      "version": "1.0",
+      "category": "environment-template",
+      "author": "Global-Dev-Setup",
+      "core_tools": [
+        {
+          "name": "git",
+          "required": true,
+          "description": "Version control"
+        },
+        {
+          "name": "python3",
+          "required": true,
+          "description": "Python (required for ML)"
+        },
+        {
+          "name": "vscode",
+          "required": true,
+          "description": "Code editor"
+        },
+        {
+          "name": "docker",
+          "required": true,
+          "description": "Container runtime for ML"
+        }
+      ],
+      "ml_tools": [
+        {
+          "name": "poetry",
+          "required": false,
+          "default": true,
+          "description": "Python dependency management"
+        },
+        {
+          "name": "conda",
+          "required": false,
+          "default": false,
+          "description": "Conda package manager"
+        }
+      ],
+      "ml_packages": [
+        {
+          "name": "numpy",
+          "required": true,
+          "description": "Numerical computing"
+        },
+        {
+          "name": "pandas",
+          "required": true,
+          "description": "Data analysis"
+        },
+        {
+          "name": "matplotlib",
+          "required": false,
+          "default": true,
+          "description": "Visualization"
+        },
+        {
+          "name": "scikit-learn",
+          "required": true,
+          "description": "Machine learning"
+        },
+        {
+          "name": "pytorch",
+          "required": false,
+          "default": true,
+          "description": "Deep learning framework"
+        },
+        {
+          "name": "tensorflow",
+          "required": false,
+          "default": false,
+          "description": "Deep learning framework"
+        },
+        {
+          "name": "transformers",
+          "required": false,
+          "default": true,
+          "description": "Hugging Face transformers"
+        },
+        {
+          "name": "jupyter",
+          "required": true,
+          "description": "Jupyter notebooks"
+        }
+      ],
+      "data_stores": [
+        {
+          "name": "postgresql",
+          "required": false,
+          "default": true,
+          "description": "Structured data storage"
+        },
+        {
+          "name": "mongodb",
+          "required": false,
+          "default": false,
+          "description": "Unstructured data storage"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "mlflow",
+          "required": false,
+          "default": false,
+          "description": "ML experiment tracking"
+        },
+        {
+          "name": "wandb",
+          "required": false,
+          "default": false,
+          "description": "Weights & Biases"
+        }
+      ],
+      "vscode_extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "ms-toolsai.vscode-ai",
+        "ms-toolsai.datawrangler"
+      ],
+      "env_config": {
+        "python_version": "3.12",
+        "ml_framework": "pytorch",
+        "notebook_support": true,
+        "gpu_enabled": false,
+        "docker_enabled": true
+      },
+      "quick_start": [
+        {
+          "description": "Start Jupyter Lab",
+          "command": "jupyter lab"
+        },
+        {
+          "description": "Create new ML project",
+          "command": "cookiecutter https://github.com/drivendata/cookiecutter-data-science"
+        },
+        {
+          "description": "Set up MLflow",
+          "command": "mlflow ui --host 0.0.0.0"
+        }
+      ],
+      "project_templates": [
+        {
+          "name": "pytorch-template",
+          "description": "PyTorch project template",
+          "url": "https://github.com/..."
+        },
+        {
+          "name": "ml-project-template",
+          "description": "General ML project template",
+          "url": "https://github.com/..."
+        },
+        {
+          "name": "huggingface-template",
+          "description": "Hugging Face project template",
+          "url": "https://github.com/..."
+        }
+      ],
+      "estimated_setup_time": "30-60 minutes",
+      "system_requirements": {
+        "disk_space": "20GB minimum",
+        "memory": "16GB recommended",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ],
+        "gpu": "Optional (for CUDA/Metal)"
+      },
+      "tags": [
+        "ai",
+        "machine-learning",
+        "deep-learning",
+        "data-science",
+        "pytorch",
+        "tensorflow",
+        "jupyter",
+        "python"
+      ],
+      "path": "environment-templates/ai-ml-developer.yaml"
+    },
+    "blockchain-developer": {
+      "name": "blockchain-developer",
+      "description": "Complete environment for blockchain development",
+      "category": "blockchain",
+      "recommended_for": [
+        "Blockchain developers",
+        "Smart contract developers",
+        "Web3 developers"
+      ],
+      "required_tools": [
+        {
+          "name": "nodejs",
+          "version": "20+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "ethereum",
+          "version": "12+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "python3",
+          "version": "3.11+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "rust",
+          "version": "1.77+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "nodejs"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cNode.js"
+        },
+        "phase_2": {
+          "name": "\u533a\u5757\u94fe\u5de5\u5177",
+          "tools": [
+            "ethereum"
+          ],
+          "description": "\u5b89\u88c5\u4ee5\u592a\u574a\u5f00\u53d1\u5de5\u5177"
+        },
+        "phase_3": {
+          "name": "\u5bb9\u5668",
+          "tools": [
+            "docker"
+          ],
+          "description": "\u5b89\u88c5Docker\u7528\u4e8e\u8282\u70b9"
+        }
+      },
+      "post_install_steps": [
+        "npm install -g hardhat",
+        "echo '\u533a\u5757\u94fe\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "web-developer"
+      ],
+      "path": "environment-templates/blockchain-developer.yaml"
+    },
+    "ml-engineer": {
+      "name": "ml-engineer",
+      "description": "Complete environment for machine learning engineering",
+      "category": "ai-ml",
+      "recommended_for": [
+        "ML engineers",
+        "Machine learning developers",
+        "AI researchers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "pytorch",
+          "version": "2.1+"
+        },
+        {
+          "name": "tensorflow",
+          "version": "2.15+"
+        },
+        {
+          "name": "jupyter",
+          "version": "7.0+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "huggingface",
+          "version": "4.36+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "spark",
+          "version": "3.5+"
+        },
+        {
+          "name": "kubeflow",
+          "version": "1.8+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+        },
+        "phase_2": {
+          "name": "ML\u6846\u67b6",
+          "tools": [
+            "pytorch",
+            "tensorflow"
+          ],
+          "description": "\u5b89\u88c5\u673a\u5668\u5b66\u4e60\u6846\u67b6"
+        },
+        "phase_3": {
+          "name": "\u5de5\u5177",
+          "tools": [
+            "jupyter",
+            "huggingface"
+          ],
+          "description": "\u5b89\u88c5\u5f00\u53d1\u5de5\u5177"
+        },
+        "phase_4": {
+          "name": "\u90e8\u7f72",
+          "tools": [
+            "docker"
+          ],
+          "description": "\u5b89\u88c5\u5bb9\u5668"
+        }
+      },
+      "post_install_steps": [
+        "pip install scikit-learn pandas numpy matplotlib",
+        "echo '\u673a\u5668\u5b66\u4e60\u5de5\u7a0b\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "ai-ml-developer"
+      ],
+      "path": "environment-templates/ml-engineer.yaml"
+    },
+    "sysadmin": {
+      "name": "sysadmin",
+      "description": "Complete environment for systems administration",
+      "category": "devops",
+      "recommended_for": [
+        "System administrators",
+        "Linux administrators",
+        "Infrastructure managers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "ansible",
+          "version": "9.0+"
+        },
+        {
+          "name": "terraform",
+          "version": "1.7+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "aws-cli",
+          "version": "2.15+"
+        },
+        {
+          "name": "kubectl",
+          "version": "1.29+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+        },
+        "phase_2": {
+          "name": "\u81ea\u52a8\u5316\u5de5\u5177",
+          "tools": [
+            "ansible",
+            "terraform"
+          ],
+          "description": "\u5b89\u88c5\u81ea\u52a8\u5316\u548c\u57fa\u7840\u8bbe\u65bd\u5de5\u5177"
+        },
+        "phase_3": {
+          "name": "\u5bb9\u5668",
+          "tools": [
+            "docker"
+          ],
+          "description": "\u5b89\u88c5Docker"
+        }
+      },
+      "post_install_steps": [
+        "pip install paramiko fabric",
+        "echo '\u7cfb\u7edf\u7ba1\u7406\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "devops-engineer"
+      ],
+      "path": "environment-templates/sysadmin.yaml"
+    },
+    "mobile-developer": {
+      "name": "mobile-developer",
+      "description": "Mobile app development environment for iOS and Android",
+      "version": "1.0",
+      "category": "environment-template",
+      "author": "Global-Dev-Setup",
+      "core_tools": [
+        {
+          "name": "git",
+          "required": true,
+          "description": "Version control"
+        },
+        {
+          "name": "nodejs",
+          "required": true,
+          "description": "JavaScript runtime for React Native"
+        },
+        {
+          "name": "vscode",
+          "required": true,
+          "description": "Code editor"
+        }
+      ],
+      "android_tools": [
+        {
+          "name": "java",
+          "required": false,
+          "default": true,
+          "description": "Java JDK for Android development"
+        },
+        {
+          "name": "android-sdk",
+          "required": false,
+          "default": true,
+          "description": "Android SDK"
+        },
+        {
+          "name": "android-studio",
+          "required": false,
+          "default": false,
+          "description": "Android Studio IDE"
+        }
+      ],
+      "ios_tools": [
+        {
+          "name": "xcode",
+          "required": false,
+          "default": false,
+          "os": [
+            "macos"
+          ],
+          "description": "Xcode (macOS only)"
+        }
+      ],
+      "cross_platform_tools": [
+        {
+          "name": "flutter",
+          "required": false,
+          "default": false,
+          "description": "Flutter framework"
+        },
+        {
+          "name": "react-native",
+          "required": false,
+          "default": true,
+          "description": "React Native"
+        },
+        {
+          "name": "expo",
+          "required": false,
+          "default": false,
+          "description": "Expo platform"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "docker",
+          "required": false,
+          "default": true,
+          "description": "Emulator containers"
+        },
+        {
+          "name": "firebase",
+          "required": false,
+          "default": false,
+          "description": "Firebase tools"
+        }
+      ],
+      "vscode_extensions": [
+        "ms-python.python",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "Dart-Code.flutter",
+        "esbenp.prettier-vscode"
+      ],
+      "env_config": {
+        "node_version": "20",
+        "java_version": "17",
+        "react_native": true,
+        "flutter": false,
+        "android": true,
+        "ios": false
+      },
+      "quick_start": [
+        {
+          "description": "Create React Native app",
+          "command": "npx react-native@latest init MyApp"
+        },
+        {
+          "description": "Start Android emulator",
+          "command": "emulator -avd Pixel_6_Pro"
+        },
+        {
+          "description": "Start iOS simulator (macOS only)",
+          "command": "open -a Simulator"
+        }
+      ],
+      "project_templates": [
+        {
+          "name": "react-native-app",
+          "description": "React Native app template",
+          "url": "https://github.com/..."
+        },
+        {
+          "name": "flutter-app",
+          "description": "Flutter app template",
+          "url": "https://github.com/..."
+        },
+        {
+          "name": "expo-app",
+          "description": "Expo app template",
+          "url": "https://github.com/..."
+        }
+      ],
+      "estimated_setup_time": "45-90 minutes",
+      "system_requirements": {
+        "disk_space": "30GB minimum",
+        "memory": "16GB recommended",
+        "architecture": [
+          "amd64",
+          "arm64"
+        ]
+      },
+      "tags": [
+        "mobile",
+        "android",
+        "ios",
+        "react-native",
+        "flutter",
+        "cross-platform"
+      ],
+      "path": "environment-templates/mobile-developer.yaml"
+    },
+    "iot-developer": {
+      "name": "iot-developer",
+      "description": "Complete environment for IoT development",
+      "category": "iot",
+      "recommended_for": [
+        "IoT developers",
+        "Hardware developers",
+        "Embedded engineers"
+      ],
+      "required_tools": [
+        {
+          "name": "python3",
+          "version": "3.11+"
+        },
+        {
+          "name": "git",
+          "version": "2.30+"
+        }
+      ],
+      "recommended_tools": [
+        {
+          "name": "arduino",
+          "version": "2.2+"
+        },
+        {
+          "name": "raspberry-pi",
+          "version": "64+"
+        },
+        {
+          "name": "docker",
+          "version": "20+"
+        },
+        {
+          "name": "mqtt",
+          "version": "5.0+"
+        }
+      ],
+      "optional_tools": [
+        {
+          "name": "esp32",
+          "version": "5.2+"
+        },
+        {
+          "name": "c-cpp",
+          "version": "14+"
+        }
+      ],
+      "installation_phases": {
+        "phase_1": {
+          "name": "\u57fa\u7840\u5de5\u5177",
+          "tools": [
+            "git",
+            "python3"
+          ],
+          "description": "\u5b89\u88c5\u7248\u672c\u63a7\u5236\u548cPython"
+        },
+        "phase_2": {
+          "name": "IoT\u786c\u4ef6",
+          "tools": [
+            "arduino",
+            "raspberry-pi"
+          ],
+          "description": "\u5b89\u88c5\u786c\u4ef6\u5f00\u53d1\u5de5\u5177"
+        },
+        "phase_3": {
+          "name": "\u901a\u4fe1",
+          "tools": [
+            "mqtt",
+            "docker"
+          ],
+          "description": "\u5b89\u88c5MQTT\u548c\u5bb9\u5668"
+        }
+      },
+      "post_install_steps": [
+        "pip install paho-mqtt",
+        "pip install RPi.GPIO",
+        "echo 'IoT\u5f00\u53d1\u73af\u5883\u51c6\u5907\u5b8c\u6210!'"
+      ],
+      "compatible_templates": [
+        "embedded-developer"
+      ],
+      "path": "environment-templates/iot-developer.yaml"
+    }
+  },
+  "categories": [
+    "ai-ml",
+    "big-data",
+    "blockchain",
+    "cloud",
+    "data-engineering",
+    "databases",
+    "devops",
+    "editors",
+    "embedded",
+    "frameworks",
+    "game-dev",
+    "iot",
+    "mobile",
+    "productivity",
+    "programming-languages",
+    "security"
+  ]
+}

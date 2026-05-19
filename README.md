@@ -1,32 +1,259 @@
 # 🚀 Global-Dev-Setup
 
-> **Universal Developer Environment Setup Toolkit**
-> A comprehensive, modular system for managing development tools and environments.
-> Built with Python - extensible, scalable, and cross-platform.
+> **Developer Environment Registry & Configuration Repository**
+> **定位**: 这是一个**环境配置数据仓库**，供外部智能体查询和使用。智能体可以根据用户需求，查询仓库中的工具定义和环境模板，自动选择并安装所需的开发环境。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Stars](https://img.shields.io/github/stars/badhope/Global-Dev-Setup)](https://github.com/badhope/Global-Dev-Setup/stargazers)
 
-## ✨ Features
+## 🎯 仓库定位
 
-- 🏗️ **Modular Architecture** - Clean, extensible core system
-- 📦 **100+ Development Tools** - Everything you need in one place
-- ⚡ **Quick Installation** - One-command setup scripts
-- 🔧 **Cross-Platform** - Windows, macOS, Linux support
-- 📚 **Comprehensive Documentation** - Architecture guides and API docs
-- 🔄 **Auto-Update** - Keep all tools up to date
-- 🎯 **Category-Based** - Organized by functionality
-- 🧠 **Smart Recommendation Engine** - AI-driven tool suggestions based on your needs
-- 🤖 **External Agent API** - Full API for integration with external AI systems
-- 📋 **Environment Templates** - Pre-defined environments for common use cases
-- 🧩 **Plugin System** - Extend functionality easily
-- 📊 **Dependency Management** - Automatic dependency resolution
-- 💻 **CLI & Library** - Use as CLI tool or Python library
-- 🔌 **Intelligent Installer** - Automatically chooses best installation method
-- ✅ **Verification System** - Confirms tools are working correctly
-- 📦 **Compatibility Matrix** - Shows which tools work well together
+**这个仓库不是用来开发智能体的，而是作为智能体的辅助数据源。**
+
+外部智能体可以：
+1. **查询工具注册表** - 获取所有可用工具的详细信息
+2. **搜索工具** - 根据关键词查找相关工具
+3. **获取环境模板** - 获取预定义的开发环境配置
+4. **获取安装命令** - 获取特定工具在特定操作系统上的安装命令
+5. **获取推荐** - 根据开发需求获取推荐的工具列表
+
+## ✨ 核心功能
+
+- 📚 **工具注册表** - 40+ 开发工具的详细定义（安装方式、依赖、兼容性）
+- 📋 **环境模板** - 16+ 预定义的开发环境配置
+- 🔍 **搜索功能** - 支持按关键词、类别搜索工具
+- 🤖 **Agent API** - 提供 REST API 和 CLI 接口供外部智能体调用
+- 📤 **数据导出** - 支持将注册表导出为 JSON 格式
+- 🌐 **Web 界面** - 可视化工具浏览和搜索界面
+- 📦 **跨平台支持** - Linux、macOS、Windows
+
+## 📂 目录结构
+
+```
+Global-Dev-Setup/
+├── README.md                    # 项目说明文档
+├── registry.py                  # 工具注册表核心模块
+├── api.py                       # REST API 服务
+├── agent_helper.py              # 智能体查询辅助工具
+├── index.html                   # Web 可视化界面
+├── tool_registry.json           # 注册表 JSON 导出（运行生成）
+├── install.sh                   # 一键安装脚本 (Linux/macOS)
+├── install.bat                  # 一键安装脚本 (Windows)
+├── bootstrap.py                 # 智能引导安装器
+├── tools/                       # 工具定义目录
+│   ├── programming-languages/   # 编程语言工具
+│   ├── databases/               # 数据库工具
+│   ├── frameworks/              # 框架工具
+│   ├── ai-ml/                   # AI/ML 工具
+│   ├── big-data/                # 大数据工具
+│   ├── devops/                  # DevOps 工具
+│   ├── cloud/                   # 云服务工具
+│   └── ...                      # 更多类别
+├── environment-templates/       # 环境模板目录
+│   ├── fullstack-developer.yaml
+│   ├── ai-ml-developer.yaml
+│   ├── devops-engineer.yaml
+│   └── ...
+└── core/                        # 核心模块（可选使用）
+```
+
+---
+
+## 🔌 外部智能体使用方式
+
+### 方式一：CLI 查询
+
+```bash
+# 列出所有工具
+python registry.py --list-tools
+
+# 列出所有模板
+python registry.py --list-templates
+
+# 搜索工具
+python registry.py --search python
+
+# 获取工具详情
+python registry.py --tool docker
+
+# 获取模板详情
+python registry.py --template fullstack-developer
+
+# 获取推荐工具
+python registry.py --recommend web
+
+# 获取安装命令
+python registry.py --install-command docker
+
+# 导出注册表到 JSON
+python registry.py --export
+```
+
+### 方式二：Python API
+
+```python
+from registry import ToolRegistry
+
+# 初始化注册表
+registry = ToolRegistry()
+
+# 查询所有工具
+tools = registry.list_tools()
+
+# 查询工具详情
+tool = registry.get_tool("docker")
+
+# 搜索工具
+results = registry.search_tools("python")
+
+# 获取环境模板
+template = registry.get_template("ai-ml-developer")
+
+# 获取模板包含的工具
+template_tools = registry.get_template_tools("ai-ml-developer")
+
+# 获取安装命令
+cmd = registry.get_installation_command("docker", os_type="linux")
+
+# 生成安装脚本
+script = registry.generate_install_script(["git", "python3", "docker"])
+```
+
+### 方式三：REST API
+
+```bash
+# 启动 API 服务
+python api.py
+
+# 访问接口
+curl http://localhost:8000/tools
+curl http://localhost:8000/templates
+curl http://localhost:8000/tools/docker
+curl http://localhost:8000/templates/fullstack-developer/tools
+curl -X POST http://localhost:8000/recommend -H "Content-Type: application/json" -d '{"category": "web"}'
+```
+
+### 方式四：JSON 导出
+
+```bash
+# 导出注册表
+python registry.py --export
+
+# 使用 JSON 文件
+cat tool_registry.json
+```
+
+---
+
+## 📚 工具分类
+
+| 类别 | 工具 |
+|------|------|
+| **编程语言** | Python3, Node.js, Java, Go, Rust, C/C++, Ruby, PHP |
+| **数据库** | PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch, SQLite |
+| **框架** | React, Vue, Angular, Next.js, Django, FastAPI |
+| **AI/ML** | PyTorch, TensorFlow, Jupyter, Hugging Face |
+| **大数据** | Spark, Hadoop, Kafka, Hive |
+| **DevOps** | Docker, Kubernetes, Terraform, Helm, Ansible |
+| **云服务** | AWS CLI, GCloud CLI, Azure CLI |
+| **移动端** | Flutter, Android SDK, iOS |
+| **游戏开发** | Unity, Unreal Engine |
+| **IoT/嵌入式** | Arduino, Raspberry Pi, ESP32 |
+
+---
+
+## 📋 环境模板列表
+
+| 模板 | 描述 |
+|------|------|
+| **fullstack-developer** | 全栈 Web 开发环境 |
+| **frontend-developer** | 前端开发环境 |
+| **backend-developer** | 后端开发环境 |
+| **ai-ml-developer** | AI/ML 开发环境 |
+| **ai-agent-developer** | AI Agent 开发环境 |
+| **ml-engineer** | 机器学习工程环境 |
+| **data-science** | 数据科学环境 |
+| **big-data-engineer** | 大数据工程师环境 |
+| **data-engineering** | 数据工程环境 |
+| **devops-engineer** | DevOps 工程师环境 |
+| **cloud-native-developer** | 云原生开发环境 |
+| **mobile-developer** | 移动开发环境 |
+| **game-developer** | 游戏开发环境 |
+| **blockchain-developer** | 区块链开发环境 |
+| **iot-developer** | IoT 开发环境 |
+| **embedded-developer** | 嵌入式开发环境 |
+
+---
+
+## 🔄 工作流程示例
+
+**智能体收到用户需求后的工作流程：**
+
+1. **分析需求** → 用户需要设置一个 AI Agent 开发环境
+2. **查询模板** → 调用 `registry.get_template("ai-agent-developer")`
+3. **获取工具列表** → 调用 `registry.get_template_tools("ai-agent-developer")`
+4. **获取安装命令** → 对每个工具调用 `registry.get_installation_command(tool_name, os)`
+5. **执行安装** → 按优先级执行安装命令
+6. **验证安装** → 调用工具的验证命令
+
+---
+
+## 🚀 快速开始
+
+### 克隆仓库
+
+```bash
+git clone https://github.com/badhope/Global-Dev-Setup.git
+cd Global-Dev-Setup
+```
+
+### 初始化注册表
+
+```bash
+# 导出注册表到 JSON（用于 Web 界面）
+python registry.py --export
+
+# 启动 API 服务（可选）
+python api.py
+
+# 启动 Web 界面（需要先导出 JSON）
+# 使用浏览器打开 index.html
+```
+
+### 使用一键安装（可选）
+
+```bash
+# Linux/macOS
+./install.sh
+
+# Windows
+install.bat
+```
+
+---
+
+## 📝 贡献指南
+
+欢迎提交 PR 来添加新工具或环境模板！
+
+### 添加新工具
+
+1. 在 `tools/[category]/[tool-name]/` 目录下创建 `tool.yaml` 文件
+2. 参考现有工具的格式填写工具信息
+3. 运行 `python registry.py --export` 更新注册表
+
+### 添加新模板
+
+1. 在 `environment-templates/` 目录下创建 `[template-name].yaml` 文件
+2. 参考现有模板的格式填写配置
+3. 更新 `core/engine/smart_recommender.py` 中的模板映射
+
+---
+
+## 📄 许可证
+
+MIT License - 详见 [LICENSE](LICENSE)
 
 ## 📂 Directory Structure
 

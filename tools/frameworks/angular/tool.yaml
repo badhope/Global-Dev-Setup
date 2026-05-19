@@ -24,7 +24,7 @@ supported_os:
 installation_sources:
   - type: npm
     os: [all]
-    package_name: @angular/cli
+    package_name: "@angular/cli"
     description: "npm installation"
     priority: 1
     command: |
