@@ -1,15 +1,22 @@
-# Supabase - Supabase - 开源Firebase替代
+# Supabase
 name: supabase
 category: database
-description: "Supabase - 开源Firebase替代"
+description: "Supabase - Open source Firebase alternative with Postgres database"
+version: "latest"
+latest_version: "latest"
 homepage: "https://supabase.com/"
+documentation: "https://supabase.com/docs"
+license: "Apache 2.0"
+author: "Supabase"
 
 tags:
   - supabase
-  - firebase
-  - postgres
+  - database
+  - postgresql
+  - backend-as-a-service
+  - baas
+  - firebase-alternative
   - realtime
-  - auth
 
 supported_os:
   - linux
@@ -17,14 +24,42 @@ supported_os:
   - windows
 
 installation_sources:
-  - type: official
+  - type: npm
     os: [all]
-    description: "Official installation"
+    package_name: supabase
+    description: "Supabase CLI"
     priority: 1
     command: |
-      # See https://supabase.com/ for installation instructions
+      npm install -g supabase
+
+  - type: web
+    os: [all]
+    description: "Web dashboard"
+    priority: 1
+    command: |
+      # Access via web browser
+      echo "Visit https://supabase.com to create project"
+
+  - type: docker
+    os: [all]
+    description: "Self-hosted with Docker"
+    priority: 2
+    command: |
+      docker run -d -p 54321:54321 -p 3000:3000 supabase/postgres
+
+optional_tools:
+  - name: postgresql
+    description: "PostgreSQL client"
+    recommended: true
+  - name: docker
+    description: "Docker for self-hosting"
+    recommended: false
 
 verify_commands:
   - "supabase --version"
 
-compatible_with: []
+compatible_with:
+  - postgresql
+  - docker
+  - nodejs
+  - python

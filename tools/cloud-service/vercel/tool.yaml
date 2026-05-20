@@ -1,15 +1,22 @@
-# Vercel - Vercel - 前端云平台
+# Vercel
 name: vercel
 category: cloud-service
-description: "Vercel - 前端云平台"
+description: "Vercel - Frontend cloud platform and serverless deployment"
+version: "latest"
+latest_version: "latest"
 homepage: "https://vercel.com/"
+documentation: "https://vercel.com/docs"
+license: "Proprietary"
+author: "Vercel"
 
 tags:
   - vercel
-  - hosting
   - serverless
   - frontend
+  - deployment
+  - hosting
   - nextjs
+  - static-site
 
 supported_os:
   - linux
@@ -17,14 +24,35 @@ supported_os:
   - windows
 
 installation_sources:
-  - type: official
+  - type: npm
     os: [all]
-    description: "Official installation"
+    package_name: vercel
+    description: "Vercel CLI"
     priority: 1
     command: |
-      # See https://vercel.com/ for installation instructions
+      npm install -g vercel
+
+  - type: web
+    os: [all]
+    description: "Web dashboard"
+    priority: 1
+    command: |
+      # Access via web browser
+      echo "Visit https://vercel.com to sign up"
+
+optional_tools:
+  - name: git
+    description: "Git for version control"
+    recommended: true
+  - name: nodejs
+    description: "Node.js runtime"
+    recommended: true
 
 verify_commands:
   - "vercel --version"
 
-compatible_with: []
+compatible_with:
+  - nextjs
+  - react
+  - vue
+  - nodejs

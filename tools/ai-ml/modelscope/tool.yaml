@@ -1,0 +1,60 @@
+# ModelScope (魔搭)
+name: modelscope
+category: ai-ml
+description: "ModelScope - Alibaba's AI model hub and model sharing platform"
+version: "latest"
+latest_version: "latest"
+homepage: "https://www.modelscope.cn/"
+documentation: "https://www.modelscope.cn/docs"
+license: "Apache 2.0"
+author: "Alibaba DAMO Academy"
+
+tags:
+  - modelscope
+  - ai-models
+  - machine-learning
+  - deep-learning
+  - chinese-platform
+  - alibaba
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: pip
+    os: [all]
+    package_name: modelscope
+    description: "Install ModelScope SDK"
+    priority: 1
+    command: |
+      pip install modelscope
+
+  - type: git
+    os: [all]
+    description: "Clone from GitHub"
+    priority: 2
+    command: |
+      git clone https://github.com/modelscope/modelscope.git
+      cd modelscope
+      pip install -e .
+
+optional_tools:
+  - name: pytorch
+    description: "PyTorch deep learning framework"
+    recommended: true
+  - name: transformers
+    description: "HuggingFace Transformers"
+    recommended: true
+  - name: tensorflow
+    description: "TensorFlow"
+    recommended: false
+
+verify_commands:
+  - "python -c \"import modelscope; print(modelscope.__version__)\""
+
+compatible_with:
+  - pytorch
+  - tensorflow
+  - python

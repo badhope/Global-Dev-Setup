@@ -1,0 +1,59 @@
+# CODING (腾讯工蜂)
+name: coding
+category: devops
+description: "CODING - All-in-one DevOps platform by Tencent Cloud"
+version: "latest"
+latest_version: "latest"
+homepage: "https://coding.net/"
+documentation: "https://help.coding.net/"
+license: "Proprietary"
+author: "Tencent Cloud"
+
+tags:
+  - coding
+  - devops
+  - ci-cd
+  - code-review
+  - tencent
+  - chinese-platform
+  - docker-registry
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: git
+    os: [all]
+    description: "Git required"
+    priority: 1
+    command: |
+      # CODING uses standard Git
+      # Configure Git for CODING
+      git config --global coding.user "your-username"
+
+  - type: web
+    os: [all]
+    description: "Web-based platform"
+    priority: 1
+    command: |
+      # Access via web browser
+      echo "Visit https://coding.net to create project"
+
+optional_tools:
+  - name: git
+    description: "Git version control"
+    recommended: true
+  - name: docker
+    description: "Docker for container registry"
+    recommended: false
+
+verify_commands:
+  - "git config --global coding.user"
+
+compatible_with:
+  - git
+  - github
+  - gitee
+  - docker

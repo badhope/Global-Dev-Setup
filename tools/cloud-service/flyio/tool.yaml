@@ -1,0 +1,64 @@
+# Fly.io
+name: flyio
+category: cloud-service
+description: "Fly.io - Distributed application platform for edge computing"
+version: "latest"
+latest_version: "latest"
+homepage: "https://fly.io/"
+documentation: "https://fly.io/docs/"
+license: "Proprietary"
+author: "Fly.io"
+
+tags:
+  - flyio
+  - fly-io
+  - edge-computing
+  - deployment
+  - containers
+  - vms
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: script
+    os: [linux]
+    description: "Install Fly CLI"
+    priority: 1
+    command: |
+      curl -L https://fly.io/install.sh | sh
+
+  - type: brew
+    os: [macos]
+    package_name: flyctl
+    description: "Homebrew"
+    priority: 1
+    command: |
+      brew install superfly/tap/flyctl
+
+  - type: powershell
+    os: [windows]
+    description: "PowerShell installation"
+    priority: 1
+    command: |
+      iwr https://fly.io/install.ps1 -useb | iex
+
+optional_tools:
+  - name: git
+    description: "Git for version control"
+    recommended: true
+  - name: docker
+    description: "Docker for containers"
+    recommended: true
+
+verify_commands:
+  - "flyctl version"
+
+compatible_with:
+  - nodejs
+  - python
+  - go
+  - docker
+  - postgresql

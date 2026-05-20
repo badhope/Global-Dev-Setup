@@ -1,0 +1,50 @@
+# Yuque (语雀)
+name: yuque
+category: productivity
+description: "Yuque - Alibaba's knowledge management and documentation platform"
+version: "latest"
+latest_version: "latest"
+homepage: "https://www.yuque.com/"
+documentation: "https://www.yuque.com/help/"
+license: "Proprietary"
+author: "Alibaba"
+
+tags:
+  - yuque
+  - knowledge-management
+  - documentation
+  - collaboration
+  - chinese-platform
+  - alibaba
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: web
+    os: [all]
+    description: "Web-based platform"
+    priority: 1
+    command: |
+      # Access via web browser
+      echo "Visit https://www.yuque.com to use"
+
+  - type: desktop
+    os: [all]
+    description: "Desktop app"
+    priority: 2
+    command: |
+      # Download desktop app from official website
+
+optional_tools:
+  - name: notion
+    description: "Notion alternative"
+    recommended: false
+
+verify_commands:
+  - "echo 'Access via https://www.yuque.com'"
+
+compatible_with:
+  - notion

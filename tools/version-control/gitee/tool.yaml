@@ -1,0 +1,58 @@
+# Gitee (码云)
+name: gitee
+category: version-control
+description: "Gitee - Chinese GitHub alternative, code hosting and collaboration platform"
+version: "latest"
+latest_version: "latest"
+homepage: "https://gitee.com/"
+documentation: "https://gitee.com/help/"
+license: "Proprietary"
+author: "OSCHINA"
+
+tags:
+  - gitee
+  - git
+  - github-alternative
+  - code-hosting
+  - chinese
+  - ci-cd
+  - gitee-go
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: git
+    os: [all]
+    description: "Git required"
+    priority: 1
+    command: |
+      # Gitee uses standard Git
+      # Configure Git to use Gitee
+      git config --global gitee.user "your-username"
+
+  - type: web
+    os: [all]
+    description: "Web browser access"
+    priority: 1
+    command: |
+      # Access via web browser
+      echo "Visit https://gitee.com to create account"
+
+optional_tools:
+  - name: git
+    description: "Git version control"
+    recommended: true
+  - name: git-lfs
+    description: "Git LFS for large files"
+    recommended: false
+
+verify_commands:
+  - "git config --global gitee.user"
+
+compatible_with:
+  - git
+  - github
+  - docker

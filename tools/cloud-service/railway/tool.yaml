@@ -1,0 +1,57 @@
+# Railway
+name: railway
+category: cloud-service
+description: "Railway - Modern cloud platform for building, deploying, and provisioning databases"
+version: "latest"
+latest_version: "latest"
+homepage: "https://railway.app/"
+documentation: "https://docs.railway.app/"
+license: "Proprietary"
+author: "Railway"
+
+tags:
+  - railway
+  - cloud
+  - deployment
+  - databases
+  - serverless
+  - hosting
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: npm
+    os: [all]
+    package_name: "@railway/cli"
+    description: "Railway CLI"
+    priority: 1
+    command: |
+      npm install -g @railway/cli
+
+  - type: web
+    os: [all]
+    description: "Web dashboard"
+    priority: 1
+    command: |
+      # Access via web browser
+      echo "Visit https://railway.app to sign up"
+
+optional_tools:
+  - name: git
+    description: "Git for version control"
+    recommended: true
+  - name: docker
+    description: "Docker for containers"
+    recommended: false
+
+verify_commands:
+  - "railway --version"
+
+compatible_with:
+  - nodejs
+  - python
+  - go
+  - docker
