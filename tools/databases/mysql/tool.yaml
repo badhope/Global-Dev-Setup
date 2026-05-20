@@ -40,7 +40,7 @@ installation_sources:
     description: "Docker container (recommended)"
     priority: 1
     command: |
-      docker run -d -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=secret mysql:8.3
+      docker run -d -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=your_secure_password mysql:8.3
 
 optional_tools:
   - name: mysql-workbench
@@ -48,7 +48,7 @@ optional_tools:
     recommended: false
 
 environment_vars:
-  MYSQL_ROOT_PASSWORD: "password"
+  MYSQL_ROOT_PASSWORD: "your_secure_password"
 
 post_install:
   - "mysql --version"

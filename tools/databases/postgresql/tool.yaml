@@ -41,7 +41,7 @@ installation_sources:
     priority: 2
     command: |
       docker run --name postgres16 \
-        -e POSTGRES_PASSWORD=mysecretpassword \
+        -e POSTGRES_PASSWORD=your_secure_password \
         -p 5432:5432 \
         -d postgres:16
 

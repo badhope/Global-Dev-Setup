@@ -1,28 +1,55 @@
 # Global-Dev-Setup .gitignore
+# Comprehensive file to prevent privacy leaks and accidental commits
 
 # OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-*~
+desktop.ini
 
-# IDEs
+# IDEs and Editors
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 *.sublime-*
+*.vscode/extensions.json  # Personal extensions
+*.vscode/settings.json    # Personal settings
+*.vscode/launch.json      # Personal launch configs
+*.vscode/tasks.json       # Personal tasks
+*.vscode/keybindings.json # Personal keybindings
 
 # Build artifacts
 *.o
 *.so
+*.dylib
+*.a
+*.lib
+*.dll
+*.exe
 *.pyc
+*.pyo
+*.pyd
 *.class
+*.jar
+*.war
+*.ear
 *.log
 
 # Temporary files
 .tmp/
 .temp/
+tmp/
+temp/
 *.tmp
+*.temp
+*.cache
+*.swp
 
 # Downloaded installers
 *.dmg
@@ -30,43 +57,233 @@ Thumbs.db
 *.msi
 *.deb
 *.rpm
+*.pkg
+*.zip
+*.tar.gz
+*.rar
 
 # Backup files
 *.bak
 *.backup
 *_backup
+*.orig
+*.rej
 
-# Environment files
+# Environment files (CONTAINS SECRETS!)
 .env
 .env.local
 .env.*.local
+.env.*
+*.env
+*.env.*
+config.json
+config.yaml
+config.yml
+*.secrets
+*.secret
+*.key
+*.pem
+*.pub
+*.crt
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.truststore
 
-# Lock files
-package-lock.json
-yarn.lock
-Pipfile.lock
-poetry.lock
+# AWS/GCP/Azure configs
+.aws/
+.gcp/
+.azure/
+~/.aws/credentials
+~/.aws/config
+~/.gcloud/
+~/.azure/
+
+# Git credentials and config
+.gitconfig
+.git-credentials
+.netrc
+.ssh/
+ssh_config
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+*.ppk
+
+# API Keys, Tokens, Secrets
+*.key
+*.token
+*.apikey
+*.secret
+*key*
+*secret*
+*token*
+*password*
+*pass*
+
+# Package manager lock files (optional, can be tracked)
+# Uncomment if you want to ignore lock files
+# package-lock.json
+# yarn.lock
+# Pipfile.lock
+# poetry.lock
 
 # Dependency directories
 node_modules/
 venv/
 env/
 .venv/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.coverage
 
 # Test coverage
 coverage/
+htmlcov/
 .coverage
 *.cover
+*.lcov
 
 # Logs
 logs/
 *.log
+*.txt.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Cache
+# Cache directories
 .cache/
-.pytest_cache/
-__pycache__/
+.npm/
+.yarn-cache/
+.yarn/
+.pip/
+.go/
+.rustup/
+.cargo/
+.pki/
 
 # Temporary directories
 tmp/
 temp/
+dist/
+build/
+target/
+out/
+*.egg-info/
+*.whl
+*.eggs/
+.eggs/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.dev.yml
+.env.docker
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+
+# Private keys and certificates
+.pem
+*.pem
+*.key
+*.crt
+*.cert
+*.csr
+*.pub
+*.der
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# SSH and auth
+.ssh/
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+*.ppk
+known_hosts
+authorized_keys
+ssh_config
+
+# Personal info and credentials
+*.bak
+*.swp
+*.swo
+*.backup
+*_old
+*_bak
+*_temp
+
+# Cloud config
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+serverless.yml
+serverless.yml~
+.gcloud/
+.aws/
+.azure/
+
+# CI/CD
+.github/secrets/
+.gitlab-ci-secrets.yml
+.gitlab-ci.yaml~
+
+# OS temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# History files
+.bash_history
+.zsh_history
+.sqlite_history
+.python_history
+.lesshst
+.mysql_history
+.psql_history
+
+# Editor temporary files
+*.swp
+*.swo
+*~
+.#*
+
+# Output and compiled
+*.class
+*.jar
+*.war
+*.ear
+target/
+out/
+dist/
+build/
+
+# Project-specific
+tool_registry.json
+validation_report.txt
+*.dump
+*.bak
+*.orig
