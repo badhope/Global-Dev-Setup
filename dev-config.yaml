@@ -1,0 +1,394 @@
+# Global-Dev-Setup Dev-Config System
+# This file contains development configuration templates for various tools and environments
+
+# Version control configurations
+version_control:
+  # Git global configuration
+  git:
+    enabled: true
+    files:
+      - config/git-config/.gitconfig
+      - config/git-config/.gitignore_global
+    commands:
+      - "git config --global user.name 'Your Name'"
+      - "git config --global user.email 'your.email@example.com'"
+      - "git config --global init.defaultBranch main"
+      - "git config --global core.editor 'nano'"
+      - "git config --global commit.template ~/.gitcommit_template"
+
+  # Git aliases
+  git_aliases:
+    st: status
+    co: checkout
+    ci: commit
+    br: branch
+    unstage: reset HEAD --
+    last: log -1 HEAD
+    lg: log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+# Shell configurations
+shell:
+  # Bash configuration
+  bash:
+    enabled: true
+    file: config/shell-config/.bashrc
+    aliases:
+      ll: ls -la
+      la: ls -A
+      gs: git status
+      gc: git commit
+      gp: git push
+      gl: git pull
+      gd: git diff
+      ga: git add
+      grep: grep --color=auto
+      ..: cd ..
+      ...: cd ../..
+      ....: cd ../../..
+      .....: cd ../../../..
+    exports:
+      PATH: "$HOME/.local/bin:$PATH"
+      EDITOR: nano
+      PAGER: less
+
+  # Zsh configuration
+  zsh:
+    enabled: true
+    file: config/shell-config/.zshrc
+    plugins:
+      - git
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - fzf
+      - docker
+    theme: powerlevel10k
+    aliases:
+      ll: ls -la
+      la: ls -A
+      gs: git status
+      gc: git commit
+      gp: git push
+      gl: git pull
+      gd: git diff
+      ga: git add
+      grep: grep --color=auto
+      ..: cd ..
+      ...: cd ../..
+      ....: cd ../../..
+      .....: cd ../../../..
+
+# IDE configurations
+ide:
+  # VS Code configuration
+  vscode:
+    enabled: true
+    extensions: config/vscode-extensions/extensions.json
+    settings:
+      editor.tabSize: 2
+      editor.fontSize: 14
+      editor.formatOnSave: true
+      files.autoSave: afterDelay
+      terminal.integrated.fontFamily: 'Meslo LG M DZ for Powerline'
+    keybindings:
+      - key: "ctrl+shift+f"
+        command: "workbench.action.findInFiles"
+      - key: "ctrl+shift+g"
+        command: "workbench.view.scm"
+
+  # JetBrains IDEs
+  jetbrains:
+    ide:
+      - IntelliJ IDEA
+      - PyCharm
+      - GoLand
+      - WebStorm
+      - DataGrip
+    common_settings:
+      appearance.fontSize: 14
+      keymap.indentGuides: true
+      terminal.shellPath: "/bin/zsh"
+      editor.tabSize: 4
+
+# Package manager configurations
+package_managers:
+  # npm/yarn/pnpm
+  npm:
+    registry: "https://registry.npmmirror.com"
+    cache: "$HOME/.npm"
+    prefix: "$HOME/.npm-global"
+
+  # pip
+  pip:
+    index_url: "https://pypi.tuna.tsinghua.edu.cn/simple"
+    trusted_host: "pypi.tuna.tsinghua.edu.cn"
+    no_cache_dir: false
+
+  # cargo
+  cargo:
+    registry: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+    cache: "$HOME/.cargo/registry"
+
+# Docker configurations
+docker:
+  # Registry mirrors
+  registry_mirrors:
+    cn:
+      - "https://docker.mirrors.ustc.edu.cn"
+      - "https://hub-mirror.c.163.com"
+      - "https://mirror.baidubce.com"
+    global:
+      - "https://registry-1.docker.io"
+  # Network settings
+  network:
+    bridge: "docker0"
+    subnet: "172.17.0.0/16"
+  # Storage settings
+  storage:
+    driver: overlay2
+    data_root: "/var/lib/docker"
+  # Default containers
+  default_containers:
+    - name: postgres
+      image: postgres:15
+      ports:
+        - 5432:5432
+      env:
+        POSTGRES_PASSWORD: "secret"
+    - name: redis
+      image: redis:7
+      ports:
+        - 6379:6379
+
+# Environment variables
+env_vars:
+  # Development environment
+  development:
+    NODE_ENV: development
+    ENV: development
+    DEBUG: true
+    LOG_LEVEL: debug
+
+  # Production environment
+  production:
+    NODE_ENV: production
+    ENV: production
+    DEBUG: false
+    LOG_LEVEL: info
+
+# Development tools configuration
+dev_tools:
+  # Code formatters
+  formatters:
+    prettier:
+      printWidth: 100
+      tabWidth: 2
+      useTabs: false
+      semi: true
+      singleQuote: true
+      trailingComma: es5
+      bracketSpacing: true
+
+    black:
+      line-length: 100
+      target-version: py311
+      include: '(\.pyi?)$'
+      exclude: '/(\.git|\.hg|\.mypy_cache|\.tox|\.venv)/'
+
+    gofmt:
+      tabs: true
+      tabWidth: 4
+
+  # Linter configurations
+  linters:
+    eslint:
+      extends:
+        - eslint:recommended
+        - plugin:@typescript-eslint/recommended
+      parser: "@typescript-eslint/parser"
+      plugins:
+        - "@typescript-eslint"
+      rules:
+        no-console: warn
+        no-unused-vars: error
+
+    flake8:
+      max-line-length: 100
+      extend-ignore:
+        - E203
+        - W503
+        - E501
+      exclude:
+        - ".git"
+        - "__pycache__"
+
+    golangci-lint:
+      linters:
+        enable:
+          - errcheck
+          - gosimple
+          - govet
+          - ineffassign
+          - staticcheck
+          - unused
+
+# Database configurations
+databases:
+  # PostgreSQL
+  postgresql:
+    host: localhost
+    port: 5432
+    user: postgres
+    password: secret
+    database: dev_db
+    sslmode: disable
+
+  # MySQL
+  mysql:
+    host: localhost
+    port: 3306
+    user: root
+    password: secret
+    database: dev_db
+    charset: utf8mb4
+
+  # Redis
+  redis:
+    host: localhost
+    port: 6379
+    password: ""
+    db: 0
+    max_memory: 2gb
+    max_memory_policy: allkeys-lru
+
+# Web server configurations
+web_servers:
+  # Nginx
+  nginx:
+    config_dir: /etc/nginx
+    sites_dir: /etc/nginx/sites-available
+    user: www-data
+    worker_processes: auto
+
+  # Apache
+  apache:
+    config_dir: /etc/apache2
+    sites_dir: /etc/apache2/sites-available
+    user: www-data
+    mpm: worker
+
+# CI/CD configurations
+ci_cd:
+  # GitHub Actions
+  github_actions:
+    workflows_dir: .github/workflows
+    default_branch: main
+
+  # GitLab CI
+  gitlab_ci:
+    config_file: .gitlab-ci.yml
+    tags:
+      - docker
+      - kubernetes
+
+# Cloud configurations
+cloud:
+  # AWS
+  aws:
+    region: us-east-1
+    profile: default
+    output: json
+
+  # Azure
+  azure:
+    tenant: ""
+    subscription: ""
+    location: eastus
+
+  # Google Cloud
+  gcp:
+    project: ""
+    region: us-central1
+    zone: us-central1-a
+
+  # Alibaba Cloud
+  alibaba:
+    region: cn-hangzhou
+    access-key-id: ""
+    access-key-secret: ""
+
+# Security configurations
+security:
+  # SSH
+  ssh:
+    key_dir: "$HOME/.ssh"
+    key_type: ed25519
+    passphrase: false
+    config_file: "$HOME/.ssh/config"
+
+  # GPG
+  gpg:
+    key_dir: "$HOME/.gnupg"
+    algorithm: rsa4096
+    expire: 0
+
+  # SSL/TLS
+  ssl:
+    certificate_dir: "$HOME/.ssl"
+    certificate_authority: letsencrypt
+    key_length: 2048
+
+# Terminal configurations
+terminal:
+  # Font
+  font:
+    family: Meslo LG M DZ for Powerline
+    size: 14
+    anti_aliasing: true
+    ligatures: true
+
+  # Colors
+  colors:
+    scheme: Dracula
+    background: "#282a36"
+    foreground: "#f8f8f2"
+    cursor: "#f8f8f0"
+    selection: "#44475a"
+
+  # Transparency
+  transparency:
+    background: 0.95
+    foreground: 1.0
+
+# API documentation
+api_docs:
+  # OpenAPI/Swagger
+  openapi:
+    spec_file: openapi.yaml
+    version: 3.0.3
+    title: API Documentation
+    description: REST API documentation
+
+  # Postman
+  postman:
+    collections_dir: postman/collections
+    environments_dir: postman/environments
+
+# Development workflows
+workflows:
+  # Git workflow
+  git_workflow:
+    branching_strategy: git-flow
+    pull_request_required: true
+    code_review_required: true
+    ci_pipeline_required: true
+
+  # Issue tracking
+  issue_tracking:
+    tool: github-issues
+    labels:
+      - bug
+      - enhancement
+      - question
+      - documentation
+      - duplicate
+      - wontfix

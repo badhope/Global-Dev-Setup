@@ -1,0 +1,75 @@
+# Elixir Programming Language
+name: elixir
+category: programming-language
+description: "Elixir - Functional, concurrent, and dynamic programming language built on Erlang VM"
+version: "1.15"
+latest_version: "1.15"
+homepage: "https://elixir-lang.org/"
+documentation: "https://hexdocs.pm/elixir/"
+license: "Apache 2.0"
+author: "José Valim"
+
+tags:
+  - elixir
+  - erlang
+  - functional
+  - concurrent
+  - otp
+  - phoenix
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: asdf
+    os: [all]
+    description: "asdf version manager"
+    priority: 1
+    command: |
+      asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+      asdf install elixir latest
+      asdf global elixir latest
+
+  - type: homebrew
+    os: [macos]
+    package_name: elixir
+    description: "Homebrew"
+    priority: 1
+
+  - type: apt
+    os: [linux]
+    description: "Apt repository"
+    priority: 2
+    command: |
+      apt update && apt install -y software-properties-common
+      add-apt-repository -y ppa:rabbitmq/rabbitmq-erlang
+      apt update
+      apt install -y elixir
+
+  - type: manual
+    os: [all]
+    url: "https://elixir-lang.org/install.html"
+    description: "Manual installation"
+    priority: 3
+
+optional_tools:
+  - name: phoenix
+    description: "Phoenix web framework"
+    recommended: true
+  - name: asdf
+    description: "asdf version manager"
+    recommended: true
+  - name: mix
+    description: "Elixir build tool"
+    recommended: true
+
+verify_commands:
+  - "elixir --version"
+  - "mix --version"
+
+compatible_with:
+  - erlang
+  - postgresql
+  - docker

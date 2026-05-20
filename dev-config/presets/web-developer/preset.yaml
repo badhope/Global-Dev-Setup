@@ -1,0 +1,53 @@
+# Web Developer Preset
+
+name: web-developer
+description: Complete web development preset with modern tools
+version: 1.0.0
+
+# Configuration files to apply
+configs:
+  - git
+  - shell
+  - vscode
+  - npm
+  - yarn
+  - docker
+
+# Required tools
+required_tools:
+  - git
+  - nodejs
+  - python3
+  - docker
+  - vscode
+
+# Recommended tools
+recommended_tools:
+  - yarn
+  - pnpm
+  - postgresql
+  - redis
+
+# Recommended VSCode extensions
+vscode_extensions:
+  - esbenp.prettier-vscode
+  - dbaeumer.vscode-eslint
+  - eamodio.gitlens
+  - bradlc.vscode-tailwindcss
+  - ms-vscode.vscode-typescript-next
+
+# Environment variables
+env_vars:
+  NODE_ENV: development
+  DEBUG: true
+  LOG_LEVEL: debug
+
+# Quick start
+quick_start:
+  |
+  echo "Web developer preset applied!"
+  echo "Recommended commands:"
+  echo "  git status"
+  echo "  node --version"
+  echo "  npm --version"
+  echo "  code ."

@@ -1,15 +1,21 @@
-# Graphql - GraphQL - API查询语言
+# GraphQL
 name: graphql
 category: web-framework
-description: "GraphQL - API查询语言"
+description: "GraphQL - Query language for APIs and a runtime for fulfilling those queries with your existing data"
+version: "16.8"
+latest_version: "16.8"
 homepage: "https://graphql.org/"
+documentation: "https://graphql.org/learn/"
+license: "MIT"
+author: "Facebook"
 
 tags:
   - graphql
   - api
-  - query
-  - types
-  - schema
+  - query-language
+  - apollo
+  - relay
+  - express-graphql
 
 supported_os:
   - linux
@@ -17,14 +23,41 @@ supported_os:
   - windows
 
 installation_sources:
-  - type: official
+  - type: npm
     os: [all]
-    description: "Official installation"
+    package_name: graphql
+    description: "GraphQL core library"
     priority: 1
-    command: |
-      # See https://graphql.org/ for installation instructions
+
+  - type: npm
+    os: [all]
+    package_name: express-graphql
+    description: "Express GraphQL"
+    priority: 2
+
+  - type: npm
+    os: [all]
+    package_name: "@apollo/server"
+    description: "Apollo Server"
+    priority: 2
+
+optional_tools:
+  - name: postman
+    description: "Postman API client"
+    recommended: true
+  - name: insomnia
+    description: "Insomnia API client"
+    recommended: true
+  - name: graphiql
+    description: "GraphiQL IDE"
+    recommended: true
 
 verify_commands:
   - "graphql --version"
 
-compatible_with: []
+compatible_with:
+  - javascript
+  - typescript
+  - react
+  - nodejs
+  - express

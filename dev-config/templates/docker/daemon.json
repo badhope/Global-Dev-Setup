@@ -1,0 +1,30 @@
+{
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ],
+  "data-root": "/var/lib/docker",
+  "storage-driver": "overlay2",
+  "debug": false,
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m",
+    "max-file": "3"
+  },
+  "dns": ["8.8.8.8", "8.8.4.4"],
+  "hosts": ["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"],
+  "builder": {
+    "gc": {
+      "enabled": true,
+      "defaultKeepStorage": "20GB"
+    }
+  },
+  "experimental": false,
+  "ipv6": false,
+  "ip6tables": false,
+  "live-restore": true,
+  "max-concurrent-downloads": 3,
+  "max-concurrent-uploads": 5,
+  "oom-score-adjust": -500
+}

@@ -1,0 +1,51 @@
+# DevOps Engineer Preset
+
+name: devops-engineer
+description: Complete DevOps engineering preset with infrastructure tools
+version: 1.0.0
+
+# Configuration files to apply
+configs:
+  - git
+  - shell
+  - docker
+  - kubectl
+  - terraform
+
+# Required tools
+required_tools:
+  - git
+  - docker
+  - kubernetes
+  - kubectl
+  - terraform
+
+# Recommended tools
+recommended_tools:
+  - helm
+  - ansible
+  - aws-cli
+  - azure-cli
+  - gcloud-cli
+
+# Recommended VSCode extensions
+vscode_extensions:
+  - hashicorp.terraform
+  - ms-azuretools.vscode-docker
+  - ms-kubernetes-tools.vscode-kubernetes-tools
+  - eamodio.gitlens
+
+# Environment variables
+env_vars:
+  KUBECONFIG: ~/.kube/config
+  TF_PLUGIN_CACHE_DIR: ~/.terraform.d/plugin-cache
+
+# Quick start
+quick_start:
+  |
+  echo "DevOps preset applied!"
+  echo "Recommended commands:"
+  echo "  docker --version"
+  echo "  kubectl version"
+  echo "  terraform --version"
+  echo "  code ."

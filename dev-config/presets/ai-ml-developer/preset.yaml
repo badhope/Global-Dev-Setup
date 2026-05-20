@@ -1,0 +1,53 @@
+# AI/ML Developer Preset
+
+name: ai-ml-developer
+description: Complete AI/ML development preset with modern tools
+version: 1.0.0
+
+# Configuration files to apply
+configs:
+  - git
+  - shell
+  - vscode
+  - pip
+  - conda
+  - docker
+
+# Required tools
+required_tools:
+  - git
+  - python3
+  - docker
+  - vscode
+
+# Recommended tools
+recommended_tools:
+  - anaconda
+  - pytorch
+  - tensorflow
+  - jupyter
+  - huggingface
+
+# Recommended VSCode extensions
+vscode_extensions:
+  - ms-python.python
+  - ms-python.vscode-pylance
+  - ms-toolsai.jupyter
+  - eamodio.gitlens
+  - GitHub.copilot
+
+# Environment variables
+env_vars:
+  PYTHONUNBUFFERED: 1
+  PYTHONDONTWRITEBYTECODE: 1
+  HF_ENDPOINT: https://hf-mirror.com
+
+# Quick start
+quick_start:
+  |
+  echo "AI/ML developer preset applied!"
+  echo "Recommended commands:"
+  echo "  python3 --version"
+  echo "  pip --version"
+  echo "  jupyter lab"
+  echo "  code ."

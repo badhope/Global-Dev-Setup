@@ -1,0 +1,69 @@
+# Lua Programming Language
+name: lua
+category: programming-language
+description: "Lua - Powerful, fast, lightweight, embeddable scripting language"
+version: "5.4"
+latest_version: "5.4"
+homepage: "https://www.lua.org/"
+documentation: "https://www.lua.org/docs.html"
+license: "MIT"
+author: "Lua.org"
+
+tags:
+  - lua
+  - scripting
+  - embedded
+  - lightweight
+  - neovim
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: apt
+    os: [linux]
+    package_name: lua5.4
+    description: "Apt repository"
+    priority: 1
+
+  - type: homebrew
+    os: [macos]
+    package_name: lua
+    description: "Homebrew"
+    priority: 1
+
+  - type: asdf
+    os: [all]
+    description: "asdf version manager"
+    priority: 2
+    command: |
+      asdf plugin-add lua https://github.com/Stratus3D/asdf-lua.git
+      asdf install lua latest
+      asdf global lua latest
+
+  - type: luarocks
+    os: [all]
+    description: "LuaRocks package manager"
+    priority: 3
+    command: |
+      wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz
+      tar zxpf luarocks-3.9.2.tar.gz
+      cd luarocks-3.9.2
+      ./configure && make && make install
+
+optional_tools:
+  - name: luarocks
+    description: "LuaRocks package manager"
+    recommended: true
+  - name: luajit
+    description: "LuaJIT - Just-In-Time Compiler for Lua"
+    recommended: false
+
+verify_commands:
+  - "lua -v"
+  - "luarocks --version"
+
+compatible_with:
+  - neovim
