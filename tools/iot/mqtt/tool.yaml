@@ -1,0 +1,61 @@
+# MQTT
+name: mqtt
+category: iot
+description: "MQTT - Lightweight messaging protocol for IoT"
+version: "5.0"
+latest_version: "5.0"
+homepage: "https://mqtt.org/"
+documentation: "https://mqtt.org/documentation/"
+license: "EPL/EDL"
+author: "MQTT.org"
+
+tags:
+  - mqtt
+  - iot
+  - messaging
+  - protocol
+  - pub-sub
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: pip
+    os: [all]
+    package_name: paho-mqtt
+    description: "Python MQTT client library"
+    priority: 1
+    region_preference: ["cn", "global"]
+    command: |
+      pip install paho-mqtt
+
+  - type: npm
+    os: [all]
+    package_name: mqtt
+    description: "Node.js MQTT client library"
+    priority: 2
+    command: |
+      npm install -g mqtt
+
+  - type: docker
+    os: [all]
+    description: "Eclipse Mosquitto MQTT broker"
+    priority: 3
+    command: |
+      docker run -d -p 1883:1883 -p 9001:9001 eclipse-mosquitto mosquitto
+
+optional_tools:
+  - name: docker
+    description: "Docker for MQTT broker"
+    recommended: true
+
+verify_commands:
+  - "pip show paho-mqtt"
+  - "mosquitto_pub --version"
+
+compatible_with:
+  - python
+  - nodejs
+  - docker

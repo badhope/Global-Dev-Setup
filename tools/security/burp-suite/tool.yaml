@@ -1,0 +1,42 @@
+# Burp Suite
+name: burp-suite
+category: security
+description: "Burp Suite - Web application security testing"
+version: "2024"
+latest_version: "2024"
+homepage: "https://portswigger.net/burp"
+documentation: "https://portswigger.net/burp/documentation"
+license: "Proprietary"
+author: "PortSwigger"
+
+tags:
+  - burp-suite
+  - security
+  - penetration-testing
+  - web-security
+  - ethical-hacking
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: manual
+    os: [all]
+    description: "Download from official website"
+    priority: 1
+    command: |
+      # Download from https://portswigger.net/burp/releases
+
+optional_tools:
+  - name: java
+    description: "Java runtime required"
+    recommended: true
+
+verify_commands:
+  - "java -version"
+
+compatible_with:
+  - java
+  - firefox

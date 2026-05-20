@@ -1,969 +1,486 @@
 # Global-Dev-Setup - China Mirror Configuration
 # Complete mirror sources for China region and international mirrors
 
-version: "1.0"
-last_updated: "2024-01-01"
+version: "2.0"
+last_updated: "2024-01-20"
 
 # Default regions
 default_regions:
   cn: China Mainland
   global: Global Official Sources
 
-# Mirror providers information
-mirror_providers:
-  cn:
-    name: "China Mainland Mirrors"
-    description: "Optimized mirrors for China mainland users"
-    priority: 10
-  global:
-    name: "Global Official"
-    description: "Official upstream sources"
-    priority: 1
-
-# Package Managers
+# Package Managers - Structure matches registry.py API
 package_managers:
   # Python - pip
   pip:
     cn:
-      name: "Tsinghua University"
-      url: "https://pypi.tuna.tsinghua.edu.cn/simple"
-      description: "Tsinghua University PyPI Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "Tsinghua University"
+          url: "https://pypi.tuna.tsinghua.edu.cn/simple"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    douban:
-      name: "Douban"
-      url: "https://pypi.doubanio.com/simple"
-      description: "Douban PyPI Mirror"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "Douban"
+          url: "https://pypi.doubanio.com/simple"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
-    aliyun:
-      name: "Aliyun (阿里云)"
-      url: "https://mirrors.aliyun.com/pypi/simple"
-      description: "Aliyun PyPI Mirror"
-      priority: 3
-      speed: "Very Fast"
-      auth_required: false
+        - name: "Aliyun (阿里云)"
+          url: "https://mirrors.aliyun.com/pypi/simple"
+          priority: 3
+          speed: "Very Fast"
+          auth_required: false
 
-    tencent:
-      name: "Tencent Cloud (腾讯云)"
-      url: "https://mirrors.cloud.tencent.com/pypi/simple"
-      description: "Tencent Cloud PyPI Mirror"
-      priority: 4
-      speed: "Very Fast"
-      auth_required: false
+        - name: "Tencent Cloud (腾讯云)"
+          url: "https://mirrors.cloud.tencent.com/pypi/simple"
+          priority: 4
+          speed: "Very Fast"
+          auth_required: false
 
-    huawei:
-      name: "Huawei Cloud (华为云)"
-      url: "https://repo.huaweicloud.com/repository/pypi/simple"
-      description: "Huawei Cloud PyPI Mirror"
-      priority: 5
-      speed: "Fast"
-      auth_required: false
+        - name: "Huawei Cloud (华为云)"
+          url: "https://repo.huaweicloud.com/repository/pypi/simple"
+          priority: 5
+          speed: "Fast"
+          auth_required: false
 
-    netease:
-      name: "NetEase (网易)"
-      url: "https://mirrors.163.com/pypi/simple"
-      description: "NetEase PyPI Mirror"
-      priority: 6
-      speed: "Fast"
-      auth_required: false
+        - name: "NetEase (网易)"
+          url: "https://mirrors.163.com/pypi/simple"
+          priority: 6
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "PyPI Official"
-      url: "https://pypi.org/simple"
-      description: "Official PyPI"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "PyPI Official"
+          url: "https://pypi.org/simple"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # Node.js - npm
   npm:
     cn:
-      name: "npmmirror (淘宝镜像)"
-      url: "https://registry.npmmirror.com"
-      description: "npmmirror NPM Mirror (Former Taobao NPM)"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "npmmirror (淘宝镜像)"
+          url: "https://registry.npmmirror.com"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    aliyun:
-      name: "Aliyun (阿里云)"
-      url: "https://npm.aliyun.com"
-      description: "Aliyun NPM Mirror"
-      priority: 2
-      speed: "Very Fast"
-      auth_required: false
+        - name: "Aliyun (阿里云)"
+          url: "https://npm.aliyun.com"
+          priority: 2
+          speed: "Very Fast"
+          auth_required: false
 
-    tencent:
-      name: "Tencent Cloud (腾讯云)"
-      url: "https://mirrors.cloud.tencent.com/npm"
-      description: "Tencent Cloud NPM Mirror"
-      priority: 3
-      speed: "Fast"
-      auth_required: false
+        - name: "Tencent Cloud (腾讯云)"
+          url: "https://mirrors.cloud.tencent.com/npm"
+          priority: 3
+          speed: "Fast"
+          auth_required: false
 
-    huawei:
-      name: "Huawei Cloud (华为云)"
-      url: "https://repo.huaweicloud.com/repository/npm"
-      description: "Huawei Cloud NPM Mirror"
-      priority: 4
-      speed: "Fast"
-      auth_required: false
+        - name: "Huawei Cloud (华为云)"
+          url: "https://repo.huaweicloud.com/repository/npm"
+          priority: 4
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "npm Official"
-      url: "https://registry.npmjs.org"
-      description: "Official npm Registry"
-      priority: 1
-      speed: "Very Slow"
-      auth_required: false
+      mirrors:
+        - name: "npm Official"
+          url: "https://registry.npmjs.org"
+          priority: 1
+          speed: "Very Slow"
+          auth_required: false
 
   # Docker
   docker:
     cn:
-      name: "USTC (中科大)"
-      url: "https://docker.mirrors.ustc.edu.cn"
-      description: "USTC Docker Hub Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "USTC (中科大)"
+          url: "https://docker.mirrors.ustc.edu.cn"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    netease:
-      name: "NetEase (网易)"
-      url: "https://hub-mirror.c.163.com"
-      description: "NetEase Docker Hub Mirror"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "NetEase (网易)"
+          url: "https://hub-mirror.c.163.com"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
-    tencent:
-      name: "Tencent Cloud (腾讯云)"
-      url: "https://mirror.ccs.tencentyun.com"
-      description: "Tencent Cloud Docker Hub Mirror"
-      priority: 3
-      speed: "Fast"
-      auth_required: false
+        - name: "Tencent Cloud (腾讯云)"
+          url: "https://mirror.ccs.tencentyun.com"
+          priority: 3
+          speed: "Fast"
+          auth_required: false
 
-    baidu:
-      name: "Baidu Cloud (百度云)"
-      url: "https://mirror.baidubce.com"
-      description: "Baidu Cloud Docker Hub Mirror"
-      priority: 4
-      speed: "Fast"
-      auth_required: false
+        - name: "Baidu Cloud (百度云)"
+          url: "https://mirror.baidubce.com"
+          priority: 4
+          speed: "Fast"
+          auth_required: false
 
-    aliyun:
-      name: "Aliyun (阿里云)"
-      url: "https://<your-code>.mirror.aliyuncs.com"
-      description: "Aliyun Docker Hub Mirror (Need account)"
-      priority: 5
-      speed: "Very Fast"
-      auth_required: true
-
-    azure:
-      name: "Azure China"
-      url: "https://dockerhub.azk8s.cn"
-      description: "Azure China Docker Hub Mirror"
-      priority: 6
-      speed: "Fast"
-      auth_required: false
+        - name: "Azure China"
+          url: "https://dockerhub.azk8s.cn"
+          priority: 5
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "Docker Hub Official"
-      url: "https://registry-1.docker.io"
-      description: "Official Docker Hub"
-      priority: 1
-      speed: "Very Slow"
-      auth_required: false
+      mirrors:
+        - name: "Docker Hub Official"
+          url: "https://registry-1.docker.io"
+          priority: 1
+          speed: "Very Slow"
+          auth_required: false
 
   # Go modules
   go:
     cn:
-      name: "GOPROXY.CN"
-      url: "https://goproxy.cn,direct"
-      description: "China Go Module Proxy"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "GOPROXY.CN"
+          url: "https://goproxy.cn,direct"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    aliyun:
-      name: "Aliyun (阿里云)"
-      url: "https://goproxy.io,direct"
-      description: "Aliyun Go Module Proxy"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "Aliyun (阿里云)"
+          url: "https://goproxy.io,direct"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
-    ustc:
-      name: "USTC (中科大)"
-      url: "https://proxy.golang.org.cn,direct"
-      description: "USTC Go Module Proxy"
-      priority: 3
-      speed: "Fast"
-      auth_required: false
+        - name: "USTC (中科大)"
+          url: "https://proxy.golang.org.cn,direct"
+          priority: 3
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "Go Official"
-      url: "https://proxy.golang.org,direct"
-      description: "Official Go Module Proxy"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "Go Official"
+          url: "https://proxy.golang.org,direct"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # Rust/Cargo
   cargo:
     cn:
-      name: "USTC (中科大)"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
-      description: "Tsinghua University Cargo Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "USTC (中科大)"
+          url: "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    sjtu:
-      name: "SJTU (上海交通大学)"
-      url: "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
-      description: "SJTU Cargo Mirror"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "SJTU (上海交通大学)"
+          url: "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
-    tuna:
-      name: "TUNA (清华大学)"
-      url: "https://crates.tuna.tsinghua.edu.cn"
-      description: "TUNA Cargo Index"
-      priority: 3
-      speed: "Very Fast"
-      auth_required: false
+        - name: "TUNA (清华大学)"
+          url: "https://crates.tuna.tsinghua.edu.cn"
+          priority: 3
+          speed: "Very Fast"
+          auth_required: false
 
     global:
-      name: "crates.io Official"
-      url: "https://github.com/rust-lang/crates.io-index"
-      description: "Official crates.io index"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "crates.io Official"
+          url: "https://github.com/rust-lang/crates.io-index"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # Maven
   maven:
     cn:
-      name: "Aliyun (阿里云)"
-      url: "https://maven.aliyun.com/repository/public"
-      description: "Aliyun Maven Repository"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
-
-    oracle:
-      name: "Oracle"
-      url: "https://maven.oracle.com"
-      description: "Oracle Maven Repository"
-      priority: 2
-      speed: "Slow"
-      auth_required: true
+      mirrors:
+        - name: "Aliyun (阿里云)"
+          url: "https://maven.aliyun.com/repository/public"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
     global:
-      name: "Maven Central"
-      url: "https://repo.maven.apache.org/maven2"
-      description: "Official Maven Central"
-      priority: 1
-      speed: "Very Slow"
-      auth_required: false
+      mirrors:
+        - name: "Maven Central"
+          url: "https://repo.maven.apache.org/maven2"
+          priority: 1
+          speed: "Very Slow"
+          auth_required: false
 
   # Gradle
   gradle:
     cn:
-      name: "Aliyun (阿里云)"
-      url: "https://maven.aliyun.com/repository/gradle-plugin"
-      description: "Aliyun Gradle Plugin Repository"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "Aliyun (阿里云)"
+          url: "https://maven.aliyun.com/repository/gradle-plugin"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
     global:
-      name: "Gradle Plugin Portal"
-      url: "https://plugins.gradle.org/m2"
-      description: "Official Gradle Plugin Portal"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "Gradle Plugin Portal"
+          url: "https://plugins.gradle.org/m2"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # Ruby Gems
   ruby:
     cn:
-      name: "TUNA (清华大学)"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/rubygems"
-      description: "Tsinghua University RubyGems Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "TUNA (清华大学)"
+          url: "https://mirrors.tuna.tsinghua.edu.cn/rubygems"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    taobao:
-      name: "Taobao"
-      url: "https://gems.ruby-china.com"
-      description: "Ruby China Gem Source"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "Ruby China"
+          url: "https://gems.ruby-china.com"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "RubyGems Official"
-      url: "https://rubygems.org"
-      description: "Official RubyGems"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "RubyGems Official"
+          url: "https://rubygems.org"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # PHP Composer
   composer:
     cn:
-      name: "Aliyun (阿里云)"
-      url: "https://mirrors.aliyun.com/composer"
-      description: "Aliyun Composer Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "Aliyun (阿里云)"
+          url: "https://mirrors.aliyun.com/composer"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    phpcn:
-      name: "PHP Chinese Community"
-      url: "https://packagist.phpcomposer.com"
-      description: "PHP Composer Mirror"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "PHP China Community"
+          url: "https://packagist.phpcomposer.com"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "Packagist Official"
-      url: "https://packagist.org"
-      description: "Official Packagist"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "Packagist Official"
+          url: "https://packagist.org"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # apt/debian
   apt:
     cn:
-      name: "Aliyun (阿里云)"
-      url: "https://mirrors.aliyun.com"
-      description: "Aliyun APT Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "Aliyun (阿里云)"
+          url: "https://mirrors.aliyun.com"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    tuna:
-      name: "TUNA (清华大学)"
-      url: "https://mirrors.tuna.tsinghua.edu.cn"
-      description: "TUNA APT Mirror"
-      priority: 2
-      speed: "Very Fast"
-      auth_required: false
+        - name: "TUNA (清华大学)"
+          url: "https://mirrors.tuna.tsinghua.edu.cn"
+          priority: 2
+          speed: "Very Fast"
+          auth_required: false
 
-    ustc:
-      name: "USTC (中科大)"
-      url: "https://mirrors.ustc.edu.cn"
-      description: "USTC APT Mirror"
-      priority: 3
-      speed: "Fast"
-      auth_required: false
+        - name: "USTC (中科大)"
+          url: "https://mirrors.ustc.edu.cn"
+          priority: 3
+          speed: "Fast"
+          auth_required: false
 
-    njupt:
-      name: "NJUPT (南京邮电大学)"
-      url: "https://mirrors.njupt.edu.cn"
-      description: "NJUPT APT Mirror"
-      priority: 4
-      speed: "Fast"
-      auth_required: false
+        - name: "NJUPT (南京邮电大学)"
+          url: "https://mirrors.njupt.edu.cn"
+          priority: 4
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "Official Debian"
-      url: "http://deb.debian.org/debian"
-      description: "Official Debian Repository"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "Official Debian"
+          url: "http://deb.debian.org/debian"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
   # yum/centos
   yum:
     cn:
-      name: "Aliyun (阿里云)"
-      url: "https://mirrors.aliyun.com"
-      description: "Aliyun YUM Mirror"
-      priority: 1
-      speed: "Very Fast"
-      auth_required: false
+      mirrors:
+        - name: "Aliyun (阿里云)"
+          url: "https://mirrors.aliyun.com"
+          priority: 1
+          speed: "Very Fast"
+          auth_required: false
 
-    centos:
-      name: "CentOS Vault"
-      url: "https://mirrors.aliyun.com/centos"
-      description: "CentOS Mirror"
-      priority: 2
-      speed: "Fast"
-      auth_required: false
+        - name: "Tencent Cloud (腾讯云)"
+          url: "https://mirrors.cloud.tencent.com"
+          priority: 2
+          speed: "Fast"
+          auth_required: false
 
     global:
-      name: "CentOS Official"
-      url: "http://mirror.centos.org/centos"
-      description: "Official CentOS Repository"
-      priority: 1
-      speed: "Slow"
-      auth_required: false
+      mirrors:
+        - name: "CentOS Official"
+          url: "http://mirror.centos.org/centos"
+          priority: 1
+          speed: "Slow"
+          auth_required: false
 
-# Language Runtimes
+# Language Runtimes Downloads
 language_runtimes:
   # Python
   python:
     cn:
-      - name: "Huawei Cloud (华为云)"
-        url: "https://repo.huaweicloud.com/python"
-        description: "Python Download Mirror"
-        priority: 1
-
-      - name: "TUNA (清华大学)"
-        url: "https://mirrors.tuna.tsinghua.edu.cn/python"
-        description: "Python Download Mirror"
-        priority: 2
+      mirrors:
+        - name: "Huawei Cloud (华为云)"
+          url: "https://repo.huaweicloud.com/python"
+          priority: 1
+          speed: "Very Fast"
 
     global:
-      - name: "Python Official"
-        url: "https://www.python.org/ftp/python"
-        description: "Official Python Downloads"
-        priority: 1
+      mirrors:
+        - name: "Python Official"
+          url: "https://www.python.org/ftp/python"
+          priority: 1
+          speed: "Medium"
 
   # Node.js
   nodejs:
     cn:
-      - name: "npmmirror (淘宝)"
-        url: "https://registry.npmmirror.com/-/binary/node"
-        description: "Node.js Binary Mirror"
-        priority: 1
+      mirrors:
+        - name: "npmmirror (淘宝)"
+          url: "https://registry.npmmirror.com/-/binary/node"
+          priority: 1
+          speed: "Very Fast"
 
-      - name: "TUNA (清华大学)"
-        url: "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
-        description: "Node.js Release Mirror"
-        priority: 2
+        - name: "TUNA (清华大学)"
+          url: "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
+          priority: 2
+          speed: "Very Fast"
 
     global:
-      - name: "Node.js Official"
-        url: "https://nodejs.org/dist"
-        description: "Official Node.js Downloads"
-        priority: 1
+      mirrors:
+        - name: "Node.js Official"
+          url: "https://nodejs.org/dist"
+          priority: 1
+          speed: "Slow"
 
   # Go
   go:
     cn:
-      - name: "Golang China"
-        url: "https://golang.google.cn/dl"
-        description: "Go China Download"
-        priority: 1
+      mirrors:
+        - name: "Golang China"
+          url: "https://golang.google.cn/dl"
+          priority: 1
+          speed: "Very Fast"
 
-      - name: "USTC (中科大)"
-        url: "https://mirrors.ustc.edu.cn/golang"
-        description: "USTC Go Mirror"
-        priority: 2
+        - name: "USTC (中科大)"
+          url: "https://mirrors.ustc.edu.cn/golang"
+          priority: 2
+          speed: "Fast"
 
     global:
-      - name: "Go Official"
-        url: "https://go.dev/dl"
-        description: "Official Go Downloads"
-        priority: 1
+      mirrors:
+        - name: "Go Official"
+          url: "https://go.dev/dl"
+          priority: 1
+          speed: "Medium"
 
   # Java/JDK
   java:
     cn:
-      - name: "Huawei Cloud (华为云)"
-        url: "https://repo.huaweicloud.com/java/jdk"
-        description: "JDK Mirror"
-        priority: 1
+      mirrors:
+        - name: "Huawei Cloud (华为云)"
+          url: "https://repo.huaweicloud.com/java/jdk"
+          priority: 1
+          speed: "Very Fast"
 
-      - name: "Aliyun (阿里云)"
-        url: "https://mirrors.aliyun.com/maven/java/jdk"
-        description: "JDK Mirror"
-        priority: 2
+        - name: "Aliyun (阿里云)"
+          url: "https://mirrors.aliyun.com/maven/java/jdk"
+          priority: 2
+          speed: "Very Fast"
 
     global:
-      - name: "Oracle Official"
-        url: "https://download.oracle.com/java"
-        description: "Official Oracle JDK"
-        priority: 1
+      mirrors:
+        - name: "Oracle Official"
+          url: "https://download.oracle.com/java"
+          priority: 1
+          speed: "Slow"
 
   # Rust
   rust:
     cn:
-      - name: "USTC (中科大)"
-        url: "https://mirrors.tuna.tsinghua.edu.cn/rustup"
-        description: "Rustup China Mirror"
-        priority: 1
+      mirrors:
+        - name: "USTC (中科大)"
+          url: "https://mirrors.tuna.tsinghua.edu.cn/rustup"
+          priority: 1
+          speed: "Very Fast"
 
     global:
-      - name: "Rust Official"
-        url: "https://static.rust-lang.org/rustup"
-        description: "Official Rustup"
-        priority: 1
+      mirrors:
+        - name: "Rust Official"
+          url: "https://static.rust-lang.org/rustup"
+          priority: 1
+          speed: "Medium"
 
-# AI/ML Models
+# AI/ML Platforms
 ai_ml_models:
   # HuggingFace
   huggingface:
     cn:
-      - name: "HF Mirror (hf-mirror.com)"
-        url: "https://hf-mirror.com"
-        description: "HuggingFace Model Mirror"
-        priority: 1
-        speed: "Very Fast"
-        auth_required: false
+      mirrors:
+        - name: "HF Mirror (hf-mirror.com)"
+          url: "https://hf-mirror.com"
+          priority: 1
+          speed: "Very Fast"
 
-      - name: "ModelScope (魔搭)"
-        url: "https://www.modelscope.cn"
-        description: "Alibaba ModelScope Platform"
-        priority: 2
-        speed: "Very Fast"
-        auth_required: false
+        - name: "ModelScope (魔搭)"
+          url: "https://www.modelscope.cn"
+          priority: 2
+          speed: "Very Fast"
 
-      - name: "OpenXLab"
-        url: "https://openxlab.org.cn"
-        description: "Shanghai AI Lab Platform"
-        priority: 3
-        speed: "Fast"
-        auth_required: false
+        - name: "OpenXLab"
+          url: "https://openxlab.org.cn"
+          priority: 3
+          speed: "Fast"
 
     global:
-      - name: "HuggingFace Official"
-        url: "https://huggingface.co"
-        description: "Official HuggingFace"
-        priority: 1
-        speed: "Very Slow"
-        auth_required: false
+      mirrors:
+        - name: "HuggingFace Official"
+          url: "https://huggingface.co"
+          priority: 1
+          speed: "Very Slow"
 
   # PyTorch
   pytorch:
     cn:
-      - name: "TUNA (清华大学)"
-        url: "https://download.pytorch.org/whl/torch_stable.html"
-        description: "PyTorch Wheel Mirror"
-        priority: 1
+      mirrors:
+        - name: "TUNA (清华大学)"
+          url: "https://download.pytorch.org/whl/torch_stable.html"
+          priority: 1
+          speed: "Very Fast"
 
     global:
-      - name: "PyTorch Official"
-        url: "https://download.pytorch.org/whl"
-        description: "Official PyTorch"
-        priority: 1
-
-# Git Repositories
-git_repos:
-  cn:
-    - name: "Gitee (码云)"
-      url: "https://gitee.com"
-      description: "Chinese GitHub Alternative"
-      priority: 1
-      speed: "Very Fast"
-
-    - name: "Coding (腾讯工蜂)"
-      url: "https://coding.net"
-      description: "Tencent Git Platform"
-      priority: 2
-      speed: "Fast"
-
-    - name: "GitLab CN"
-      url: "https://gitlab.cn"
-      description: "GitLab China"
-      priority: 3
-      speed: "Fast"
-
-  global:
-    - name: "GitHub"
-      url: "https://github.com"
-      description: "Official GitHub"
-      priority: 1
-      speed: "Slow"
-
-    - name: "GitLab"
-      url: "https://gitlab.com"
-      description: "Official GitLab"
-      priority: 2
-      speed: "Slow"
-
-# CI/CD Platforms
-ci_cd_platforms:
-  cn:
-    - name: "CODING (腾讯云)"
-      url: "https://coding.net"
-      description: "Tencent Cloud CI/CD Platform"
-      features: ["CI", "CD", "Docker Registry", "Code Review"]
-
-    - name: "FlowCI (流之云)"
-      url: "https://flow.ci"
-      description: "Open Source CI Platform"
-      features: ["CI", "Plugins"]
-
-    - name: "Gitee Go (码云)"
-      url: "https://gitee.com/features"
-      description: "Gitee's CI/CD Platform"
-      features: ["CI", "CD", "Docker Registry"]
-
-  global:
-    - name: "GitHub Actions"
-      url: "https://github.com/features/actions"
-      description: "GitHub Native CI/CD"
-      features: ["CI", "CD", "Marketplace"]
-
-    - name: "GitLab CI"
-      url: "https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/"
-      description: "GitLab Native CI/CD"
-      features: ["CI", "CD", "Auto DevOps"]
-
-    - name: "Jenkins"
-      url: "https://www.jenkins.io/"
-      description: "Open Source CI/CD"
-      features: ["CI", "CD", "Plugins", "Distributed"]
-
-# Container Registries
-container_registries:
-  cn:
-    - name: "Aliyun Container Registry"
-      url: "https://cr.console.aliyun.com"
-      description: "Aliyun Docker Registry"
-      speed: "Very Fast"
-
-    - name: "Tencent Container Registry"
-      url: "https://console.cloud.tencent.com/tke"
-      description: "Tencent Cloud Container Registry"
-      speed: "Fast"
-
-    - name: "Huawei Cloud SWR"
-      url: "https://www.huaweicloud.com/product/swr.html"
-      description: "Huawei Cloud Container Registry"
-      speed: "Fast"
-
-  global:
-    - name: "Docker Hub"
-      url: "https://hub.docker.com"
-      description: "Official Docker Registry"
-      speed: "Slow"
-
-    - name: "GitHub Container Registry"
-      url: "https://github.com/features/packages"
-      description: "GitHub Container Registry"
-      speed: "Medium"
-
-    - name: "Google Container Registry"
-      url: "https://cloud.google.com/container-registry"
-      description: "GCP Container Registry"
-      speed: "Slow"
-
-# Cloud Platforms
-cloud_platforms:
-  cn:
-    - name: "Aliyun (阿里云)"
-      url: "https://www.aliyun.com"
-      description: "Alibaba Cloud China"
-      regions: ["China East", "China North"]
-      features: ["ECS", "ACK", "RDS", "OSS", "函数计算"]
-
-    - name: "Tencent Cloud (腾讯云)"
-      url: "https://cloud.tencent.com"
-      description: "Tencent Cloud"
-      regions: ["China"]
-      features: ["CVM", "TKE", "CDB", "COS", "SCF"]
-
-    - name: "Huawei Cloud (华为云)"
-      url: "https://www.huaweicloud.com"
-      description: "Huawei Cloud"
-      regions: ["China"]
-      features: ["ECS", "CCE", "RDS", "OBS", "FunctionGraph"]
-
-    - name: "Baidu Cloud (百度智能云)"
-      url: "https://cloud.baidu.com"
-      description: "Baidu Cloud"
-      regions: ["China"]
-      features: ["BCC", "CCE", "RDS", "BOS"]
-
-    - name: "Jingdong Cloud (京东云)"
-      url: "https://www.jdcloud.com"
-      description: "JD Cloud"
-      regions: ["China"]
-      features: ["VM", "Container", "Database", "Storage"]
-
-    - name: "Kingsoft Cloud (金山云)"
-      url: "https://www.ksyun.com"
-      description: "Kingsoft Cloud"
-      regions: ["China"]
-      features: ["KEC", "KCE", "KRDS", "KS3"]
-
-  global:
-    - name: "AWS"
-      url: "https://aws.amazon.com"
-      description: "Amazon Web Services"
-      regions: ["Global"]
-      features: ["EC2", "EKS", "RDS", "S3", "Lambda"]
-
-    - name: "Google Cloud"
-      url: "https://cloud.google.com"
-      description: "Google Cloud Platform"
-      regions: ["Global"]
-      features: ["GCE", "GKE", "Cloud SQL", "GCS", "Cloud Functions"]
-
-    - name: "Microsoft Azure"
-      url: "https://azure.microsoft.com"
-      description: "Microsoft Azure"
-      regions: ["Global"]
-      features: ["Azure VMs", "AKS", "Azure SQL", "Blob Storage", "Azure Functions"]
-
-# Object Storage
-object_storage:
-  cn:
-    - name: "Aliyun OSS"
-      url: "https://www.aliyun.com/product/oss"
-      description: "Alibaba Cloud Object Storage"
-
-    - name: "Tencent Cloud COS"
-      url: "https://cloud.tencent.com/product/cos"
-      description: "Tencent Cloud Object Storage"
-
-    - name: "Huawei Cloud OBS"
-      url: "https://www.huaweicloud.com/product/obs"
-      description: "Huawei Cloud Object Storage"
-
-    - name: "Baidu Cloud BOS"
-      url: "https://cloud.baidu.com/product/bos"
-      description: "Baidu Cloud Object Storage"
-
-  global:
-    - name: "AWS S3"
-      url: "https://aws.amazon.com/s3/"
-      description: "Amazon S3"
-
-    - name: "Google Cloud Storage"
-      url: "https://cloud.google.com/storage"
-      description: "GCP Object Storage"
-
-    - name: "Backblaze B2"
-      url: "https://www.backblaze.com/b2/cloud-storage.html"
-      description: "Backblaze B2"
-
-# Database as a Service
-database_baas:
-  cn:
-    - name: "Aliyun ApsaraDB"
-      url: "https://www.aliyun.com/product/rds"
-      description: "Aliyun Managed Database"
-
-    - name: "Tencent Cloud CDB"
-      url: "https://cloud.tencent.com/product/cdb-overview"
-      description: "Tencent Cloud Managed Database"
-
-    - name: "Huawei Cloud RDS"
-      url: "https://www.huaweicloud.com/product/rds"
-      description: "Huawei Cloud Managed Database"
-
-    - name: "Tencent Cloud DBbrain"
-      url: "https://cloud.tencent.com/product/dbbrain"
-      description: "Database Intelligent Expert"
-
-  global:
-    - name: "PlanetScale"
-      url: "https://planetscale.com"
-      description: "Serverless MySQL"
-
-    - name: "Neon"
-      url: "https://neon.tech"
-      description: "Serverless Postgres"
-
-    - name: "Supabase"
-      url: "https://supabase.com"
-      description: "Open Source Firebase Alternative"
-
-# CDN
-cdn_services:
-  cn:
-    - name: "Aliyun CDN"
-      url: "https://www.aliyun.com/product/cdn"
-      description: "Alibaba Cloud CDN"
-
-    - name: "Tencent Cloud CDN"
-      url: "https://cloud.tencent.com/product/cdn"
-      description: "Tencent Cloud CDN"
-
-    - name: "Huawei Cloud CDN"
-      url: "https://www.huaweicloud.com/product/cdn"
-      description: "Huawei Cloud CDN"
-
-  global:
-    - name: "Cloudflare"
-      url: "https://www.cloudflare.com/cdn/"
-      description: "Cloudflare CDN"
-
-    - name: "Fastly"
-      url: "https://www.fastly.com/products/cdn"
-      description: "Fastly CDN"
-
-# Monitoring & Observability
-monitoring:
-  cn:
-    - name: "阿里云 ARMS"
-      url: "https://www.aliyun.com/product/arms"
-      description: "Application Real-Time Monitoring Service"
-
-    - name: "腾讯云 Prometheus"
-      url: "https://cloud.tencent.com/product/prometheus"
-      description: "Managed Prometheus"
-
-    - name: "阿里云 SLS"
-      url: "https://www.aliyun.com/product/log-service"
-      description: "Simple Log Service"
-
-  global:
-    - name: "Datadog"
-      url: "https://www.datadoghq.com"
-      description: "Cloud Monitoring Platform"
-
-    - name: "New Relic"
-      url: "https://newrelic.com"
-      description: "Application Performance Monitoring"
-
-    - name: "Sentry"
-      url: "https://sentry.io"
-      description: "Error Tracking"
-
-# Security
-security_services:
-  cn:
-    - name: "阿里云 WAF"
-      url: "https://www.aliyun.com/product/waf"
-      description: "Web Application Firewall"
-
-    - name: "腾讯云 WAF"
-      url: "https://cloud.tencent.com/product/waf"
-      description: "Cloud WAF"
-
-    - name: "华为云 HSS"
-      url: "https://www.huaweicloud.com/product/hss"
-      description: "Host Security Service"
-
-  global:
-    - name: "Snyk"
-      url: "https://snyk.io"
-      description: "Vulnerability Scanning"
-
-    - name: "1Password"
-      url: "https://1password.com"
-      description: "Password Management"
-
-    - name: "HashiCorp Vault"
-      url: "https://www.vaultproject.io"
-      description: "Secrets Management"
-
-# Documentation
-documentation_platforms:
-  cn:
-    - name: "语雀"
-      url: "https://www.yuque.com"
-      description: "Alibaba Knowledge Management Platform"
-
-    - name: "Notion (中国版)"
-      url: "https://www.notion.so"
-      description: "Notion Documentation Platform"
-
-  global:
-    - name: "Notion"
-      url: "https://www.notion.so"
-      description: "Documentation Platform"
-
-    - name: "Confluence"
-      url: "https://www.atlassian.com/software/confluence"
-      description: "Atlassian Documentation"
-
-    - name: "GitBook"
-      url: "https://www.gitbook.com"
-      description: "Modern Documentation Platform"
-
-# Development Tools
-dev_tools_platforms:
-  cn:
-    - name: "Coding (腾讯工蜂)"
-      url: "https://coding.net"
-      description: "All-in-One DevOps Platform"
-
-    - name: "Gitee (码云)"
-      url: "https://gitee.com"
-      description: "Chinese GitHub Alternative"
-
-    - name: "WebIDE (Coding)"
-      url: "https://cloudstudio.net"
-      description: "Cloud-based IDE"
-
-  global:
-    - name: "GitHub"
-      url: "https://github.com"
-      description: "Code Hosting Platform"
-
-    - name: "GitLab"
-      url: "https://gitlab.com"
-      description: "DevOps Platform"
-
-    - name: "VS Code Online"
-      url: "https://github.com/features/codespaces"
-      description: "Cloud VS Code"
-
-# Package Registry
-package_registries:
-  cn:
-    - name: "npmjs.com (阿里云镜像)"
-      url: "https://npmmirror.com"
-      description: "NPM Registry Mirror"
-
-    - name: "Maven Central (阿里云)"
-      url: "https://maven.aliyun.com"
-      description: "Maven Repository Mirror"
-
-    - name: "Docker Hub (阿里云)"
-      url: "https://cr.console.aliyun.com"
-      description: "Container Registry"
-
-  global:
-    - name: "npmjs"
-      url: "https://www.npmjs.com"
-      description: "Node Package Registry"
-
-    - name: "PyPI"
-      url: "https://pypi.org"
-      description: "Python Package Index"
-
-    - name: "Docker Hub"
-      url: "https://hub.docker.com"
-      description: "Container Registry"
-
-# Version Control Hosting
-version_control:
-  cn:
-    - name: "Gitee (码云)"
-      url: "https://gitee.com"
-      description: "Chinese Git Hosting"
-      features: ["Git", "Issues", "PR", "CI", "Packages"]
-
-    - name: "CODING"
-      url: "https://coding.net"
-      description: "DevOps Platform with Git"
-      features: ["Git", "CI", "CD", "Cloud IDE"]
-
-    - name: "GitLab China"
-      url: "https://gitlab.cn"
-      description: "GitLab CN Version"
-      features: ["Git", "CI", "CD", "DevOps"]
-
-  global:
-    - name: "GitHub"
-      url: "https://github.com"
-      description: "Code Hosting"
-      features: ["Git", "Actions", "Packages", "Codespaces"]
-
-    - name: "GitLab"
-      url: "https://gitlab.com"
-      description: "DevOps Platform"
-      features: ["Git", "CI", "CD", "DevOps", "Security"]
+      mirrors:
+        - name: "PyTorch Official"
+          url: "https://download.pytorch.org/whl"
+          priority: 1
+          speed: "Slow"
 
 # Quick setup instructions for CN region
 quick_setup:

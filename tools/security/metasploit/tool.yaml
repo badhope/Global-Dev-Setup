@@ -1,0 +1,53 @@
+# Metasploit Framework
+name: metasploit
+category: security
+description: "Metasploit Framework - Penetration testing framework"
+version: "6.4"
+latest_version: "6.4"
+homepage: "https://www.metasploit.com/"
+documentation: "https://docs.metasploit.com/"
+license: "BSD-3-Clause"
+author: "Rapid7"
+
+tags:
+  - metasploit
+  - security
+  - penetration-testing
+  - ethical-hacking
+  - framework
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: manual
+    os: [linux]
+    description: "Install Metasploit"
+    priority: 1
+    command: |
+      curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+
+  - type: docker
+    os: [all]
+    description: "Run via Docker"
+    priority: 2
+    command: |
+      docker run -it --rm metasploitframework/metasploit-framework
+
+optional_tools:
+  - name: postgresql
+    description: "PostgreSQL database"
+    recommended: true
+  - name: ruby
+    description: "Ruby runtime"
+    recommended: true
+
+verify_commands:
+  - "msfconsole --version"
+  - "msfvenom --version"
+
+compatible_with:
+  - postgresql
+  - ruby

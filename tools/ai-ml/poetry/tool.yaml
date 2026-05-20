@@ -1,0 +1,59 @@
+# Poetry - Python Dependency Management
+name: poetry
+category: ai-ml
+description: "Poetry - Python dependency management and packaging tool"
+version: "1.8"
+latest_version: "1.8"
+homepage: "https://python-poetry.org/"
+documentation: "https://python-poetry.org/docs/"
+license: "MIT"
+author: "Sébastien Eustace"
+
+tags:
+  - poetry
+  - python
+  - package-manager
+  - dependency-management
+  - packaging
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: pip
+    os: [all]
+    package_name: poetry
+    description: "Install via pip"
+    priority: 1
+    region_preference: ["cn", "global"]
+    command: |
+      pip install poetry
+
+  - type: script
+    os: [linux, macos]
+    description: "Official installer"
+    priority: 2
+    command: |
+      curl -sSL https://install.python-poetry.org | python3 -
+
+  - type: manual
+    os: [windows]
+    description: "Windows installer"
+    priority: 2
+    command: |
+      (Invoke-WebRequest -Uri https://install.python-poetry.org/install-poetry.py -UseBasicParsing).Content | python -
+
+optional_tools:
+  - name: python3
+    description: "Python 3.8+ required"
+    recommended: true
+
+verify_commands:
+  - "poetry --version"
+  - "poetry --help"
+
+compatible_with:
+  - python3
+  - pip

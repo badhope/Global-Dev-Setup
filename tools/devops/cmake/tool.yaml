@@ -1,0 +1,52 @@
+# CMake
+name: cmake
+category: devops
+description: "CMake - Cross-platform build system"
+version: "3.28"
+latest_version: "3.28"
+homepage: "https://cmake.org/"
+documentation: "https://cmake.org/documentation/"
+license: "BSD-3-Clause"
+author: "Kitware"
+
+tags:
+  - cmake
+  - build-system
+  - cross-platform
+  - compilation
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: apt
+    os: [linux]
+    package_name: cmake
+    description: "CMake from APT"
+    priority: 1
+    command: |
+      sudo apt update && sudo apt install -y cmake
+
+  - type: brew
+    os: [macos]
+    package_name: cmake
+    description: "Homebrew CMake"
+    priority: 1
+    command: |
+      brew install cmake
+
+  - type: manual
+    os: [windows]
+    description: "Windows installer"
+    priority: 2
+    command: |
+      # Download from https://cmake.org/download/
+
+verify_commands:
+  - "cmake --version"
+
+compatible_with:
+  - gcc
+  - g++

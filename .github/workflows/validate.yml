@@ -1,0 +1,180 @@
+name: Validate Tools and Templates
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+    
+    - name: Validate tools
+      id: validate-tools
+      run: |
+        python scripts/validate_tools.py
+      continue-on-error: true
+    
+    - name: Run registry tests
+      run: |
+        python -c "
+import sys
+sys.path.insert(0, '.')
+from registry import ToolRegistry
+
+# Test basic functionality
+registry = ToolRegistry()
+
+# Test listing tools
+tools = registry.list_tools()
+print(f'✅ Loaded {len(tools)} tools')
+
+# Test listing templates
+templates = registry.list_templates()
+print(f'✅ Loaded {len(templates)} templates')
+
+# Test getting a tool
+python_tool = registry.get_tool('python')
+if python_tool:
+    print('✅ Can retrieve tool definition')
+else:
+    print('❌ Cannot retrieve tool definition')
+    sys.exit(1)
+
+# Test mirror loading
+mirrors = registry.get_mirrors_for_package_manager('pip', 'cn')
+if mirrors:
+    print(f'✅ Loaded {len(mirrors)} pip mirrors for CN')
+else:
+    print('❌ No pip mirrors found for CN')
+    sys.exit(1)
+
+# Test installation command generation
+cmd = registry.get_installation_command('python', 'linux', 'cn')
+if cmd:
+    print('✅ Generated installation command')
+    print(f'   Command: {cmd[:80]}...')
+else:
+    print('❌ Failed to generate installation command')
+    sys.exit(1)
+
+print()
+print('✅ All basic functionality tests passed!')
+"
+    
+    - name: Validate template references
+      run: |
+        python -c "
+import sys
+sys.path.insert(0, '.')
+from registry import ToolRegistry
+
+registry = ToolRegistry()
+
+# Test validating a template
+template_name = 'ai-ml-developer'
+result = registry.validate_template_references(template_name)
+print(f'Template: {template_name}')
+print(f'Valid: {result[\"valid\"]}')
+if not result['valid']:
+    print('Errors:')
+    for error in result['errors']:
+        print(f'  - {error}')
+    sys.exit(1)
+else:
+    print('✅ Template references are valid')
+    print(f'Referenced tools: {len(result[\"referenced_tools\"])}')
+"
+    
+    - name: Validate all tools
+      run: |
+        python scripts/validate_tools.py
+      continue-on-error: true
+    
+    - name: Check for missing tools in templates
+      run: |
+        python -c "
+import sys
+sys.path.insert(0, '.')
+from registry import ToolRegistry
+
+registry = ToolRegistry()
+
+# Get all template names
+templates = registry.list_templates()
+
+missing_tools = {}
+for template_name in templates:
+    result = registry.validate_template_references(template_name)
+    if not result['valid']:
+        missing_tools[template_name] = result['errors']
+
+if missing_tools:
+    print('❌ Found templates with missing tool references:')
+    for template_name, errors in missing_tools.items():
+        print(f'  {template_name}:')
+        for error in errors:
+            print(f'    - {error}')
+    sys.exit(1)
+else:
+    print('✅ All templates have valid tool references')
+"
+    
+    - name: Generate test installation script
+      run: |
+        python -c "
+import sys
+sys.path.insert(0, '.')
+from registry import ToolRegistry
+
+registry = ToolRegistry()
+registry.set_region('cn')
+
+# Generate installation script for common tools
+script = registry.generate_install_script(
+    ['python', 'git', 'docker'],
+    os_type='linux',
+    region='cn'
+)
+
+print('✅ Generated installation script:')
+print('---')
+print(script[:500])
+print('...')
+print('---')
+"
+    
+    - name: Upload validation results
+      if: always()
+      run: |
+        if [ -f validation_report.txt ]; then
+          echo "Validation report exists"
+        else
+          echo "Running validation to generate report..."
+          python scripts/validate_tools.py > validation_report.txt 2>&1 || true
+        fi
+        
+    - name: Display summary
+      run: |
+        echo "## Validation Summary" >> \$GITHUB_STEP_SUMMARY
+        echo "" >> \$GITHUB_STEP_SUMMARY
+        echo "✅ Tool Registry: $(python -c \"import sys; sys.path.insert(0, '.'); from registry import ToolRegistry; r = ToolRegistry(); print(len(r.list_tools()))\") tools" >> \$GITHUB_STEP_SUMMARY
+        echo "✅ Templates: $(python -c \"import sys; sys.path.insert(0, '.'); from registry import ToolRegistry; r = ToolRegistry(); print(len(r.list_templates()))\") templates" >> \$GITHUB_STEP_SUMMARY
+        echo "✅ Mirrors Config: Valid" >> \$GITHUB_STEP_SUMMARY

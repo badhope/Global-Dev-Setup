@@ -1,0 +1,67 @@
+# Firebase
+name: firebase
+category: mobile
+description: "Firebase - Google's app development platform"
+version: "latest"
+latest_version: "latest"
+homepage: "https://firebase.google.com/"
+documentation: "https://firebase.google.com/docs"
+license: "Proprietary"
+author: "Google"
+
+tags:
+  - firebase
+  - google
+  - backend-as-a-service
+  - baas
+  - mobile
+  - web
+  - realtime-database
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: npm
+    os: [all]
+    package_name: firebase
+    description: "Firebase JavaScript SDK"
+    priority: 1
+    command: |
+      npm install firebase
+
+  - type: npm
+    os: [all]
+    package_name: firebase-tools
+    description: "Firebase CLI tools"
+    priority: 1
+    command: |
+      npm install -g firebase-tools
+
+  - type: pip
+    os: [all]
+    package_name: firebase-admin
+    description: "Firebase Admin Python SDK"
+    priority: 2
+    command: |
+      pip install firebase-admin
+
+optional_tools:
+  - name: nodejs
+    description: "Node.js required"
+    recommended: true
+  - name: python
+    description: "Python for Admin SDK"
+    recommended: false
+
+verify_commands:
+  - "firebase --version"
+  - "firebase login --help"
+
+compatible_with:
+  - nodejs
+  - react
+  - angular
+  - flutter

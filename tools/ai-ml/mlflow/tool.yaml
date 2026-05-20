@@ -1,14 +1,21 @@
-# Mlflow - MLflow - ML生命周期管理
+# MLflow - Machine Learning Experiment Tracking
 name: mlflow
 category: ai-ml
-description: "MLflow - ML生命周期管理"
+description: "MLflow - Open source platform for the machine learning lifecycle"
+version: "2.13"
+latest_version: "2.13"
 homepage: "https://mlflow.org/"
+documentation: "https://mlflow.org/docs/latest/index.html"
+license: "Apache 2.0"
+author: "Databricks"
 
 tags:
   - mlflow
   - machine-learning
-  - mlops
-  - tracking
+  - experiment-tracking
+  - ml
+  - ai
+  - databricks
 
 supported_os:
   - linux
@@ -16,14 +23,38 @@ supported_os:
   - windows
 
 installation_sources:
-  - type: official
+  - type: pip
     os: [all]
-    description: "Official installation"
+    package_name: mlflow
+    description: "Install MLflow"
     priority: 1
+    region_preference: ["cn", "global"]
     command: |
-      # See https://mlflow.org/ for installation instructions
+      pip install mlflow
+
+  - type: pip
+    os: [all]
+    package_name: mlflow[extras]
+    description: "Install MLflow with extras"
+    priority: 2
+    command: |
+      pip install mlflow[extras]
+
+optional_tools:
+  - name: python3
+    description: "Python 3.8+ required"
+    recommended: true
+  - name: docker
+    description: "Docker for MLflow server"
+    recommended: false
 
 verify_commands:
   - "mlflow --version"
+  - "mlflow ui --help"
 
-compatible_with: []
+compatible_with:
+  - python3
+  - pytorch
+  - tensorflow
+  - scikit-learn
+  - pandas

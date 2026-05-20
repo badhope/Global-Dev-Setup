@@ -1,0 +1,64 @@
+# Weights & Biases (wandb)
+name: wandb
+category: ai-ml
+description: "Weights & Biases - Machine learning experiment tracking and model visualization"
+version: "0.17"
+latest_version: "0.17"
+homepage: "https://wandb.ai/"
+documentation: "https://docs.wandb.ai/"
+license: "MIT"
+author: "Weights & Biases"
+
+tags:
+  - wandb
+  - weights-and-biases
+  - experiment-tracking
+  - ml
+  - ai
+  - deep-learning
+  - visualization
+
+supported_os:
+  - linux
+  - macos
+  - windows
+
+installation_sources:
+  - type: pip
+    os: [all]
+    package_name: wandb
+    description: "Install W&B"
+    priority: 1
+    region_preference: ["cn", "global"]
+    command: |
+      pip install wandb
+
+  - type: pip
+    os: [all]
+    package_name: wandb[extras]
+    description: "Install W&B with extras"
+    priority: 2
+    command: |
+      pip install wandb[extras]
+
+optional_tools:
+  - name: python3
+    description: "Python 3.7+ required"
+    recommended: true
+  - name: pytorch
+    description: "PyTorch integration"
+    recommended: false
+  - name: tensorflow
+    description: "TensorFlow integration"
+    recommended: false
+
+verify_commands:
+  - "wandb --version"
+  - "wandb login --help"
+
+compatible_with:
+  - python3
+  - pytorch
+  - tensorflow
+  - scikit-learn
+  - jax
